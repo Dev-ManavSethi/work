@@ -37,4 +37,19 @@ git log
 
 git log --follow command.txt
 
+git show 
+
+git tag 55bcbf9d0c61ed75a95a6e0c6c8b2da3976c1eec
+
+git branch
+
+git branch new_branch
+
+git push --all origin
+
+git stash save
+git stash pop
+git stash list
+git stash drop
+
 

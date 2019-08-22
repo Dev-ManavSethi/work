@@ -1,0 +1,117 @@
+1. alias
+alias c=clear
+#replaces clear with c for the session
+
+2. unalias c
+
+3. sudo apt-get update
+#updates list of packages available to be upgraded
+
+4. sudo apt-get upgrade
+#upgrades all the packages to the latest version available from ubuntu archive
+
+#####################################################333
+6. sudo apt-get  clean
+
+7. sudo apt-get dist-upgrade
+
+8. sudo apt-get remove  <package name>
+
+9. cd -P sample_dir/
+~/Desktop/Training/Linux/sample_dir
+
+10. chown
+
+sudo chown -c -v --reference=$HOME/Desktop/Training/Linux/ sample_dir/
+Result: ownership of 'sample_dir/' retained as root:root
+
+sudo chown -c -v manav sample_dir/
+changed ownership of 'sample_dir/' from root to manav
+
+sudo chown -c -v root sample_dir/
+changed ownership of 'sample_dir/' from manav to root
+
+11. chmod
+
+ sudo chmod -v -c -R 0755 commands.txt
+mode of 'commands.txt' changed from 0644 (rw-r--r--) to 0755 (rwxr-xr-x)
+
+sudo chmod -v  -R --reference=$HOME/Desktop/Workspace/  commands.txt
+mode of 'commands.txt' retained as 0775 (rwxrwxr-x)
+
+12. chroot
+
+chroot ##################################################33
+
+13. clear
+#clears screen
+
+14. cmp
+cmp -c samplefile.txt commands.txt
+samplefile.txt commands.txt differ: byte 1, line 1 is 110 H  61 1
+
+cmp -c --ignore-initial=10 samplefile.txt commands.txt
+samplefile.txt commands.txt differ: byte 1, line 1 is  40   154 l
+
+15. comm
+comm samplefile2.txt samplefile3.txt
+123456789
+    23456789
+
+comm -1 samplefile2.txt samplefile3.txt
+23456789
+
+ comm -2 samplefile2.txt samplefile3.txt
+123456789
+
+comm -3 samplefile2.txt samplefile3.txt
+123456789
+    23456789
+
+16. cp
+sudo cp  -f -b -v -R samplefile.txt sample_dir/
+
+'samplefile.txt' -> 'sample_dir/samplefile.txt' (backup: 'sample_dir/samplefile.txt~')
+
+18. curl -A "Manav" -b cookie_name="cookie_data" -k -m 900 -v http://www.google.com
+
+19. fg
+
+20. mkdir
+sudo mkdir -m 0700 -p -v mkdir_dir
+mkdir: created directory 'mkdir_dir'
+
+22. mv
+sudo mv -b -f -i  -u -v samplefile2.txt sample_dir/
+renamed 'samplefile2.txt' -> 'sample_dir/samplefile2.txt'
+
+23. rm
+ sudo rm -rfiv *.txt
+rm: remove regular file 'samplefile2.txt'? y
+removed 'samplefile2.txt'
+rm: remove regular file 'samplefile3.txt'? y
+removed 'samplefile3.txt'
+rm: remove regular file 'samplefile.txt'? n
+
+24. su
+su -m -p -c go
+
+25. sync
+
+26. tar
+sudo tar -c -f -v sample.tar samplefile.txt~
+manav@manav-p2430ua:~/Desktop/Training/Linux/sample_dir$ ll
+total 44
+drwxr-xr-x 2 root root  4096 Aug 21 18:18 ./
+drwxr-xr-x 4 root root  4096 Aug 21 18:09 ../
+-rw-r--r-- 2 root root    57 Aug 21 17:04 samplefile.txt~
+-rw-r--r-- 1 root root 10240 Aug 21 18:18 sample.tar
+
+27. users
+users
+manav
+
+28. vi
+ 
+###############################################################3333333
+

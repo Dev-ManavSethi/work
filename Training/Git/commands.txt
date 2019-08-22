@@ -28,3 +28,13 @@ git rm samplefile.txt
 git checkout -b branch2
 
 git commit -am 
+
+git merge master branch_new
+
+git checkout -D branch2
+
+git log
+
+git log --follow command.txt
+
+

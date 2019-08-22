@@ -1,0 +1,15 @@
+#DB schema
+
+Database: college
+
+Tables: 
+departments - id, name, sections_id, hod_id, teachers_id, subjects_id
+sections: id, name, department_id, teachers_id, students_id, classroom_id
+teachers: id, name, department_id, subjects_id
+subjects: id, name, department_id
+students: id, name, department_id, section_id
+classrooms: id, name, department_id, section_id
+
+
+ 
+

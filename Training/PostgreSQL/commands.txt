@@ -1,1 +1,15 @@
+
+
 #PostgreSQL commands
+
+
+CREATE TABLE departments(
+department_id text PRIMARY KEY,
+department_name text NOT NULL,
+department_sections text[] NOT NULL,
+department_hod text NOT NULL,
+department_teachers text[] NOT NULL   );
+
+INSERT INTO departments(department_id,department_name,department_sections,department_hod,department_teachers)VALUES('CE','Computer Engineering','{"CE-1", "CE-2", "CE-3"}','komal-bhatia','{"komal-bhatia","abc","def","ggg","hhh"}');
+
+

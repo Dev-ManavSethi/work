@@ -50,7 +50,7 @@ setenv NAME VALUE
 \set K V
 unset K
 
-#Query commands
+#Query commands from tutorialspoint
 createuser
 createdb
 CREATE SCHEMA
@@ -89,6 +89,35 @@ HAVING
 BETWEEN
 LOGICAL: AND OR NOT
 ALTER SCHEMA
+
+
+#Query commands from udemy.com
+
+SELECT */cnames... FROM tname
+SELECT DISTINCT(cnames), ... FROM
+SELECT COUNT(cname), ...
+SELECT cname+cname2*1.1 FROM ..
+WHERE
+AND OR NOT
+BETWEEN a AND b
+IN (....);
+ORDER BY cname ASC ....
+SELECT MIN/MAX(cname), ... FROM tname ... //int + text
+SELECT AVG/SUM(cname), ... FROM tname ...//numbers
+SELECT ... FROM WHERE cname LIKE ...
+%: >= 0 chars
+_: one char
+AS (alias) in SELECT, ORDER BY, GROUP BY only, not in FROM, WHERE
+LIMIT
+NULL: unknown/zero/empty
+IS : =
+
+JOIN: when datas are in diff tables
+INNER JOIN (intersection)
+SELECT cname, ... FROM t1 (INNER) JOIN t2 ON t1.a1 = t2.a2
+JOIN t3 ON ...
+
+
 
 
 

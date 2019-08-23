@@ -18,6 +18,8 @@ CMD commands:
 \i FILE exec commands from FILE
 \o FILE send q results to file
 \d[S+] tables, views, sequences
+\l list databases
+\! clear clear screen
 \d[S+] NAME describe NAME
 \da[S] Pattern list agg
 \db[+] list tablescpaces
@@ -36,7 +38,7 @@ dE foreign tables
 \C STRING set table title
 \H html output mode
 
-\c dbname user host port
+\c dbname user host port (change conn)
 \password set pass of user (securely)
 \conninfo 
 
@@ -49,7 +51,48 @@ setenv NAME VALUE
 unset K
 
 #Query commands
+createuser
+createdb
+CREATE SCHEMA
+CREATE TABLE
+data types of PSQL
+ALTER TABLE (ADD/DROP/RENAME)
+UPDATE TABLE
+INSERT INTO
+SELECT
+DISTINCT
+COUNT
+WHERE
+AVG, SUM, MIN, MAX
+GROUP BY
+ORDER BY
+JOIN ON
+LEFT JOIN ON
+RIGHT JOIN ON
+FULL JOIN ON
+ALTER DATABASE
+ALTER USER
+COPY
+CREATE DATABASE
+CREATE SCHEMA
+DELETE
+DROP DATABASE
+DROP TABLE
+DROP SCHEMA
+FETCH
+LIMIT
+PREPARE
+LOAD
+CREATE USER
+CREATE VIEW
+HAVING
+BETWEEN
+LOGICAL: AND OR NOT
+ALTER SCHEMA
 
+
+
+#Query implementation
 CREATE DATABASE college;
 
 CREATE SCHEMA acadamics;

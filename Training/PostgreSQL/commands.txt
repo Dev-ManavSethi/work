@@ -1,15 +1,69 @@
+sudo -i -u username (/postgres)
 
+psql -p port -h host -d dbname -U uname
 
-#PostgreSQL commands
+CREATE ROLE name (WITH (SUPERUSER) (CREATEDB) (CREATEROLE) (LOGIN) (ENCRYPTED) (PASSWORD=''));
 
+CMD commands:
+\db : list of tablespaces
+\g [FILE] or query;
+\gset [PREFIX] execute Query and store results in psql var
+\q quit
+\watch [SEC] execute query every SEC seconds
+\s [FILE] display history or save to file
+\e [FILE] [LINE] edit q buffer
+\w FILE write q buffer to file.
 
-CREATE TABLE departments(
-department_id text PRIMARY KEY,
-department_name text NOT NULL,
-department_sections text[] NOT NULL,
-department_hod text NOT NULL,
-department_teachers text[] NOT NULL   );
+\echo string (to stdout)
+\i FILE exec commands from FILE
+\o FILE send q results to file
+\d[S+] tables, views, sequences
+\d[S+] NAME describe NAME
+\da[S] Pattern list agg
+\db[+] list tablescpaces
+\dc list conversations
+\dD domains
+\det[+] PATTER foreign tables
+\dp list access privilages
+\drds role settings
+\dt list tables
+\dT list data typs
+\du roles
+\dv views
+dE foreign tables
+\l databases
 
-INSERT INTO departments(department_id,department_name,department_sections,department_hod,department_teachers)VALUES('CE','Computer Engineering','{"CE-1", "CE-2", "CE-3"}','komal-bhatia','{"komal-bhatia","abc","def","ggg","hhh"}');
+\C STRING set table title
+\H html output mode
+
+\c dbname user host port
+\password set pass of user (securely)
+\conninfo 
+
+\cd [DIR]
+setenv NAME VALUE
+\! command execute command
+
+\prompt TEXT NAME
+\set K V
+unset K
+
+#Query commands
+
+CREATE DATABASE college;
+
+CREATE SCHEMA acadamics;
+CREATE SCHEMA accounts;
+CREATE SCHEMA examinations;
+CREATE SCHEMA placements;
+
+CREATE TABLE acadamics.departments(
+id text PRIMARY KEY,
+name text NOT NULL,
+sections text[] NOT NULL,
+hod text NOT NULL,
+teachers text[] NOT NULL   );
+
+INSERT INTO academics.departments(id,name,sections,hod,teachers)VALUES('CE','Computer Engineering','{"CE-1", "CE-2", "CE-3"}','komal-bhatia','{"komal-bhatia","abc","def","ggg","hhh"}');
 
 

@@ -1,1 +1,55 @@
 #Git commands
+
+1. git config --global user.name "Manav"
+git config --global user.email "dev.manav.sethi@gmail.com"
+
+git init <path>
+
+git clone https://github.com/Dev-ManavSethi/work.git
+
+git add .
+
+git add *
+
+git add -u
+
+git commit -m "Message"
+
+git commit -a 
+
+git diff
+
+git reset
+
+git status
+
+git rm samplefile.txt
+
+git checkout -b branch2
+
+git commit -am 
+
+git merge master branch_new
+
+git checkout -D branch2
+
+git log
+
+git log --follow command.txt
+
+git show 
+
+git tag 55bcbf9d0c61ed75a95a6e0c6c8b2da3976c1eec
+
+git branch
+
+git branch new_branch
+
+git push --all origin
+
+git stash save
+git stash pop
+git stash list
+git stash drop
+
+

@@ -1,0 +1,180 @@
+sudo -i -u username (/postgres)
+
+psql -p port -h host -d dbname -U uname
+
+CREATE ROLE name (WITH (SUPERUSER) (CREATEDB) (CREATEROLE) (LOGIN) (ENCRYPTED) (PASSWORD=''));
+
+CMD commands:
+\db : list of tablespaces
+\g [FILE] or query;
+\gset [PREFIX] execute Query and store results in psql var
+\q quit
+\watch [SEC] execute query every SEC seconds
+\s [FILE] display history or save to file
+\e [FILE] [LINE] edit q buffer
+\w FILE write q buffer to file.
+
+\echo string (to stdout)
+\i FILE exec commands from FILE
+\o FILE send q results to file
+\d[S+] tables, views, sequences
+\l list databases
+\! clear clear screen
+\d[S+] NAME describe NAME
+\da[S] Pattern list agg
+\db[+] list tablescpaces
+\dc list conversations
+\dD domains
+\det[+] PATTER foreign tables
+\dp list access privilages
+\drds role settings
+\dt list tables
+\dT list data typs
+\du roles
+\dv views
+dE foreign tables
+\l databases
+
+\C STRING set table title
+\H html output mode
+
+\c dbname user host port (change conn)
+\password set pass of user (securely)
+\conninfo 
+
+\cd [DIR]
+setenv NAME VALUE
+\! command execute command
+
+\prompt TEXT NAME
+\set K V
+unset K
+
+#Query commands from tutorialspoint
+createuser
+createdb
+CREATE SCHEMA
+CREATE TABLE
+data types of PSQL
+ALTER TABLE (ADD/DROP/RENAME)
+UPDATE TABLE
+INSERT INTO
+SELECT
+DISTINCT
+COUNT
+WHERE
+AVG, SUM, MIN, MAX
+GROUP BY
+ORDER BY
+JOIN ON
+LEFT JOIN ON
+RIGHT JOIN ON
+FULL JOIN ON
+ALTER DATABASE
+ALTER USER
+COPY
+CREATE DATABASE
+CREATE SCHEMA
+DELETE
+DROP DATABASE
+DROP TABLE
+DROP SCHEMA
+FETCH
+LIMIT
+PREPARE
+LOAD
+CREATE USER
+CREATE VIEW
+HAVING
+BETWEEN
+LOGICAL: AND OR NOT
+ALTER SCHEMA
+
+
+#Query commands from udemy.com
+
+SELECT */cnames... FROM tname
+SELECT DISTINCT(cnames), ... FROM
+SELECT COUNT(cname), ...
+SELECT cname+cname2*1.1 FROM ..
+WHERE
+AND OR NOT
+BETWEEN a AND b
+IN (....);
+ORDER BY cname ASC ....
+SELECT MIN/MAX(cname), ... FROM tname ... //int + text
+SELECT AVG/SUM(cname), ... FROM tname ...//numbers
+SELECT ... FROM WHERE cname LIKE ...
+%: >= 0 chars
+_: one char
+AS (alias) in SELECT, ORDER BY, GROUP BY only, not in FROM, WHERE
+LIMIT
+NULL: unknown/zero/empty
+IS : =
+
+JOIN: when datas are in diff tables
+INNER JOIN (intersection)
+SELECT cname, ... FROM t1 (INNER) JOIN t2 ON t1.a1 = t2.a2
+JOIN t3 ON ...
+
+LEFT JOIN:
+SELECT cname, ... FROM t1
+LEFT JOIN t2 ON t1.c1=t2.c2;
+
+RIGHT JOIN:
+SELECT cname, ... FROM t1
+RIGHT JOIN t2 ON t1.c1 = t2.c2;
+
+FULL JOIN:
+SELECT cname, ... FROM t1
+FULL JOIN t2 ON t1.c1 = t2.c2;
+
+SELF JOIN: (heirarchical data, similarities or disimilarities bw columns)
+joining table back to itself
+
+USING (for shortcuts)
+ON customers.cid = customers.id === USING(cid);
+
+NATURAL (for even lesst typing)
+SELECT * FROM t1 NATURAL JOIN t2
+NATURAL JOIN t3...(t1 must have link with t2, t2 must have link with t3) (full join)
+(matches all fields with same name)
+
+GROUP BY
+SELECT cname,... FROM table WHERE ... GROUP BY cnames... ORDER BY cnames...
+
+SELECT country, COUNT(*)
+FROM customers
+GROUP BY country
+ORDER BY COUNT(*) DESC;
+
+HAVING vs WHERE
+WHERE: filters records before grouping
+HAVING: filters records after grouping
+
+SELECT customername, SUM(order_details.quantity*order_details.price) AS AmountSpent
+FROM customers
+WHERE order_details.date < '1999-01-01'
+JOIN USING (customer_id)
+HAVING SUM(order_details.quantity*order_details.price) > 5000
+ORDER BY AmountSpent DESC;
+
+
+#Query implementation
+CREATE DATABASE college;
+
+CREATE SCHEMA acadamics;
+CREATE SCHEMA accounts;
+CREATE SCHEMA examinations;
+CREATE SCHEMA placements;
+
+CREATE TABLE acadamics.departments(
+id text PRIMARY KEY,
+name text NOT NULL,
+sections text[] NOT NULL,
+hod text NOT NULL,
+teachers text[] NOT NULL   );
+
+INSERT INTO academics.departments(id,name,sections,hod,teachers)VALUES('CE','Computer Engineering','{"CE-1", "CE-2", "CE-3"}','komal-bhatia','{"komal-bhatia","abc","def","ggg","hhh"}');
+
+

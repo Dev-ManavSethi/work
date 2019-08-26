@@ -1,0 +1,30 @@
+#DB schema
+
+Database: college
+
+Schema: academics
+Tables: 
+departments: id, name, sections_id, hod_id, teachers_id, subjects_id
+sections: id, name, department_id, teachers_id, students_id, classroom_id
+teachers: id, name, department_id, subjects_id
+subjects: id, name, department_id
+students: id, name, department_id, section_id
+classrooms: id, name, department_id, section_id
+
+Schema: accounts
+Tables:
+employees: id, name, designation
+finance_records: id, transaction_timestamp, department_id, payee_id
+
+Schema: placements
+Tables:
+companies: id, name, arrival_date, intake
+placements: id, student_id, company_id, placed_date, salary
+
+Schema: examinations
+Tables:
+results: id, student_id, subject_id, exam_date, department_id, section_id, teacher_id, max_marks, scored_marks
+exams: id, subject_id, department_id, exam_date 
+
+ 
+

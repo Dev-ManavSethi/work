@@ -4,7 +4,8 @@ psql -p port -h host -d dbname -U uname -f filename
 
 CREATE ROLE name (WITH (SUPERUSER) (CREATEDB) (CREATEROLE) (LOGIN) (ENCRYPTED) (PASSWORD=''));
 
-CMD commands:
+#CMD commands:
+
 \db : list of tablespaces
 \g [FILE] or query;
 \gset [PREFIX] execute Query and store results in psql var
@@ -34,7 +35,7 @@ CMD commands:
 \dv views
 dE foreign tables
 \l databases
-
+\s history of all commands/queries executed
 \C STRING set table title
 \H html output mode
 
@@ -49,43 +50,3 @@ setenv NAME VALUE
 \prompt TEXT NAME
 \set K V
 unset K
-
-#Query commands
-createuser
-createdb
-CREATE SCHEMA
-CREATE TABLE
-data types of PSQL
-ALTER TABLE (ADD/DROP/RENAME)
-UPDATE TABLE
-INSERT INTO
-SELECT
-DISTINCT
-COUNT
-WHERE
-AVG, SUM, MIN, MAX
-GROUP BY
-ORDER BY
-JOIN ON
-LEFT JOIN ON
-RIGHT JOIN ON
-FULL JOIN ON
-ALTER DATABASE
-ALTER USER
-COPY
-CREATE DATABASE
-CREATE SCHEMA
-DELETE
-DROP DATABASE
-DROP TABLE
-DROP SCHEMA
-FETCH
-LIMIT
-PREPARE
-LOAD
-CREATE USER
-CREATE VIEW
-HAVING
-BETWEEN
-LOGICAL: AND OR NOT
-ALTER SCHEMA

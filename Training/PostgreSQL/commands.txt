@@ -1,6 +1,6 @@
 sudo -i -u username (/postgres)
 
-psql -p port -h host -d dbname -U uname
+psql -p port -h host -d dbname -U uname -f filename
 
 CREATE ROLE name (WITH (SUPERUSER) (CREATEDB) (CREATEROLE) (LOGIN) (ENCRYPTED) (PASSWORD=''));
 
@@ -89,24 +89,3 @@ HAVING
 BETWEEN
 LOGICAL: AND OR NOT
 ALTER SCHEMA
-
-
-
-#Query implementation
-CREATE DATABASE college;
-
-CREATE SCHEMA acadamics;
-CREATE SCHEMA accounts;
-CREATE SCHEMA examinations;
-CREATE SCHEMA placements;
-
-CREATE TABLE acadamics.departments(
-id text PRIMARY KEY,
-name text NOT NULL,
-sections text[] NOT NULL,
-hod text NOT NULL,
-teachers text[] NOT NULL   );
-
-INSERT INTO academics.departments(id,name,sections,hod,teachers)VALUES('CE','Computer Engineering','{"CE-1", "CE-2", "CE-3"}','komal-bhatia','{"komal-bhatia","abc","def","ggg","hhh"}');
-
-

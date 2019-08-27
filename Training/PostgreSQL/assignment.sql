@@ -1,6 +1,6 @@
 a) SELECT a.name, e.salary from aircrafts as a JOIN certifieds as c ON a.id = c.eid JOIN employees as e USING(eid) WHERE e.salary > 80000 order by e.salary asc;
 
-
+b)
 
 c) SELECT e.ename FROM employees as e JOIN certifieds as c using(eid) WHERE salary < (SELECT MIN(price) FROM flight WHERE depart_location = 'Los Angeles' AND arrive_location = 'Honululu');
 
@@ -16,8 +16,11 @@ g) SELECT f.depart_location, arrive_location FROM flight AS f FULL JOIN employee
 
 h) SELECT ename, a.range, a.name from employees as e JOIN certifieds as c USING (eid) JOIN aircrafts as a ON a.id = c.aid  WHERE a.range > 3000 AND a.name!='Boeing' order by a.range;
 
+i)
 
 j) SELECT (SELECT AVG(e.salary) AS avg_salary_of_pilots FROM employees as e JOIN certifieds as c USING(eid))- AVG(e.salary) as AvgSalaryDifference FROM employees as e;
+
+k) select ename, salary from employees as e join certifieds as c using(eid) where salary > (SELECT AVG(e.salary) from employees as e join certifieds as c using(eid)) order by salary;
 
 l) SELECT e.ename, a.range FROM employees as e JOIN certifieds as c USING(eid) JOIN
  aircrafts as a ON a.id = c.aid WHERE a.range > 1000 order by a.range asc;

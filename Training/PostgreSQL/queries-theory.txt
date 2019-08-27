@@ -1,5 +1,5 @@
 SELECT */cnames... FROM tname
-SELECT DISTINCT(cnames), ... FROM
+SELECT DISTINCT cname, DISTINCT ... FROM
 SELECT COUNT(cname), ...
 SELECT cname+cname2*1.1 FROM ..
 WHERE
@@ -57,13 +57,20 @@ HAVING vs WHERE
 WHERE: filters records before grouping
 HAVING: filters records after grouping
 
+#SYNTAX
+SELECT ... FROM... WHERE... GROUP BY... HAVING ... ORDER BY ...
+
+#group set: customername
 SELECT customername, SUM(order_details.quantity*order_details.price) AS AmountSpent
 FROM customers
 WHERE order_details.date < '1999-01-01'
 JOIN USING (customer_id)
+GROUP BY customername
 HAVING SUM(order_details.quantity*order_details.price) > 5000
 ORDER BY AmountSpent DESC;
 
+
+GROUP SETS
 
 GROUP BY GROUPING SETS ((cname1), (cname2), (cname3,cname4))
 #to group more than 1 sets

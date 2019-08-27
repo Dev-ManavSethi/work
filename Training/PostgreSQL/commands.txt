@@ -1,6 +1,4 @@
-sudo -i -u username (/postgres)
-
-psql -p port -h host -d dbname -U uname -f filename
+sudo -i -u username (/postgres) psql -p port -h host -d dbname -U uname -f filename < (path of file from where to import data)
 
 CREATE ROLE name (WITH (SUPERUSER) (CREATEDB) (CREATEROLE) (LOGIN) (ENCRYPTED) (PASSWORD=''));
 

@@ -566,5 +566,15 @@ SELECT categoryname, productname, SUM(od.unitprice*quantity) FROM categories NAT
 SELECT c.companyname AS buyer, s.companyname AS supplier, SUM(quantity*od.unitprice) FROM customers AS c JOIN suppliers AS s USING(supplierid) NATURAL JOIN ORDER_details AS od NATURAL JOIN ORDERs JOIN products USING(productsid) GROUP BY(buyer, (buyer,supplier)) ORDER BY buyer, supplier; \g gs 
 SELECT c.companyname AS buyer, s.companyname AS supplier, SUM(quantity*od.unitprice) FROM customers AS c NATURAL JOIN ORDERs NATURAL JOIN ORDER_details AS od JOIN products USING(productid) JOIN suppliers AS s USING(supplierid) GROUP BY(buyer, (buyer,supplier)) ORDER BY buyer, supplier; \g gs 
 SELECT c.companyname, categoryname, productname, SUM(od.unitprice*quantity) FROM customers AS c NATURAL JOIN ORDERs NATURAL JOIN ORDER_details AS od JOIN products USING (productid) JOIN categories USING (categoryid) GROUP BY ROLLUP (companyname, categoryname, productname); \g ROLLUP
-\s
+
+select companyname from customers union select companyname from suppliers; 
+select companyname from customers union select companyname from suppliers; \g union
+select companyname from customers union all select companyname from suppliers; \g union
+select city from customers union all select city from suppliers; \g union
+select country from customers union select country from suppliers order by country asc;
+select country from customers union select country from suppliers order by country asc; \g unionasc
+select country from customers union all select country from suppliers order by country asc; \g unionascall
+select country from customers union select country from suppliers order by country asc; \g unionasc
+select country from customers intersect select country from suppliers order by country asc; \g interasc
+select count(*) from (select country from customers intersect all select country from suppliers) AS common_countries; \g subquery
 

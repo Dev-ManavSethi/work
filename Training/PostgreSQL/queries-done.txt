@@ -77,3 +77,8 @@ GROUP BY GROUPING SETS ((cname1), (cname2), (cname3,cname4))
 
 GROUP BY ROLLUP (cname1, cname2, cname3..) === GROUP BY GROUPING SETS(...)
 
+UNION: combine 1+ queries removed duplicates
+UNION ALL: same but no removed duplicates
+
+INTERSECT: matching records of both tables
+INTERSECT ALL: match records w/o removing duplicates

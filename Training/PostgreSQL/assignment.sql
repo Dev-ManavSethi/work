@@ -17,7 +17,8 @@ g) SELECT f.depart_location, arrive_location FROM flight AS f FULL JOIN employee
 
 h) SELECT ename, a.range, a.name from employees as e JOIN certifieds as c USING (eid) JOIN aircrafts as a ON a.id = c.aid  WHERE a.range > 3000 AND a.name!='Boeing' order by a.range;
 
-i) 
+i) (select depart_time from flight as f where f.depart_location= 'Madison' and f.arrive_location= 'New York' and f.arrive_time < '18:00:00') union (select f1.depart_time  from flight f1 inner join flight f2 on f1.arrive_location = f2.depart_location where f1.depart_location= 'Madison'and f2.arrive_location = 'New York'
+ and f1.arrive_time < f2.depart_time and f2.arrive_time < '18:00:00')  union (select f1.depart_time from flight f1 inner join flight f2 on f1.arrive_location = f2.depart_location inner join flight f3 on f2.arrive_location = f3.depart_location where f1.depart_location = 'Madison' and f3.arrive_location = 'New York' and f1.arrive_time < f2.depart_time and f2.arrive_time < f3.depart_time  and f3.arrive_time < '18:00:00');
 
 j) SELECT (SELECT AVG(e.salary) AS avg_salary_of_pilots FROM employees as e JOIN certifieds as c USING(eid))- AVG(e.salary) as AvgSalaryDifference FROM employees as e;
 

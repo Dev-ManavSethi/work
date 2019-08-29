@@ -3,6 +3,31 @@
 #Ruby is a OO lang
 #Go isn't
 
+#array
+names = Array.new(4, "mac")
+puts "#{names}"
+
+puts names.size
+puts names.length
+
+nums = Array.new(10) { |e| e = e * 2 }
+puts "#{nums}"
+
+nums2 = Array.[](1, 2, 3, 4,5)
+nums = Array[1,2,3,4,5]
+
+#Array method in kernel module, takes only one arg
+digits = Array(0..9)
+puts "#{digits}"
+
+#array methods:
+
+arr.at(num)
+arr.pack('') #to-do
+
+
+
+
 #todo: . and :: operator
 
 #continue : https://www.tutorialspoint.com/ruby/ruby_blocks.htm
@@ -209,6 +234,7 @@ object.att1 = ""
 #errors handling
 begin
 
+raise Type 'message' condition
 #here error could happen
 rescue TypeOfError
 
@@ -216,11 +242,18 @@ rescue TypeOfErr2 => var
 
 #do anything with var
 
+else 
+#For other exceptions
+
+ensure
+
+#all will be executed
 
 retry #restart from begin
 
 end
 
+#raised error messages can be captured using $!
 
 #reading from external files
 
@@ -380,16 +413,34 @@ end
 
 end
 
-#hash 
 
 
 function_name 1,2 #return array if no. of values more than 1
+
+
+#hash
+
+map = Hash.new
+
+or
+
+map = Hash.new("map")
+
+or 
+
+map = Hash.new "month"
+#makes hash with default val of month for any key
+
+arr = [1, "jan",true]
+
+#any object can be used as key or value
 
 map = {
 
 "Manav" => "Software Dev",
 "Age" => 24,
 12 => "Twelve"
+arr => "array"
 
 }
 
@@ -397,8 +448,96 @@ puts
 puts
 puts
 
+puts "#{map['Age']}"
 puts map
 puts map["Age"]
+
+#hash methods
+
+hash.keys #returns array of keys
+hash1 == hash2 #checks if kv pairs are same , and having same no. of kv pairs
+hash.[key] #same as hash[key]
+hash.[key] = value #same as hash[key] = value
+hash.clear #removes all kv pairs
+hash.default #returns default value for hash
+hash.defaul(key=nil) #return value if key exists, or nil if key dne
+hash.default = obj
+hash.default_proc #returnns the block of nil which created the hash
+hash.delete(key)
+hash.delete_if {|key,value|, block} #deletes for every pair block returns true
+hash.each {|k,v| block} #iterates over hash, using kv in block as 2-D array
+hash.each_key {|key| block}
+hash.each_key {|key| block}
+hash.empty?
+
+hash.fecth(key, [default])
+hash.fetch(key) {|key| block}
+
+hash.has_value?(value)
+hash.length
+hash.invert
+hash.inspect #pretty string version of hash
+hash.merge(hash2) #duplicates are overridden from hash2
+hash.reject {|k,v| block} #creates a new hash for every pair block evaluates to true
+hash.size
+hash.to_a
+hash.to_s
+hash.value?(v) #bool
+hash.values
+hash.values_at(objs...) #returns arr of keys
+
+
+#time
+time = Time.new
+time2 = Time.now
+time.wday
+time.yday
+
+t1 = Time.local(y, m, d, h, min) #local 12 hour
+t2 = Time.utc(y,m,d,h,min) #24 hour
+t2  = Time.gm(y,m,d,h,min,sec)
+
+arr = t1.to_a #[s,min, h,d,m,y,wday,yday,isdt,zone]
+
+Time.local(*arr)
+Time.gm(*arr)
+
+
+#ranges
+zeroToNine = 0..9
+zeroToeIGHT = 0...8
+
+range.include?(num) bool
+range.min
+r.max
+r.reject {|i| i< l} #return arr of accepted values
+digits.each do |digit|
+
+if (start..end===num)
+
+
+end
+
+end
+
+
+
+#iterator
+
+collection.each do |var|
+
+#code
+
+
+end
+
+
+arr.collect #returns array
+
+digits = Array(0..9)
+puts "#{digits}"
+
+
 
 
 string = "Hello"
@@ -474,3 +613,136 @@ map = {
 }
 
 puts map
+
+
+#I/O
+#module: Kernel
+
+
+#Files
+
+file = File.new(fname_with relative_path, mode)
+
+#do sometime with file
+
+file.close #or file.close()
+
+
+file = File.open(fname_with_path, mode)
+#process file
+
+end
+
+#file.open can be associated with a block , file.new cannot be
+
+file.sysread(num_of_chars_to_read)
+file.readline()
+file.read()
+file.syswrite('text_to_write')
+
+
+#IO class: Parent class of File class
+
+arr = IO.readlines(filename_with_relative_path)
+
+IO.foreach(filename) {|block| puts block} #does not return array, passes line by line string to block
+File.rename(oldname, newname)
+File.delete(filename)
+
+file = File.new(filename, mode)
+file.chmod(int mode/ mask value)
+
+File.open(fname) if File::exists?(fname)
+
+#checks whether a file or not?
+File.file?(fname)
+
+File::directory?('dir_path') #bool
+
+File.readable?(fname)
+File.writable?(fname)
+File.executable?(fname)
+
+#checks for zero file size
+File.zero?(fname)
+
+#For finding type of file
+File::ftype(fname) #returns 'file' or directory,characterSpl, blockSpl, fifo, link, socket, unknown
+
+File::ctime(fname)
+File::mtime(fname)
+File::atime(fname)
+
+Dir.chdir('path')
+Dir.pwd
+
+Dir.entries('path') #returns array of contents of each dir
+Dir.foreach('path') do |entry|
+#do something with entry
+
+end
+
+Dir['path/*'] #returns array of contents
+
+Dir.mkdir('dir_name', perm-mask)
+
+
+require 'tmpdir'
+tempfilename = File.join(Dir.tmpdir, 'tingtong')
+tempfile = File.new(tempfilename, 'w')
+tempfile.puts 'Something'
+tempfile.close
+
+File.delete(tempfilename)
+
+#same as:
+
+require 'tempfile'
+f = Tempfile.new('tingtong')
+f.puts 'Hello'
+puts f.path
+f.close
+
+
+
+#raise
+
+raise 
+
+#OR
+
+raise "Error Message" 
+
+#OR
+
+raise ExceptionType, "Error Message"
+
+#OR
+
+raise ExceptionType, "Error Message" condition
+
+#rescue is called as soon as raise occurs
+
+begin  
+   raise 'A test exception.'  
+rescue Exception => e  
+   puts e.message  
+   puts e.backtrace.inspect  
+end  
+
+
+#throw-catch
+
+throw :labelname condition
+
+#this will not be executes
+
+catch :labelname do
+
+#this will be done
+
+
+end
+
+
+#Class exception

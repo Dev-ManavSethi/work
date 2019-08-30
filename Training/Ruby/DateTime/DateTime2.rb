@@ -18,8 +18,7 @@ print d.hour, d.min, d.sec, d.offset, d.zone
 d+= Rational ('1.5')
 d=d.new_offset('+09:00')
 d.strftime('%I:%M:%S %p')
-d>DateTime.new(1999)
+d=DateTime.new(1999)
 
-shakespear
-
+puts datetime.methods
 

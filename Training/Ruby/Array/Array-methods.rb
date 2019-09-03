@@ -3,7 +3,10 @@
 =begin
 
 transpose
-fill
+fill num
+fill num, range
+fill num , start, length
+fill {|index| block}
 assoc
 rassoc
 uniq

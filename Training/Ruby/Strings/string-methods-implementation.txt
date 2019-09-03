@@ -1,0 +1,17 @@
+s = "Hello Manav"
+=> "Hello Manav"
+irb(main):124:0> s2 = "Hello PC"
+=> "Hello PC"
+irb(main):125:0> s.*5
+=> "Hello ManavHello ManavHello ManavHello ManavHello Manav"
+irb(main):126:0> s*5
+=> "Hello ManavHello ManavHello ManavHello ManavHello Manav"
+irb(main):127:0> s.include?"M"
+=> true
+irb(main):128:0> s.include?"M/i"
+=> false
+
+#count-todo
+
+
+#unpack

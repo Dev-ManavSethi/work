@@ -151,3 +151,8 @@ irb(main):094:0> h
 h.fetch_values 8
 => [9]
 
+ h.find {|x,v| v<10}
+=> [8, 9]
+irb(main):121:0> h.find {|x,v| v>10}
+=> nil
+

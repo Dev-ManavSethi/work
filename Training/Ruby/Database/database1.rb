@@ -1,11 +1,10 @@
 require 'dbi'
 
-=begin
-
+begin {
 dbc = DBI.connect("DBI:Postgresql:northwind:localhost", "postgres", "postgres")
 
 puts "Connected to PDB"
-
+}
 rescue DBI::DatabaseError => e
 
 puts "Error"
@@ -19,9 +18,7 @@ puts dbc.func(:client_info)
    puts dbc.func(:thread_id)
    puts dbc.func(:stat)
 
-
+end{
 dbc.disconnect if dbc
-
-=end
-
+}
 

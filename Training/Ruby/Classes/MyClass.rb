@@ -2,7 +2,7 @@ class MyClass
 
 def initialize
 
-puts self.methods
+puts "MyClass instance created!"
 
 end
 

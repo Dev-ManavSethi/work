@@ -108,3 +108,116 @@ s<=>s2
 irb(main):229:0> s<<"j"
 => "aacd\u0004fj"
 
+s.dump
+=> "\"Hi I'm Manav\""
+
+
+s="aBcDef"
+=> "aBcDef"
+irb(main):291:0> s=~/[a-z]/i
+=> 0
+irb(main):292:0> s=~/[a-z]^/i
+=> nil
+irb(main):293:0> s=~/^[a-z]/i
+=> 0
+irb(main):294:0> s=~/![a-z]/i
+=> nil
+
+
+s.downcase
+=> "abcdef"
+irb(main):296:0> s.upcase
+=> "ABCDEF"
+irb(main):297:0> s.captitalize
+NoMethodError: undefined method `captitalize' for "aBcDef":String
+Did you mean?  capitalize
+               capitalize!
+	from (irb):297
+	from /usr/bin/irb:11:in `<main>'
+irb(main):298:0> s.capitalize
+=> "Abcdef"
+irb(main):299:0> s.capitalize!
+=> "Abcdef"
+
+s.swapcase
+=> "aBCDEF"
+irb(main):302:0> s.swapcase!
+=> "aBCDEF"
+irb(main):303:0> s.swapcase!
+=> "Abcdef"
+
+
+s.oct
+=> 0
+irb(main):305:0> ^C
+irb(main):305:0> s="44"
+=> "44"
+irb(main):306:0> s.oct
+=> 36
+
+s.empty?
+=> false
+irb(main):310:0> e.eql? "50"
+NameError: undefined local variable or method `e' for main:Object
+	from (irb):310
+	from /usr/bin/irb:11:in `<main>'
+irb(main):311:0> s.eql? "50"
+=> false
+irb(main):312:0> ^C
+
+
+s
+=> "44"
+irb(main):313:0> s.hex
+=> 68
+
+s.chars
+=> ["4", "4"]
+irb(main):317:0> s2.chars
+=> ["H", "i", " ", "I", "'", "m", " ", "M", "a", "n", "a", "v"]
+
+s2.split
+=> ["Hi", "I'm", "Manav"]
+irb(main):320:0> s2.split ","
+=> ["Hi I'm Manav"]
+irb(main):321:0> s2.split "M"
+=> ["Hi I'm ", "anav"]
+
+s4 = "abc"
+=> "abc"
+irb(main):325:0> s4.codepoints
+=> [97, 98, 99]
+
+s2 = s2 + "\nHi,,,,,,,\nyyyyyyy"
+=> "Hi I'm Manav\nHi,,,,,,,\nyyyyyyy"
+irb(main):331:0> s2.lines
+=> ["Hi I'm Manav\n", "Hi,,,,,,,\n", "yyyyyyy"]
+
+s.bytes
+=> [106, 106, 106, 106, 52, 52]
+
+s.scan "def"
+=> []
+irb(main):337:0> s.scan "abc"
+=> ["abc"]
+irb(main):338:0> s.scan "a"
+=> ["a"]
+irb(main):339:0> s.scan "ac"
+=> []
+
+s.ord
+=> 97
+
+s.center 50
+=> "                    abcjjjj44                     "
+
+
+s.center 50, '-'
+=> "--------------------abcjjjj44---------------------"
+
+s.gsub /[aeiou]/, 'a'=>'A', 'e'=> 'E'
+=> "AAbccEEddff"
+
+s.chop.chop.chop
+=> "aabcceed"
+

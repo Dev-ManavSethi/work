@@ -1,4 +1,5 @@
-class SectionsController < ApplicationController
+class SectionsController < ActionController
+
 
 
 end

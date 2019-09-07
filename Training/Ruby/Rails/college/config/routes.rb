@@ -25,13 +25,21 @@ Rails.application.routes.draw do
 
   resources :departments
 
-  get 'section' => 'section#index'
-  get 'section/new' => 'section#new'
-  post 'section/add' => 'section#add'
-  get 'section/view/:id' => 'section#view'
-  get 'section/edit/:id' => 'section#edit'
-  patch 'section/update' => 'section#update'
-  delete 'section/delete/:id' => 'section#delete'
+  get 'section' => 'sections#index'
+
+  get 'sections/new' => 'sections#new'
+  post 'sections' => 'sections#add'
+
+  get 'sections/:id' => 'sections#view'
+
+  get 'sections/edit/:id' => 'sections#edit'
+  patch 'sections' => 'sections#update'
+
+  delete 'sections' => 'sections#delete'
+
+
+  get 'success/:msg' => 'home#success'
+
 
   resources :sections
 

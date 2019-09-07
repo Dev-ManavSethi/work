@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  resources :teacher_subjects
-  resources :teacher_sections
-  resources :students
-  resources :subjects
-  resources :sections
-  resources :departments
-  resources :teachers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +6,36 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
   get 'about' => 'about#index'
+
+  get 'departments' => 'departments#index'
+
+  get 'departments/new' => 'departments#new'
+  post 'departments' => 'departments#add'
+
+  get 'departments/:id' => 'departments#view'
+
+  get 'departments/edit/:id' => 'departments#edit'
+  patch 'departments' => 'departments#update'
+
+  delete 'departments' => 'departments#delete'
+
+
+  get 'success/:msg' => 'home#success'
+
+
+  resources :departments
+
+  get 'section' => 'section#index'
+  get 'section/new' => 'section#new'
+  post 'section/add' => 'section#add'
+  get 'section/view/:id' => 'section#view'
+  get 'section/edit/:id' => 'section#edit'
+  patch 'section/update' => 'section#update'
+  delete 'section/delete/:id' => 'section#delete'
+
+  resources :sections
+
+  #get 'teacher' => 'teacher#index'
 
 
   # Example of regular route:

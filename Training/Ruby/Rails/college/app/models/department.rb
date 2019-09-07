@@ -1,4 +1,3 @@
 class Department < ApplicationRecord
-  belongs_to :teacher
-  validates :name, presence :true
+  validates :name, presence: true
 end

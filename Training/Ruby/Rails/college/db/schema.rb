@@ -10,78 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_07_031205) do
+ActiveRecord::Schema.define(version: 2019_09_07_074719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "departments", force: :cascade do |t|
+  create_table "departments", id: false, force: :cascade do |t|
+    t.text "id"
     t.text "name"
-    t.bigint "teacher_id"
+    t.bigint "teachers_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_departments_on_teacher_id"
+    t.index ["teachers_id"], name: "index_departments_on_teachers_id"
   end
 
-  create_table "sections", force: :cascade do |t|
-    t.bigint "department_id"
-    t.bigint "teacher_id"
+  create_table "sections", id: false, force: :cascade do |t|
+    t.text "id"
+    t.bigint "departments_id"
+    t.bigint "teachers_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "name"
-    t.index ["department_id"], name: "index_sections_on_department_id"
-    t.index ["teacher_id"], name: "index_sections_on_teacher_id"
+    t.index ["departments_id"], name: "index_sections_on_departments_id"
+    t.index ["teachers_id"], name: "index_sections_on_teachers_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.text "name"
-    t.bigint "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["section_id"], name: "index_students_on_section_id"
-  end
 
-  create_table "subjects", force: :cascade do |t|
-    t.text "name"
-    t.bigint "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["section_id"], name: "index_subjects_on_section_id"
-  end
 
-  create_table "teacher_sections", force: :cascade do |t|
-    t.bigint "teacher_id"
-    t.bigint "section_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["section_id"], name: "index_teacher_sections_on_section_id"
-    t.index ["teacher_id"], name: "index_teacher_sections_on_teacher_id"
-  end
 
-  create_table "teacher_subjects", force: :cascade do |t|
-    t.bigint "teacher_id"
-    t.bigint "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_teacher_subjects_on_subject_id"
-    t.index ["teacher_id"], name: "index_teacher_subjects_on_teacher_id"
-  end
 
-  create_table "teachers", force: :cascade do |t|
+  create_table "teachers", id: false, force: :cascade do |t|
+    t.text "id"
     t.text "name"
     t.date "dob"
-    t.integer "experience"
+    t.integer "exp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "departments", "teachers"
-  add_foreign_key "sections", "departments"
-  add_foreign_key "sections", "teachers"
-  add_foreign_key "students", "sections"
-  add_foreign_key "subjects", "sections"
-  add_foreign_key "teacher_sections", "sections"
-  add_foreign_key "teacher_sections", "teachers"
-  add_foreign_key "teacher_subjects", "subjects"
-  add_foreign_key "teacher_subjects", "teachers"
 end

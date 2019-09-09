@@ -3603,3 +3603,56 @@ ActionController::ParameterMissing (param is missing or the value is empty: depa
   
 app/controllers/departments_controller.rb:33:in `get_params'
 app/controllers/departments_controller.rb:20:in `view'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (63.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToDepartments (20190909083655)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToDepartments (20190909083655)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (127.4ms)[0m  [1m[35mALTER TABLE "departments" ADD "isAcademic" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190909083655"]]
+  [1m[35m (84.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (29.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mDepartment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", "CE"], ["LIMIT", 1]]
+  [1m[36mDepartment Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "Computer Engineering"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (0.6ms)[0m  [1m[32mINSERT INTO "departments" ("id", "name", "created_at", "updated_at", "isAcademic") VALUES ($1, $2, $3, $4, $5)[0m  [["id", "CE"], ["name", "Computer Engineering"], ["created_at", "2019-09-09 09:32:24.614288"], ["updated_at", "2019-09-09 09:32:24.614288"], ["isAcademic", true]]
+  [1m[35m (35.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSection Create (2.1ms)[0m  [1m[32mINSERT INTO "sections" ("id", "departments_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4)[0m  [["id", "CE-2K19"], ["departments_id", 0], ["created_at", "2019-09-09 09:35:28.823087"], ["updated_at", "2019-09-09 09:35:28.823087"]]
+  [1m[35m (34.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeacher Create (0.7ms)[0m  [1m[32mINSERT INTO "teachers" ("id", "name", "dob", "exp", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6)[0m  [["id", "TCHR-345"], ["name", "Komal Bhatia"], ["dob", "1979-04-04"], ["exp", 10], ["created_at", "2019-09-09 09:45:12.372584"], ["updated_at", "2019-09-09 09:45:12.372584"]]
+  [1m[35m (23.1ms)[0m  [1m[35mCOMMIT[0m

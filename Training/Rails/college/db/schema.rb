@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_112113) do
+ActiveRecord::Schema.define(version: 2019_09_09_124459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,17 +18,17 @@ ActiveRecord::Schema.define(version: 2019_09_09_112113) do
   create_table "departments", id: false, force: :cascade do |t|
     t.text "id"
     t.text "name"
-    t.bigint "teachers_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "isAcademic"
-    t.index ["teachers_id"], name: "index_departments_on_teachers_id"
+    t.text "hod_id"
+    t.index ["hod_id"], name: "index_departments_on_hod_id"
   end
 
   create_table "sections", id: false, force: :cascade do |t|
     t.text "id"
-    t.bigint "departments_id"
-    t.bigint "teachers_id"
+    t.text "departments_id"
+    t.text "teachers_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["departments_id"], name: "index_sections_on_departments_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_112113) do
   create_table "students", id: false, force: :cascade do |t|
     t.text "id"
     t.text "name"
-    t.bigint "section_id"
+    t.text "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["section_id"], name: "index_students_on_section_id"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_112113) do
     t.text "id"
     t.text "name"
     t.integer "year"
-    t.bigint "department_id"
+    t.text "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_subjects_on_department_id"

@@ -1,10 +1,10 @@
 class Department < ApplicationRecord
   #associations
   has_many :sections
-  has_many :subjects
+  has_many :subjects through :sections
   has_many :teachers, through :sections
-  has_many :teachers, through :subjects
   has_many :students, through :sections
+  has_one :teacher, class_name: "Teacher", foreign_key: 'hod_id'
   #validations
   validates :name, :id, :isAcademic, presence: true, confirmation: {accept: true, message: "Doesn't match confirmation"}
   validates :isAcademic, acceptance: {accept: [true, "t",true, "yes", "y","1", 1,0, "0","n" "no", "false", "f", false], message: "Enter valid value", case_sensetive: false}

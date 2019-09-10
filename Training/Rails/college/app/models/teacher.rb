@@ -1,10 +1,10 @@
 class Teacher < ApplicationRecord
   #associations
+  belongs_to :department, optional: true, inverse_of: 'hod'
   has_and_belongs_to_many :subjects
   has_and_belongs_to_many :sections
   has_and_belongs_to_many :students
-  has_many :departments, through :subjects
-  has_many :departments, through :sections
+  belongs_to :department, through :sections
   #validations
   validates :id, :name, :dob, :exp, presence:true
   validates :id, format: {with: /[TCHR]-\w/, message: "Expression: [A-Z][A-Z]-\w"}

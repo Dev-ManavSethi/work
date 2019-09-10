@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_124459) do
+ActiveRecord::Schema.define(version: 2019_09_10_055229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "departments", id: false, force: :cascade do |t|
     t.text "id"
-    t.text "name"
+    t.text "name", default: "Default name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "isAcademic"
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2019_09_09_124459) do
     t.index ["teachers_id"], name: "index_sections_on_teachers_id"
   end
 
+  create_table "sections_teachers", id: false, force: :cascade do |t|
+    t.bigint "section_id", null: false
+    t.bigint "teacher_id", null: false
+    t.index ["section_id"], name: "index_sections_teachers_on_section_id"
+    t.index ["teacher_id"], name: "index_sections_teachers_on_teacher_id"
+  end
+
   create_table "students", id: false, force: :cascade do |t|
     t.text "id"
     t.text "name"
@@ -42,6 +49,13 @@ ActiveRecord::Schema.define(version: 2019_09_09_124459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["section_id"], name: "index_students_on_section_id"
+  end
+
+  create_table "students_teachers", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "teacher_id", null: false
+    t.index ["student_id"], name: "index_students_teachers_on_student_id"
+    t.index ["teacher_id"], name: "index_students_teachers_on_teacher_id"
   end
 
   create_table "subjects", id: false, force: :cascade do |t|
@@ -54,6 +68,13 @@ ActiveRecord::Schema.define(version: 2019_09_09_124459) do
     t.index ["department_id"], name: "index_subjects_on_department_id"
   end
 
+  create_table "subjects_teachers", id: false, force: :cascade do |t|
+    t.bigint "teacher_id", null: false
+    t.bigint "subject_id", null: false
+    t.index ["subject_id"], name: "index_subjects_teachers_on_subject_id"
+    t.index ["teacher_id"], name: "index_subjects_teachers_on_teacher_id"
+  end
+
   create_table "teachers", id: false, force: :cascade do |t|
     t.text "id"
     t.text "name"
@@ -62,4 +83,5 @@ ActiveRecord::Schema.define(version: 2019_09_09_124459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end

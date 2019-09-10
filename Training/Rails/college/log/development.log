@@ -3916,3 +3916,218 @@ Migrating to ChangeColumns (20190909124459)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (63.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSubjectsTeachersJoinTable (20190910051117)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSubjectsTeachersJoinTable (20190910051117)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (263.8ms)[0m  [1m[35mCREATE TABLE "subjects_teachers" ("teacher_id" bigint NOT NULL, "subject_id" bigint NOT NULL)[0m
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_teacher_id" ON "subjects_teachers"  ("teacher_id")[0m
+  [1m[35m (46.1ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_subject_id" ON "subjects_teachers"  ("subject_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910051117"]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (20.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSectionsTeachersJoinTable (20190910051459)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "sections_teachers" ("section_id" bigint NOT NULL, "teacher_id" bigint NOT NULL)[0m
+  [1m[35m (47.9ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_section_id" ON "sections_teachers"  ("section_id")[0m
+  [1m[35m (47.1ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_teacher_id" ON "sections_teachers"  ("teacher_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910051459"]]
+  [1m[35m (19.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.0ms)[0m  [1m[35mALTER TABLE "subjects" ADD "sample_column" text[0m
+  [1m[35m (49.1ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_id" ON "students"  ("id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "departments" ADD "subjects_id" bigint[0m
+  [1m[35m (88.4ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_subjects_id" ON "departments"  ("subjects_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" DROP NOT NULL[0m
+  [1m[35m (23.8ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" SET DEFAULT 'Default name'[0m
+  [1m[35m (259.5ms)[0m  [1m[35mALTER TABLE "departments" ADD "new_column" decimal(10,4) DEFAULT 25[0m
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMENT ON COLUMN "departments"."new_column" IS 'New column at migration'[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "sections" ADD CONSTRAINT "fk_sections"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "subjects" ADD "sample_column" text[0m
+  [1m[35m (51.4ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_id" ON "students"  ("id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "departments" ADD "subjects_id" bigint[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_subjects_id" ON "departments"  ("subjects_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" DROP NOT NULL[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" SET DEFAULT 'Default name'[0m
+  [1m[35m (198.5ms)[0m  [1m[35mALTER TABLE "departments" ADD "new_column" decimal(10,4) DEFAULT 25[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMENT ON COLUMN "departments"."new_column" IS 'New column at migration'[0m
+  [1m[35m (157.3ms)[0m  [1m[35mCREATE TABLE "new_table" ("id" bigserial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "departmnts" RENAME COLUMN "name" TO "new_name"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "subjects" ADD "sample_column" text[0m
+  [1m[35m (66.5ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_id" ON "students"  ("id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "departments" ADD "subjects_id" bigint[0m
+  [1m[35m (38.1ms)[0m  [1m[35mCREATE  INDEX  "index_departments_on_subjects_id" ON "departments"  ("subjects_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" DROP NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" SET DEFAULT 'Default name'[0m
+  [1m[35m (206.5ms)[0m  [1m[35mALTER TABLE "departments" ADD "new_column" decimal(10,4) DEFAULT 25[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMENT ON COLUMN "departments"."new_column" IS 'New column at migration'[0m
+  [1m[35m (103.6ms)[0m  [1m[35mCREATE TABLE "new_table" ("id" bigserial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "departments" RENAME COLUMN "name" TO "new_name"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "departments" RENAME TO "new_departments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_departments_on_hod_id" RENAME TO "index_new_departments_on_hod_id"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER INDEX "index_departments_on_subjects_id" RENAME TO "index_new_departments_on_subjects_id"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910052346"]]
+  [1m[35m (35.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "subjects" DROP COLUMN "sample_column"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP INDEX  "index_students_on_id"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "subjects" DROP COLUMN "sample_column"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP INDEX  "index_students_on_id"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "departments" DROP COLUMN "subjects_id"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "new_departments" RENAME TO "departments"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER INDEX "index_new_departments_on_hod_id" RENAME TO "index_departments_on_hod_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_new_departments_on_subjects_id" RENAME TO "index_departments_on_subjects_id"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "subjects" DROP COLUMN "sample_column"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP INDEX  "index_students_on_id"[0m
+  [1m[35m (19.7ms)[0m  [1m[35mALTER TABLE "departments" DROP COLUMN "subjects_id"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" SET NOT NULL[0m
+  [1m[35m (2.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "new_departments" RENAME TO "departments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER INDEX "index_new_departments_on_hod_id" RENAME TO "index_departments_on_hod_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_new_departments_on_subjects_id" RENAME TO "index_departments_on_subjects_id"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "departments" RENAME COLUMN "new_name" TO "name"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "subjects" DROP COLUMN "sample_column"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP INDEX  "index_students_on_id"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "departments" DROP COLUMN "subjects_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "departments" ALTER COLUMN "name" SET NOT NULL[0m
+  [1m[35m (20.3ms)[0m  [1m[35mALTER TABLE "departments" DROP COLUMN "new_column"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE "new_table"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190910052346"]]
+  [1m[35m (26.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "departments" RENAME TO "new_departments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_departments_on_hod_id" RENAME TO "index_new_departments_on_hod_id"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "departments" RENAME COLUMN "name" TO "new_name"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "departments" RENAME TO "new_departments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_departments_on_hod_id" RENAME TO "index_new_departments_on_hod_id"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "departments" RENAME COLUMN "name" TO "new_name"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "departments" RENAME TO "new_departments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER INDEX "index_departments_on_hod_id" RENAME TO "index_new_departments_on_hod_id"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "departments" RENAME COLUMN "name" TO "new_name"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpDownExample2 (20190910052346)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910052346"]]
+  [1m[35m (38.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStudentsTeachersJoinTable (20190910055229)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateStudentsTeachersJoinTable (20190910055229)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "students_teachers" ("student_id" bigint NOT NULL, "teacher_id" bigint NOT NULL)[0m
+  [1m[35m (68.3ms)[0m  [1m[35mCREATE  INDEX  "index_students_teachers_on_student_id" ON "students_teachers"  ("student_id")[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCREATE  INDEX  "index_students_teachers_on_teacher_id" ON "students_teachers"  ("teacher_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910055229"]]
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

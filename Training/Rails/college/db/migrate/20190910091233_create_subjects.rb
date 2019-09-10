@@ -1,10 +1,10 @@
 class CreateSubjects < ActiveRecord::Migration[5.2]
   def change
-    create_table :subjects, :id => false, :primary_key => :id do |t|
-      t.text :id
+    create_table :subjects do |t|
       t.text :name
       t.integer :year
-      t.belongs_to :department
+      t.text :type
+      t.references :department, index:true
 
       t.timestamps
     end

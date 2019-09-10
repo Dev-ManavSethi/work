@@ -1,10 +1,6 @@
 class Student < ApplicationRecord
-  #associations
   belongs_to :section
-  has_and_belongs_to_many :teachers
+  has_one :department, through: :section
   has_and_belongs_to_many :subjects
-  has_one :department, through :section
-  has_many :assignments, as: :assigned
-  #validations
-
+  has_many :teachers, through: :section
 end

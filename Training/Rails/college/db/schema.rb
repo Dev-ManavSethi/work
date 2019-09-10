@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_055229) do
+ActiveRecord::Schema.define(version: 2019_09_10_072243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", id: false, force: :cascade do |t|
+    t.text "id"
+    t.bigint "departments_id"
+    t.bigint "teachers_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["departments_id"], name: "index_assignments_on_departments_id"
+    t.index ["teachers_id"], name: "index_assignments_on_teachers_id"
+  end
 
   create_table "departments", id: false, force: :cascade do |t|
     t.text "id"
@@ -82,6 +92,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_055229) do
     t.integer "exp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "supervisor_id"
+    t.index ["supervisor_id"], name: "index_teachers_on_supervisor_id"
   end
 
 end

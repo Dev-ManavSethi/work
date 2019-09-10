@@ -5,6 +5,7 @@ class Department < ApplicationRecord
   has_many :teachers, through :sections
   has_many :students, through :sections
   has_one :hod, class_name: "Teacher", foreign_key: 'teacher_id'
+  has_many :assignments
   #validations
   validates :name, :id, :isAcademic, presence: true, confirmation: {accept: true, message: "Doesn't match confirmation"}
   validates :isAcademic, acceptance: {accept: [true, "t",true, "yes", "y","1", 1,0, "0","n" "no", "false", "f", false], message: "Enter valid value", case_sensetive: false}

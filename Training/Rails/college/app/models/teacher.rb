@@ -5,6 +5,11 @@ class Teacher < ApplicationRecord
   has_and_belongs_to_many :sections
   has_and_belongs_to_many :students
   belongs_to :department, through :sections
+  #Polymorphic association
+  has_many :assignments, as: :assigned
+  #Self Join association
+  has_many :assitant_teachers, class_name: 'Teacher', foreign_key: 'supervisor_id'
+  belongs_to :supervisor, class_name: 'Teacher', optional: true
   #validations
   validates :id, :name, :dob, :exp, presence:true
   validates :id, format: {with: /[TCHR]-\w/, message: "Expression: [A-Z][A-Z]-\w"}

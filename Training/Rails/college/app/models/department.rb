@@ -8,4 +8,5 @@ class Department < ApplicationRecord
   #validations
   validates :name, presence: true, confirmation: {accept: true, message: "Doesn't match confirmation"}
   validates :name, uniqueness:true, length: {maximum: 30, minimun:6, too_long:"Maximum department name length is 30", too_short: "Minimum department name length is 6"}
+
 end

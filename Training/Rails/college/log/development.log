@@ -4607,3 +4607,25 @@ Migrating to AddSuperVisorToTeachers (20190910101255)
   [1m[36mDepartment Load (1.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mDepartment Load (2.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mDepartment Load (1.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (38.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAssignments (20190911055834)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (543.6ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" bigserial primary key, "name" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911055834"]]
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddReferenceToTeachersAndStudents (20190911061005)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (27.8ms)[0m  [1m[35mALTER TABLE "teachers" ADD "assigned_type" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "teachers" ADD "assigned_id" bigint[0m
+  [1m[35m (71.0ms)[0m  [1m[35mCREATE  INDEX  "index_teachers_on_assigned_type_and_assigned_id" ON "teachers"  ("assigned_type", "assigned_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "students" ADD "assigned_type" character varying[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "students" ADD "assigned_id" bigint[0m
+  [1m[35m (70.9ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_assigned_type_and_assigned_id" ON "students"  ("assigned_type", "assigned_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911061005"]]
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (21.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

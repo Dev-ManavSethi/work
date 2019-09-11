@@ -7,6 +7,7 @@ class Section < ApplicationRecord
   has_many :subjects, through: :department
   has_many :students
   has_many :good_students, -> { where("percentage>80")}, class_name: 'Student'
+  has_many :exams
 
   validates :department_id,:name, presence: true
   validates :name, format: {with: /[A-Z][A-Z]-2K\d\d/, message:"Wrong section name pattern"}, length:{is:7, wrong_length:"Wrong length of section id, correct: 7"}

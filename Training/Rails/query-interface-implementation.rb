@@ -95,8 +95,33 @@ end
 Department.find(20)
 Department.find(20, 30)
 
-Department.find(20..30)
+Department.find(20..30) 
 Department.find(20,30, 40)
-Department.take(10)
-Department.take!(10)
-Department.take(10)!
+ Department.take(10)
+ Department.take!(10) 
+Department.take(10)! 
+Department.preload(:sections) 
+Department.preload(:sections).to_a 
+Department.preload(:sections)[0] 
+Department.preload(:sections)[0].name 
+Department.preload(:sections).where(id>2) 
+Department.preload(:sections).where(section.id>2) 
+Department.preload(:sections).where("section.id>2") 
+Department.preload(:sections).where('sections.id>2') 
+Department.preload(:sections).where('sections.id=1') 
+Department.preload(:sections).where('sections.id=1').to_a 
+Department.includes(:sections).where('sections.id=1').to_a 
+Department.includes(:sections).where('sections.id=1') 
+Department.includes(:sections).where('departments.id=1') 
+Department.includes(:sections).where('departments.id<3') 
+Department.includes(:sections).where('sections.id<3') 
+Department.includes(:sections).where('sections.id=3') 
+Department.includes(:sections).where('sections.id=3').to_a 
+Department.includes(:sections).references(:sections).to_a 
+Department.includes(:sections).where('section_id=1')references(:sections).to_a 
+Department.includes(:sections).where('section_id=1').references(:sections).to_a 
+Department.includes(:sections).where('section.id=1').references(:sections).to_a 
+Department.includes(:sections).where('"section"."id"=1').references(:sections).to_a 
+Department.eager_load(:sections) Department.eager_load(:sections).to_a 
+Department.joins(:sections)
+Department.joins(:sections).select(:name).group(:name).count

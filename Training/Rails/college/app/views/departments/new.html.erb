@@ -8,22 +8,15 @@
 <h1>Add New Department</h1>
 
 <%= form_for @department do |form|%>
+<!-- <p>
 
-
-
-<p>
-  <%= form.label :id %>
-  <%= form.text_field :id%>
-</<p>
+</p> -->
 
   <p>
     <%= form.label :name %>
     <%= form.text_field :name%>
-  </<p>
-    <p>
-      <%= form.label :teachers_id %>
-      <%= form.text_field :teachers_id%>
-    </<p>
+  </p>
+
 <br/>
       <%=form.submit%>
 <% end %>

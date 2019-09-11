@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   has_and_belongs_to_many :subjects
   has_many :teachers, through: :section
   has_many :assignments, as: :assigned
+  has_and_belongs_to_many :exams
 
   after_destroy CallBacks
   around_save CallBacks

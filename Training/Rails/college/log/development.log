@@ -5050,3 +5050,231 @@ Migrating to AddMarksColumnToStudents (20190911091123)
   [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" WHERE "sections"."department_id" = $1 LIMIT $2[0m  [["department_id", 1], ["LIMIT", 11]]
   [1m[36mDepartment Load (0.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[35m (3.0ms)[0m  [1m[34mSELECT "sections"."id" FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateExams (20190911101239)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (196.2ms)[0m  [1m[35mCREATE TABLE "exams" ("id" bigserial primary key, "name" text, "subject_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (44.3ms)[0m  [1m[35mCREATE  INDEX  "index_exams_on_subject_id" ON "exams"  ("subject_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911101239"]]
+  [1m[35m (24.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinExamsStudentsSections (20190911102101)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinExamsStudentsSections (20190911102101)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "exams_sections" ("exam_id" bigint NOT NULL, "section_id" bigint NOT NULL)[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE  INDEX  "index_exams_sections_on_exam_id" ON "exams_sections"  ("exam_id")[0m
+  [1m[35m (54.4ms)[0m  [1m[35mCREATE  INDEX  "index_exams_sections_on_section_id" ON "exams_sections"  ("section_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911102101"]]
+  [1m[35m (32.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateJoinExamsStudentsSections (20190911102101)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.7ms)[0m  [1m[35mDROP TABLE "exams_sections"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190911102101"]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-09-11 16:01:07 +0530
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (5.2ms)
+Completed 200 OK in 56ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-09-11 16:01:09 +0530
+Processing by AboutController#index as HTML
+  Rendering about/index.html.erb
+  Rendered about/index.html.erb (0.7ms)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:01:17 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (9.0ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     7:   <body>
+     8: <h1>Add New Department</h1>
+     9: 
+    10: <%= form_for @department do |form|%>
+    11: 
+    12: 
+    13: 
+  
+app/views/departments/new.html.erb:10:in `_app_views_departments_new_html_erb__775867993413496753_22278580'
+app/controllers/departments_controller.rb:13:in `new'
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:02:21 +0530
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (70.3ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `teachers_id' for #<Department:0x000000000311ec68>):
+    19:   </<p>
+    20:     <p>
+    21:       <%= form.label :teachers_id %>
+    22:       <%= form.text_field :teachers_id%>
+    23:     </<p>
+    24: <br/>
+    25:       <%=form.submit%>
+  
+app/views/departments/new.html.erb:22:in `block in _app_views_departments_new_html_erb__469053718973219857_26882400'
+app/views/departments/new.html.erb:10:in `_app_views_departments_new_html_erb__469053718973219857_26882400'
+app/controllers/departments_controller.rb:14:in `new'
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:03:05 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (14.2ms)
+Completed 200 OK in 49ms (Views: 18.4ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/departments" for 127.0.0.1 at 2019-09-11 16:03:22 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"58HAkCXFpse4mAR5SG1asUXlLt4G6T/UODqqDTF6DIfmqFVtmbXoUO5XzZFAhAVVLsoW8NIbPIP2yPiPYWni3g==", "department"=>{"id"=>"103", "name"=>"Mechanical Engineering", "hod_id"=>"3"}, "commit"=>"Create Department"}
+Unpermitted parameter: :hod_id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "Mechanical Engineering"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `around_save' for CallBacks:Class):
+  
+app/controllers/departments_controller.rb:8:in `create'
+Started GET "/departments/NEW" for 127.0.0.1 at 2019-09-11 16:04:26 +0530
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"NEW"}
+  Rendering departments/show.html.erb
+  Rendered departments/show.html.erb (1.3ms)
+Completed 200 OK in 15ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:04:31 +0530
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (32.1ms)
+Completed 200 OK in 76ms (Views: 37.1ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/departments" for 127.0.0.1 at 2019-09-11 16:04:40 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5ivOblZdLHIO/TPblh+aUfVxhwMYQ6KYhmG5EyZNsTPnQluT6i1i5Vgy+jOe9sW1nl6/Lcyxoc9Ik+uRdl5fag==", "department"=>{"id"=>"104", "name"=>"Mechanical Engineering", "hod_id"=>"4"}, "commit"=>"Create Department"}
+Unpermitted parameter: :hod_id
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "Mechanical Engineering"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `around_create' for CallBacks:Class):
+  
+app/controllers/departments_controller.rb:8:in `create'
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:05:05 +0530
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (28.3ms)
+Completed 200 OK in 66ms (Views: 31.7ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/departments" for 127.0.0.1 at 2019-09-11 16:05:14 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BN7kVvARw9xThqf02O79xVb86LqsTUS+7uEvHEiYLBMFt3GrTGGNSwVJbhzQB6IhPdPQlHi/R+kgE32eGIvCSg==", "department"=>{"id"=>"106", "name"=>"Mechanical Engineering", "hod_id"=>"4"}, "commit"=>"Create Department"}
+Unpermitted parameter: :hod_id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "Mechanical Engineering"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (32.6ms)[0m  [1m[32mINSERT INTO "departments" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 106], ["name", "Mechanical Engineering"], ["created_at", "2019-09-11 10:35:14.633287"], ["updated_at", "2019-09-11 10:35:14.633287"]]
+  [1m[35m (43.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 77.4ms)
+
+
+  
+TypeError (no implicit conversion of Integer into String):
+  
+app/controllers/departments_controller.rb:9:in `+'
+app/controllers/departments_controller.rb:9:in `create'
+Started GET "/departments/new" for 127.0.0.1 at 2019-09-11 16:07:26 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#new as HTML
+  Rendering departments/new.html.erb
+  Rendered departments/new.html.erb (28.3ms)
+Completed 200 OK in 64ms (Views: 32.4ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/departments" for 127.0.0.1 at 2019-09-11 16:07:30 +0530
+Processing by DepartmentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W7w81i61FvItvwa94SNFMJJ/fqZ7CgZt5boFO7bdt6da1akrksVYZXtwz1XpyhrU+VBGiK/4BTorSFe55s5Z/g==", "department"=>{"name"=>"ME"}, "commit"=>"Create Department"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "ME"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (56.8ms)[0m  [1m[32mINSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "ME"], ["created_at", "2019-09-11 10:37:30.085705"], ["updated_at", "2019-09-11 10:37:30.085705"]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 59.6ms)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "departments_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "departments" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"):
+  
+app/controllers/departments_controller.rb:8:in `create'
+  [1m[36mDepartment Load (0.6ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSection Load (1.5ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [["department_id", 1], ["department_id", 2], ["department_id", 3], ["department_id", 4], ["department_id", 5], ["department_id", 6], ["department_id", 7], ["department_id", 8], ["department_id", 9], ["department_id", 10], ["department_id", 11]]
+  [1m[36mDepartment Load (2.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  [1m[36mSection Load (1.8ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $90, $91, $92, $93, $94, $95, $96, $97, $98, $99, $100, $101, $102)[0m  [["department_id", 1], ["department_id", 2], ["department_id", 3], ["department_id", 4], ["department_id", 5], ["department_id", 6], ["department_id", 7], ["department_id", 8], ["department_id", 9], ["department_id", 10], ["department_id", 11], ["department_id", 12], ["department_id", 13], ["department_id", 14], ["department_id", 15], ["department_id", 16], ["department_id", 17], ["department_id", 18], ["department_id", 19], ["department_id", 20], ["department_id", 21], ["department_id", 22], ["department_id", 23], ["department_id", 24], ["department_id", 25], ["department_id", 26], ["department_id", 27], ["department_id", 28], ["department_id", 29], ["department_id", 30], ["department_id", 31], ["department_id", 32], ["department_id", 33], ["department_id", 34], ["department_id", 35], ["department_id", 36], ["department_id", 37], ["department_id", 38], ["department_id", 39], ["department_id", 40], ["department_id", 41], ["department_id", 42], ["department_id", 43], ["department_id", 44], ["department_id", 45], ["department_id", 46], ["department_id", 47], ["department_id", 48], ["department_id", 49], ["department_id", 50], ["department_id", 51], ["department_id", 52], ["department_id", 53], ["department_id", 54], ["department_id", 55], ["department_id", 56], ["department_id", 57], ["department_id", 58], ["department_id", 59], ["department_id", 60], ["department_id", 61], ["department_id", 62], ["department_id", 63], ["department_id", 64], ["department_id", 65], ["department_id", 66], ["department_id", 67], ["department_id", 68], ["department_id", 69], ["department_id", 70], ["department_id", 71], ["department_id", 72], ["department_id", 73], ["department_id", 74], ["department_id", 75], ["department_id", 76], ["department_id", 77], ["department_id", 78], ["department_id", 79], ["department_id", 80], ["department_id", 81], ["department_id", 82], ["department_id", 83], ["department_id", 84], ["department_id", 85], ["department_id", 86], ["department_id", 87], ["department_id", 88], ["department_id", 89], ["department_id", 90], ["department_id", 91], ["department_id", 92], ["department_id", 93], ["department_id", 94], ["department_id", 95], ["department_id", 96], ["department_id", 97], ["department_id", 98], ["department_id", 99], ["department_id", 100], ["department_id", 101], ["department_id", 106]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  [1m[36mSection Load (1.7ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $90, $91, $92, $93, $94, $95, $96, $97, $98, $99, $100, $101, $102)[0m  [["department_id", 1], ["department_id", 2], ["department_id", 3], ["department_id", 4], ["department_id", 5], ["department_id", 6], ["department_id", 7], ["department_id", 8], ["department_id", 9], ["department_id", 10], ["department_id", 11], ["department_id", 12], ["department_id", 13], ["department_id", 14], ["department_id", 15], ["department_id", 16], ["department_id", 17], ["department_id", 18], ["department_id", 19], ["department_id", 20], ["department_id", 21], ["department_id", 22], ["department_id", 23], ["department_id", 24], ["department_id", 25], ["department_id", 26], ["department_id", 27], ["department_id", 28], ["department_id", 29], ["department_id", 30], ["department_id", 31], ["department_id", 32], ["department_id", 33], ["department_id", 34], ["department_id", 35], ["department_id", 36], ["department_id", 37], ["department_id", 38], ["department_id", 39], ["department_id", 40], ["department_id", 41], ["department_id", 42], ["department_id", 43], ["department_id", 44], ["department_id", 45], ["department_id", 46], ["department_id", 47], ["department_id", 48], ["department_id", 49], ["department_id", 50], ["department_id", 51], ["department_id", 52], ["department_id", 53], ["department_id", 54], ["department_id", 55], ["department_id", 56], ["department_id", 57], ["department_id", 58], ["department_id", 59], ["department_id", 60], ["department_id", 61], ["department_id", 62], ["department_id", 63], ["department_id", 64], ["department_id", 65], ["department_id", 66], ["department_id", 67], ["department_id", 68], ["department_id", 69], ["department_id", 70], ["department_id", 71], ["department_id", 72], ["department_id", 73], ["department_id", 74], ["department_id", 75], ["department_id", 76], ["department_id", 77], ["department_id", 78], ["department_id", 79], ["department_id", 80], ["department_id", 81], ["department_id", 82], ["department_id", 83], ["department_id", 84], ["department_id", 85], ["department_id", 86], ["department_id", 87], ["department_id", 88], ["department_id", 89], ["department_id", 90], ["department_id", 91], ["department_id", 92], ["department_id", 93], ["department_id", 94], ["department_id", 95], ["department_id", 96], ["department_id", 97], ["department_id", 98], ["department_id", 99], ["department_id", 100], ["department_id", 101], ["department_id", 106]]
+  [1m[36mDepartment Load (2.6ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  [1m[36mSection Load (2.4ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $90, $91, $92, $93, $94, $95, $96, $97, $98, $99, $100, $101, $102)[0m  [["department_id", 1], ["department_id", 2], ["department_id", 3], ["department_id", 4], ["department_id", 5], ["department_id", 6], ["department_id", 7], ["department_id", 8], ["department_id", 9], ["department_id", 10], ["department_id", 11], ["department_id", 12], ["department_id", 13], ["department_id", 14], ["department_id", 15], ["department_id", 16], ["department_id", 17], ["department_id", 18], ["department_id", 19], ["department_id", 20], ["department_id", 21], ["department_id", 22], ["department_id", 23], ["department_id", 24], ["department_id", 25], ["department_id", 26], ["department_id", 27], ["department_id", 28], ["department_id", 29], ["department_id", 30], ["department_id", 31], ["department_id", 32], ["department_id", 33], ["department_id", 34], ["department_id", 35], ["department_id", 36], ["department_id", 37], ["department_id", 38], ["department_id", 39], ["department_id", 40], ["department_id", 41], ["department_id", 42], ["department_id", 43], ["department_id", 44], ["department_id", 45], ["department_id", 46], ["department_id", 47], ["department_id", 48], ["department_id", 49], ["department_id", 50], ["department_id", 51], ["department_id", 52], ["department_id", 53], ["department_id", 54], ["department_id", 55], ["department_id", 56], ["department_id", 57], ["department_id", 58], ["department_id", 59], ["department_id", 60], ["department_id", 61], ["department_id", 62], ["department_id", 63], ["department_id", 64], ["department_id", 65], ["department_id", 66], ["department_id", 67], ["department_id", 68], ["department_id", 69], ["department_id", 70], ["department_id", 71], ["department_id", 72], ["department_id", 73], ["department_id", 74], ["department_id", 75], ["department_id", 76], ["department_id", 77], ["department_id", 78], ["department_id", 79], ["department_id", 80], ["department_id", 81], ["department_id", 82], ["department_id", 83], ["department_id", 84], ["department_id", 85], ["department_id", 86], ["department_id", 87], ["department_id", 88], ["department_id", 89], ["department_id", 90], ["department_id", 91], ["department_id", 92], ["department_id", 93], ["department_id", 94], ["department_id", 95], ["department_id", 96], ["department_id", 97], ["department_id", 98], ["department_id", 99], ["department_id", 100], ["department_id", 101], ["department_id", 106]]
+  [1m[36mDepartment Load (49.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (section.id>2) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (4.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (sections.id>2) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (sections.id=1) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (2.0ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE (sections.id=1)[0m
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE (sections.id=1)[0m
+  [1m[36mDepartment Load (1.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (sections.id=1) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (departments.id=1) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (departments.id<3) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" IN ($1, $2)[0m  [["department_id", 1], ["department_id", 2]]
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (sections.id<3) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE (sections.id=3) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDepartment Load (1.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE (sections.id=3)[0m
+  [1m[35mSQL (15.8ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id"[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id" WHERE (section_id=1)[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id" WHERE (section.id=1)[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id" WHERE ("section"."id"=1)[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[34mSELECT  DISTINCT "departments"."id" FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id" WHERE "departments"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)[0m  [["id", 1], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10], ["id", 11]]
+  [1m[35mSQL (2.3ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id"[0m
+  [1m[36mDepartment Load (1.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN "sections" ON "sections"."department_id" = "departments"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT("departments"."name") AS count_name, "departments"."name" AS departments_name FROM "departments" INNER JOIN "sections" ON "sections"."department_id" = "departments"."id" GROUP BY "departments"."name"[0m

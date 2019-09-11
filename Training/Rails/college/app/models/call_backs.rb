@@ -1,4 +1,4 @@
-class CallBack < ApplicationRecord
+class CallBacks
   def before_validation(object)
   end
 

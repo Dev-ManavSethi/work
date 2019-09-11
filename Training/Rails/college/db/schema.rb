@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_063128) do
+ActiveRecord::Schema.define(version: 2019_09_11_091123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_063128) do
     t.bigint "co_ordinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
     t.index ["co_ordinator_id"], name: "index_sections_on_co_ordinator_id"
     t.index ["department_id"], name: "index_sections_on_department_id"
   end
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_063128) do
     t.datetime "updated_at", null: false
     t.string "assigned_type"
     t.bigint "assigned_id"
+    t.integer "percentage"
     t.index ["assigned_type", "assigned_id"], name: "index_students_on_assigned_type_and_assigned_id"
     t.index ["section_id"], name: "index_students_on_section_id"
   end

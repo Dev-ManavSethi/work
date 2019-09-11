@@ -4999,3 +4999,36 @@ app/controllers/departments_controller.rb:3:in `index'
   [1m[36mDepartment Destroy (1.8ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
   [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
 >>>>>>> 430002edb225bad7c293c1f4647d3d02798b6513
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToSections (20190911070559)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "sections" ADD "year" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911070559"]]
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddMarksColumnToStudents (20190911091123)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "students" ADD "percentage" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911091123"]]
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mSection Load (79.1ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (1.3ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."section_id" = $1 AND (percentage>80) LIMIT $2[0m  [["section_id", 1], ["LIMIT", 11]]
+  [1m[36mDepartment Load (79.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (3.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (1.2ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]

@@ -4,7 +4,7 @@ class Teacher < ApplicationRecord
   belongs_to :section, optional: true, inverse_of: 'co_ordinator'
   has_and_belongs_to_many :subjects
   has_and_belongs_to_many :students
-  has_many :assistant_teachers, class_name: 'Teacher', foreign_key: 'supervisor_id'
+  has_many :assistant_teachers, class_name: 'Teacher', foreign_key: 'supervisor_id'#, ->{distinct}
   belongs_to :supervisor, class_name: 'Teacher', optional:true
   has_many :assignments, as: :assigned
 

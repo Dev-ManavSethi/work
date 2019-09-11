@@ -1,4 +1,8 @@
+require_relative 'member_functions'
 class Department < ApplicationRecord
+
+  #attributes: id, name, hod_id
+
   #associations
   has_many :sections
   has_one :hod, class_name: 'Teacher', foreign_key: :id
@@ -8,4 +12,8 @@ class Department < ApplicationRecord
   #validations
   validates :name, presence: true, confirmation: {accept: true, message: "Doesn't match confirmation"}
   validates :name, uniqueness:true, length: {maximum: 30, minimun:6, too_long:"Maximum department name length is 30", too_short: "Minimum department name length is 6"}
+
+  #callbacks
+  after_destroy CallBack
+
 end

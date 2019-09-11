@@ -4607,3 +4607,370 @@ Migrating to AddSuperVisorToTeachers (20190910101255)
   [1m[36mDepartment Load (1.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mDepartment Load (2.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mDepartment Load (1.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN sections ON departments.id=sections.department_id ORDER BY "departments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-10 23:26:15 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/usr/local/rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/usr/local/rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/usr/local/rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "college_development" ENCODING = 'unicode'[0m
+  [1m[35m (742.2ms)[0m  [1m[35mCREATE DATABASE "college_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "college_development" ENCODING = 'unicode'[0m
+  [1m[35m (119.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "college_development"[0m
+  [1m[35m (607.3ms)[0m  [1m[35mCREATE DATABASE "college_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "college_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments" CASCADE[0m
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" text, "hod_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_departments_on_hod_id" ON "departments"  ("hod_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "sections" CASCADE[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "sections" ("id" bigserial primary key, "name" text, "department_id" bigint, "co_ordinator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE  INDEX  "index_sections_on_co_ordinator_id" ON "sections"  ("co_ordinator_id")[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE  INDEX  "index_sections_on_department_id" ON "sections"  ("department_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "sections_teachers" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "sections_teachers" ("teacher_id" bigint NOT NULL, "section_id" bigint NOT NULL)[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_section_id" ON "sections_teachers"  ("section_id")[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_teacher_id" ON "sections_teachers"  ("teacher_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "name" text, "date_of_birth" date, "year" integer, "section_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_section_id" ON "students"  ("section_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects" CASCADE[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" bigserial primary key, "name" text, "year" integer, "type" text, "department_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_on_department_id" ON "subjects"  ("department_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects_teachers" CASCADE[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "subjects_teachers" ("teacher_id" bigint NOT NULL, "subject_id" bigint NOT NULL)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_subject_id" ON "subjects_teachers"  ("subject_id")[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_teacher_id" ON "subjects_teachers"  ("teacher_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "name" text, "date_of_birth" date, "experience" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "supervisor_id" bigint)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE  INDEX  "index_teachers_on_supervisor_id" ON "teachers"  ("supervisor_id")[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190910101255)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190909114915),
+(20190907051452),
+(20190910051117),
+(20190910072243),
+(20190909083655),
+(20190910093844),
+(20190910091233),
+(20190910075118),
+(20190909124459),
+(20190909124252),
+(20190910055229),
+(20190909123137),
+(20190910073607),
+(20190910051459),
+(20190910052346),
+(20190910091949),
+(20190909123948),
+(20190907031205),
+(20190910100228),
+(20190910075015),
+(20190910075006);
+
+[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-10 18:04:06.864568"], ["updated_at", "2019-09-10 18:04:06.864568"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments" CASCADE[0m
+  [1m[35m (31.0ms)[0m  [1m[35mCREATE TABLE "departments" ("id" bigserial primary key, "name" text, "hod_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_departments_on_hod_id" ON "departments"  ("hod_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "sections" CASCADE[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "sections" ("id" bigserial primary key, "name" text, "department_id" bigint, "co_ordinator_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE  INDEX  "index_sections_on_co_ordinator_id" ON "sections"  ("co_ordinator_id")[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX  "index_sections_on_department_id" ON "sections"  ("department_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "sections_teachers" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "sections_teachers" ("teacher_id" bigint NOT NULL, "section_id" bigint NOT NULL)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_section_id" ON "sections_teachers"  ("section_id")[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX  "index_sections_teachers_on_teacher_id" ON "sections_teachers"  ("teacher_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "students" CASCADE[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" bigserial primary key, "name" text, "date_of_birth" date, "year" integer, "section_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE  INDEX  "index_students_on_section_id" ON "students"  ("section_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects" CASCADE[0m
+  [1m[35m (18.6ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" bigserial primary key, "name" text, "year" integer, "type" text, "department_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_on_department_id" ON "subjects"  ("department_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "subjects_teachers" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "subjects_teachers" ("teacher_id" bigint NOT NULL, "subject_id" bigint NOT NULL)[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_subject_id" ON "subjects_teachers"  ("subject_id")[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE  INDEX  "index_subjects_teachers_on_teacher_id" ON "subjects_teachers"  ("teacher_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "teachers" CASCADE[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "teachers" ("id" bigserial primary key, "name" text, "date_of_birth" date, "experience" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "supervisor_id" bigint)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE  INDEX  "index_teachers_on_supervisor_id" ON "teachers"  ("supervisor_id")[0m
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190910101255)[0m
+  [1m[35m (3.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190909114915),
+(20190907051452),
+(20190910051117),
+(20190910072243),
+(20190909083655),
+(20190910093844),
+(20190910091233),
+(20190910075118),
+(20190909124459),
+(20190909124252),
+(20190910055229),
+(20190909123137),
+(20190910073607),
+(20190910051459),
+(20190910052346),
+(20190910091949),
+(20190909123948),
+(20190907031205),
+(20190910100228),
+(20190910075015),
+(20190910075006);
+
+[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-10 18:04:07.269058"], ["updated_at", "2019-09-10 18:04:07.269058"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-09-10 18:04:07.287932"], ["key", "environment"]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-09-10 23:34:28 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (1.2ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-09-10 23:34:30 +0530
+Processing by AboutController#index as HTML
+  Rendering about/index.html.erb
+  Rendered about/index.html.erb (0.6ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-10 23:34:32 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb
+  Rendered home/index.html.erb (0.9ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for 127.0.0.1 at 2019-09-10 23:34:35 +0530
+Processing by AboutController#index as HTML
+  Rendering about/index.html.erb
+  Rendered about/index.html.erb (0.5ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/departments" for 127.0.0.1 at 2019-09-10 23:34:41 +0530
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (0.4ms)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:29:59 +0530
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" LIMIT $1[0m  [["LIMIT", 11]]
+  Rendered departments/index.html.erb (16.8ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `for_each' for #<ActiveRecord::Relation []>):
+     6:   </head>
+     7:   <body>
+     8: <h1>College Departments</h1>
+     9: <%= Department.all.for_each do |d|
+    10: puts d.name
+    11: end%>
+    12:   </body>
+  
+app/views/departments/index.html.erb:9:in `_app_views_departments_index_html_erb___2484416125078805196_47373729683800'
+app/controllers/departments_controller.rb:3:in `index'
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:30:51 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT "departments".* FROM "departments"[0m
+  Rendered departments/index.html.erb (9.5ms)
+Completed 200 OK in 15ms (Views: 10.5ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mDepartment Load (0.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (1.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (1.6ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (1.3ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:41:36 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (2.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- html/table):
+  
+app/views/departments/index.html.erb:9:in `_app_views_departments_index_html_erb__2799651000047887537_46959128248860'
+app/controllers/departments_controller.rb:3:in `index'
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:44:08 +0530
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (13.7ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `include' for #<#<Class:0x000055d0b1891c28>:0x000055d0b18af548>):
+     7:   <body>
+     8: <h1>College Departments</h1>
+     9: <%= require 'html/table'
+    10: include HTML
+    11: 
+    12: table = HTML::Table.new do
+    13: border 1
+  
+app/views/departments/index.html.erb:10:in `_app_views_departments_index_html_erb___2207867538832251042_47177410177460'
+app/controllers/departments_controller.rb:3:in `index'
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:46:08 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (12.6ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `include' for #<#<Class:0x000055ece2d094c0>:0x000055ece2d2f788>):
+     7:   <body>
+     8: <h1>College Departments</h1>
+     9: <%= require 'html/table'
+    10: include HTML
+    11: 
+    12: table = HTML::Table.new do
+    13: border 1
+  
+app/views/departments/index.html.erb:10:in `_app_views_departments_index_html_erb__2825058218654551799_47237953124720'
+app/controllers/departments_controller.rb:3:in `index'
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:47:18 +0530
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (3.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::Template::HTML::Table):
+     9: <%= require 'html/table'
+    10: #include HTML
+    11: 
+    12: table = HTML::Table.new do
+    13: border 1
+    14: end
+    15: 
+  
+app/views/departments/index.html.erb:12:in `_app_views_departments_index_html_erb___4492959510851048807_47100775807860'
+app/controllers/departments_controller.rb:3:in `index'
+Started GET "/departments" for 127.0.0.1 at 2019-09-11 00:48:13 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DepartmentsController#index as HTML
+  Rendering departments/index.html.erb
+  Rendered departments/index.html.erb (3.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Table):
+     9: <%= require 'html/table'
+    10: #include HTML
+    11: 
+    12: table = Table.new do
+    13: border 1
+    14: end
+    15: 
+  
+app/views/departments/index.html.erb:12:in `_app_views_departments_index_html_erb__484297820485627808_47386959925260'
+app/controllers/departments_controller.rb:3:in `index'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "CE"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (1.1ms)[0m  [1m[32mINSERT INTO "departments" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "CE"], ["created_at", "2019-09-11 03:23:17.963553"], ["updated_at", "2019-09-11 03:23:17.963553"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDepartment Load (1.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.3ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "CE"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (1.5ms)[0m  [1m[32mINSERT INTO "departments" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "CE"], ["created_at", "2019-09-11 03:50:52.755954"], ["updated_at", "2019-09-11 03:50:52.755954"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDepartment Load (1.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "CE"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (1.4ms)[0m  [1m[32mINSERT INTO "departments" ("id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["id", 1], ["name", "CE"], ["created_at", "2019-09-11 03:52:14.634327"], ["updated_at", "2019-09-11 03:52:14.634327"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDepartment Load (1.2ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mDepartment Load (0.7ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Destroy (1.8ms)[0m  [1m[31mDELETE FROM "departments" WHERE "departments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m

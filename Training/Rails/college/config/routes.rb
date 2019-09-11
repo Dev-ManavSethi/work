@@ -6,45 +6,18 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
   get 'about' => 'about#index'
-  #
-  # get 'departments' => 'departments#index'
-
-  # get 'departments/new' => 'departments#new'
-  # post 'departments' => 'departments#add'
-  #
-  # get 'departments/:id' => 'departments#view'
-  #
-  # get 'departments/edit/:id' => 'departments#edit'
-  # patch 'departments' => 'departments#update'
-  #
-  # delete 'departments' => 'departments#delete'
-
-  #
-  # get 'success/:msg' => 'home#success'
-
 
   resources :departments
-  # 
-  # get 'section' => 'sections#index'
+  
+  resources :sections
 
-  # get 'sections/new' => 'sections#new'
-  # post 'sections' => 'sections#add'
-  #
-  # get 'sections/:id' => 'sections#view'
-  #
-  # get 'sections/edit/:id' => 'sections#edit'
-  # patch 'sections' => 'sections#update'
-  #
-  # delete 'sections' => 'sections#delete'
-  #
-  #
-  # get 'success/:msg' => 'home#success'
-  #
-  #
-  # resources :sections
+  resources :teachers
 
-  #get 'teacher' => 'teacher#index'
+  resources :subjects
 
+  resources :students
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -18,6 +18,8 @@ class Department < ApplicationRecord
   #callbacks
   after_destroy CallBacks
   around_save CallBacks
+  around_update CallBacks
+  around_create CallBacks
 
   private
   def check_section(section)

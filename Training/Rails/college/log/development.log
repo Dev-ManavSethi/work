@@ -5032,3 +5032,6 @@ Migrating to AddMarksColumnToStudents (20190911091123)
   [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]
   [1m[36mDepartment Load (0.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mSection Load (1.2ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]
+  [1m[36mDepartment Load (0.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDepartment Load (0.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" ORDER BY "departments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT "sections".* FROM "sections" WHERE "sections"."department_id" = $1[0m  [["department_id", 1]]

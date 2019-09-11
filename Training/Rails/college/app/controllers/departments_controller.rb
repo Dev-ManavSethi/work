@@ -6,7 +6,7 @@ class DepartmentsController < ActionController::Base
   def create
     @department = Department.new(get_params)
     @department.save
-    redirect_to article
+    redirect_to '/department/'+@department.id
   end
 
   def new

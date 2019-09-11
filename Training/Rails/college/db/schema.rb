@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_101239) do
+ActiveRecord::Schema.define(version: 2019_09_11_121845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,13 +39,20 @@ ActiveRecord::Schema.define(version: 2019_09_11_101239) do
     t.index ["subject_id"], name: "index_exams_on_subject_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.text "image_path"
+    t.integer "image_profile_id"
+    t.string "image_profile_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sections", force: :cascade do |t|
     t.text "name"
     t.bigint "department_id"
     t.bigint "co_ordinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "year"
     t.index ["co_ordinator_id"], name: "index_sections_on_co_ordinator_id"
     t.index ["department_id"], name: "index_sections_on_department_id"
   end

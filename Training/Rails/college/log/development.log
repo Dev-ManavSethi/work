@@ -5278,3 +5278,227 @@ app/controllers/departments_controller.rb:8:in `create'
   [1m[35mSQL (2.3ms)[0m  [1m[34mSELECT "departments"."id" AS t0_r0, "departments"."name" AS t0_r1, "departments"."hod_id" AS t0_r2, "departments"."created_at" AS t0_r3, "departments"."updated_at" AS t0_r4, "sections"."id" AS t1_r0, "sections"."name" AS t1_r1, "sections"."department_id" AS t1_r2, "sections"."co_ordinator_id" AS t1_r3, "sections"."created_at" AS t1_r4, "sections"."updated_at" AS t1_r5, "sections"."year" AS t1_r6 FROM "departments" LEFT OUTER JOIN "sections" ON "sections"."department_id" = "departments"."id"[0m
   [1m[36mDepartment Load (1.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" INNER JOIN "sections" ON "sections"."department_id" = "departments"."id" LIMIT $1[0m  [["LIMIT", 11]]
   [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT("departments"."name") AS count_name, "departments"."name" AS departments_name FROM "departments" INNER JOIN "sections" ON "sections"."department_id" = "departments"."id" GROUP BY "departments"."name"[0m
+  [1m[36mTeacher Load (43.0ms)[0m  [1m[34mSELECT  "teachers"."name" FROM "teachers" GROUP BY "teachers"."name" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTeacher Load (1.1ms)[0m  [1m[34mSELECT  "teachers"."name" FROM "teachers" GROUP BY "teachers"."name" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTeacher Load (1.2ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (56.1ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1 LIMIT $2[0m  [["teacher_id", 1], ["LIMIT", 11]]
+  [1m[36mTeacher Load (0.8ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSubject Load (0.6ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1 LIMIT $2[0m  [["teacher_id", 101], ["LIMIT", 11]]
+  [1m[36mTeacher Load (1.0ms)[0m  [1m[34mSELECT  "teachers".* FROM "teachers" ORDER BY "teachers"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 101]]
+  [1m[36mTeacher Load (3.1ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 5]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 6]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 7]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 9]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 10]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 12]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 13]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 14]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 15]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 16]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 17]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 18]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 19]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 20]]
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 21]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 22]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 23]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 24]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 25]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 26]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 27]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 28]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 29]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 30]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 31]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 32]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 33]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 34]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 35]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 36]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 37]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 38]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 39]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 41]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 42]]
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 43]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 44]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 45]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 46]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 47]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 48]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 49]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 50]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 51]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 52]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 53]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 54]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 55]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 56]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 57]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 58]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 59]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 60]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 61]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 62]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 63]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 64]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 65]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 66]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 67]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 68]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 69]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 70]]
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 71]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 72]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 73]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 74]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 75]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 76]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 77]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 78]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 79]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 80]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 81]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 82]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 83]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 84]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 85]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 86]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 87]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 88]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 89]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 90]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 91]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 92]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 93]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 94]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 95]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 96]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 97]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 98]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 99]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 100]]
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "subjects" INNER JOIN "subjects_teachers" ON "subjects"."id" = "subjects_teachers"."subject_id" WHERE "subjects_teachers"."teacher_id" = $1[0m  [["teacher_id", 101]]
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT  "students"."name" FROM "students" WHERE (department="CE") LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (2.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mSection Load (0.6ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (0.9ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mStudent Load (3.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mSection Load (0.6ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSection Load (0.8ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (27.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveYearFromSection (20190911120947)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "sections" DROP COLUMN "year"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911120947"]]
+  [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" ORDER BY "sections"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mStudent Load (1.4ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT  "sections".* FROM "sections" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImage (20190911121454)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (123.1ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_id" integer, "image_type" character varying)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911121454"]]
+  [1m[35m (22.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImage (20190911121454)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.9ms)[0m  [1m[35mDROP TABLE "images"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190911121454"]]
+  [1m[35m (32.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImage (20190911121454)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.1ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_profile_id" integer, "image_profile_type" character varying)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911121454"]]
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImage (20190911121454)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE "images"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20190911121454"]]
+  [1m[35m (38.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImage (20190911121454)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (123.0ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_profile_id" integer, "image_profile_type" character varying)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911121454"]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImages (20190911121845)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_profile_id" integer, "image_profile_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20190911121845)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_profile_id" integer, "image_profile_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20190911121845)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (130.5ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "image_path" text, "image_profile_id" integer, "image_profile_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190911121845"]]
+  [1m[35m (32.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.8ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["image_path", "/gg//hh"], ["created_at", "2019-09-11 12:24:50.003203"], ["updated_at", "2019-09-11 12:24:50.003203"]]
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Update (0.9ms)[0m  [1m[33mUPDATE "images" SET "image_profile_id" = $1, "image_profile_type" = $2, "updated_at" = $3 WHERE "images"."id" = $4[0m  [["image_profile_id", 1], ["image_profile_type", "Student"], ["updated_at", "2019-09-11 12:26:21.397272"], ["id", 1]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mStudent Load (5.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."image_profile_id" = $1 AND "images"."image_profile_type" = $2 LIMIT $3[0m  [["image_profile_id", 1], ["image_profile_type", "Student"], ["LIMIT", 1]]

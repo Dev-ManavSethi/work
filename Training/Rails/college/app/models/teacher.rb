@@ -8,6 +8,7 @@ class Teacher < ApplicationRecord
   has_many :assistant_teachers, class_name: 'Teacher', foreign_key: 'supervisor_id'#, ->{distinct}
   belongs_to :supervisor, class_name: 'Teacher', optional:true
   has_many :assignments, as: :assigned
+  has_one :image, as: :image_profile
 
   validates  :name, :date_of_birth, :experience, presence:true
   validates :name, length:{maximun:30, minimum:2, too_long:"Name exceeds 30 chars", too_short:"Name less than 30 chars"}

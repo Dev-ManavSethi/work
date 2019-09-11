@@ -6,6 +6,7 @@ class Student < ApplicationRecord
   has_many :teachers, through: :section
   has_many :assignments, as: :assigned
   has_and_belongs_to_many :exams
+  has_one :image, as: :image_profile
 
   after_destroy CallBacks
   around_save CallBacks

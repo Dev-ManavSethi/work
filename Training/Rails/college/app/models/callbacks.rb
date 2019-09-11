@@ -1,11 +1,17 @@
 class CallBack < ApplicationRecord
-  # before_validation
-  # after_validation
-  #
-  # before_save
-  # around_save
-  def after_save (object)
+  def before_validation(object)
+  end
 
+  def after_validation(object)
+  end
+
+  def before_save(object)
+  end
+
+  def around_save(object)
+  end
+
+  def after_save (object)
   end
 
   def before_create(object)
@@ -20,25 +26,40 @@ class CallBack < ApplicationRecord
   def after_create(object)
   end
 
-  after_commit
-  after_rollback
+  def after_commit(object)
+  end
 
-  before_update
-  around_update
-  after_update
+  def after_rollback(object)
+  end
 
-  before_destroy
-  around_destroy
-  after_destroy
+  def before_update(object)
+  end
 
-  after_initialize
+  def around_update(object)
+  end
 
-  after_find
+  def after_update(object)
+  end
 
-  after_touch
+  def before_destroy(object)
+  end
 
-  #Callbacks skipper
+  def around_destroy(object)
+  end
 
+  def after_destroy(object)
+  end
+
+  def after_initialize(object)
+  end
+
+  def after_find(object)
+  end
+
+  def after_touch(object)
+  end
+
+  #Callbacks skipper methods:
     # decrement!
     # decrement_counter
     # delete
@@ -49,6 +70,4 @@ class CallBack < ApplicationRecord
     # update_columns
     # update_all
     # update_counters
-
-
 end

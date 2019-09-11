@@ -8,9 +8,7 @@ class Department < ApplicationRecord
   has_one :hod, class_name: 'Teacher', foreign_key: :id, autosave:false, validate: true
   has_many :subjects, ->{order('id asc').limit(100)}#, ->{distinct}
   has_many :students, ->{group 'sections.id'}, through: :sections #, ->{distinct}
-  has_many :performing_sections, ->(d){where(d.sections do (s)
-    s.good_students.count>30
-  end)}, class_name: 'Section'
+  has_many :performing_sections, ->(d){where()}, class_name: 'Section'
 
   #validations
   validates :name, presence: true, confirmation: {accept: true, message: "Doesn't match confirmation"}

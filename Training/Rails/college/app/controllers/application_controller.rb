@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -5,15 +7,9 @@ class ApplicationController < ActionController::Base
 
   $isadmin = true
 
-  def not_found
-  raise ActionController::RoutingError.new('Not Found')
-  end
-
   def isAdmin
-    if cookies[:admin]=="abc"
-      return true
-    end
-    return false
-  end
+    return true if cookies[:admin] == 'abc'
 
+    false
+  end
 end

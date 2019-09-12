@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DepartmentsController < ApplicationController
   def index
     render 'departments/index'
@@ -5,7 +7,6 @@ class DepartmentsController < ApplicationController
 
   def show
     @department = Department.find(params[:id].to_i)
-
     render 'departments/show'
   end
 
@@ -32,7 +33,7 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id].to_i)
     if @department.update(get_params)
       redirect_to department_path(@department)
-    else render "departments/edit"
+    else render 'departments/edit'
     end
   end
 
@@ -40,16 +41,13 @@ class DepartmentsController < ApplicationController
     @department = Department.find(params[:id].to_i)
     if @department.destroy
       render 'departments/index'
-    else puts "SORRRRRRRRRRRRRRRRRRRRRRRRRRRRRY"
+    else puts 'SORRRRRRRRRRRRRRRRRRRRRRRRRRRRRY'
     end
   end
-
-
 
   private
 
   def get_params
     params.require(:department).permit(:id, :name, :hod_id)
   end
-
 end

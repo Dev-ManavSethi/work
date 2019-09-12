@@ -8,12 +8,12 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
 
   resources :departments
+  get 'departments/select' => 'departments#select'
 
   resources :sections
-  get 'sections/select' => 'sections/select'
+  get 'sections/select' => 'sections#select'
 
   resources :teachers
-  get 'teacher/select' => 'teachers#select'
 
   resources :subjects
 

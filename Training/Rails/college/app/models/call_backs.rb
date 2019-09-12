@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CallBacks
   def before_validation(object)
     puts "Validating #{object.class} #{object.name}"
@@ -26,7 +28,7 @@ class CallBacks
   # def before_create(object)
   # end
 
-  def around_create (object)
+  def around_create(object)
     puts "Going to create a #{object.class}"
     yeild
     puts "Created #{object.class}: #{object.name} "
@@ -35,11 +37,9 @@ class CallBacks
   # def after_create(object)
   # end
 
-  def after_commit(object)
-  end
+  def after_commit(object); end
 
-  def after_rollback(object)
-  end
+  def after_rollback(object); end
 
   # def before_update(object)
   # end
@@ -75,15 +75,15 @@ class CallBacks
     puts "Updated #{object.class} #{object.name}"
   end
 
-  #Callbacks skipper methods:
-    # decrement!
-    # decrement_counter
-    # delete
-    # delete_all
-    # increment!
-    # increment_counter
-    # update_column
-    # update_columns
-    # update_all
-    # update_counters
+  # Callbacks skipper methods:
+  # decrement!
+  # decrement_counter
+  # delete
+  # delete_all
+  # increment!
+  # increment_counter
+  # update_column
+  # update_columns
+  # update_all
+  # update_counters
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require_relative 'call_backs'
 class Student < ApplicationRecord
-  belongs_to :section, -> (s){ where (s.year=self.year) }, class_name: 'Section' #, ->{ includes :department } , -> { readonly }
+  belongs_to :section, ->(s) { where (s.year = year) }, class_name: 'Section' # , ->{ includes :department } , -> { readonly }
   has_one :department, through: :section
   has_and_belongs_to_many :subjects
   has_many :teachers, through: :section

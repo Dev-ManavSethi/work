@@ -1,4 +1,4 @@
-class SectionsController < ActionController
+class SectionsController < ApplicationController
 
   def index
     render 'sections/index'
@@ -32,6 +32,10 @@ class SectionsController < ActionController
 
   def get_params
     params.require(:section).permit(:id, :departments_id, :teachers_id)
+  end
+
+  def select
+    render 'sections/select'
   end
 
 end

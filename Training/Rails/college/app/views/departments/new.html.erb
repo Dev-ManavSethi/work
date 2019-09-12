@@ -2,20 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Add new department</title>
+    <title>New Department</title>
   </head>
   <body>
 <h1>Add New Department</h1>
+<%if @department.errors.any?%>
+<div id="error_explanation">
+    <h2>
+      <%= pluralize(@department.errors.count, "error") %>
+      prohibited this department from being saved:
+    </h2>
 
+    <ul>
+    <% @department.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<%end%>
 <%= form_for @department do |form|%>
-<!-- <p>
-
-</p> -->
-
+  <p>
+    <%= form.label :id %>
+    <%= form.text_field :id, :value => (Department.last.id + 1), :requiered => true, :readonly => true  %>
+  </p>
   <p>
     <%= form.label :name %>
-    <%= form.text_field :name%>
+    <%= form.text_field :name , :requiered => true%>
   </p>
+  <p>
+    <%= form.label :hod_id %>
+    <%= form.text_field :hod_id, :requiered => true%>
+    <%=link_to 'Select' , controller: "teachers", action: "select"%>
+  </p>
+
 
 <br/>
       <%=form.submit%>

@@ -8,16 +8,20 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
 
   resources :departments
-  
+
   resources :sections
+  get 'sections/select' => 'sections/select'
 
   resources :teachers
+  get 'teacher/select' => 'teachers#select'
 
   resources :subjects
 
   resources :students
 
-  
+  resources :exams
+
+  resources :assignments
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,5 +1,6 @@
 require_relative 'call_backs'
 class Section < ApplicationRecord
+  self.inheritance_column = :_type_disabled
   belongs_to :department, :autosave => true, class_name: 'Department', counter_cache: true, dependent: :destroy, touch: :departments_updated_at, validate: true, required: true
   has_and_belongs_to_many :teachers,  association_foreign_key: :teacher_id, class_name: 'Teacher', foreign_key: :section_id, join_table: :sections_teachers, validate: true
   has_and_belongs_to_many :teachers #,-> { where("experience>=?",0) }, -> { readonly }

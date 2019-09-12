@@ -1,6 +1,6 @@
 == README
 
-Preferred version:\n
+Preferred version:
 Ruby -- 2.6.3
 Rails -- 5+
 Bundler -- 2+

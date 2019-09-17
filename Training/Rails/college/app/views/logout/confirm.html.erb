@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Confirm Logout
+</title>
+</head>
+
+<body>
+<%= render "/header"%>
+<%= link_to  "Logout", {:action => :logout}, :method => 'post'%>
+<%= link_to  "Cancel", {:action => :cancel}, :method => 'delete'%>
+
+<%= render "/footer"%>
+<body>
+
+</html>

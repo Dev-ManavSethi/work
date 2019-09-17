@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_121845) do
+ActiveRecord::Schema.define(version: 2019_09_17_180151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.text "username"
+    t.integer "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "assignments", force: :cascade do |t|
     t.text "name"
@@ -106,6 +113,23 @@ ActiveRecord::Schema.define(version: 2019_09_11_121845) do
     t.bigint "assigned_id"
     t.index ["assigned_type", "assigned_id"], name: "index_teachers_on_assigned_type_and_assigned_id"
     t.index ["supervisor_id"], name: "index_teachers_on_supervisor_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "name"
+    t.text "email"
+    t.text "password"
+    t.bigint "phone"
+    t.text "gender"
+    t.text "address"
+    t.date "date_of_birth"
+    t.text "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "city"
+    t.text "state"
+    t.text "country"
+    t.boolean "accepted_tos"
   end
 
 end

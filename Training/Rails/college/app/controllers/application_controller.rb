@@ -5,11 +5,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  $isadmin = true
+  def UserLoggedIn
+    if session[:user_id]==nil
+       false
+    else
+     true
+    end
+  end
+
 
   def isAdmin
     return true if cookies[:admin] == 'abc'
-
     false
   end
 end

@@ -23,6 +23,20 @@ Rails.application.routes.draw do
 
   resources :assignments
 
+  get '/login' => 'login#index'
+  post '/login' => 'login#verify'
+
+  get '/signup' => 'signup#index'
+  post '/signup' => 'signup#create'
+
+  get '/logout' => 'logout#confirm'
+  post '/logout' => 'logout#logout'
+  delete '/logout' => 'logout#cancel'
+
+  resources :users
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

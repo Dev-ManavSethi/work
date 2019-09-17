@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Login</title>
+</head>
+
+<body>
+<%= render  "/header" %>
+<h1>User Login</h1>
+
+<%if @uli%>
+<h2>You are already logged in. <a href="/logout">Logout</a> to login again as different user</h2>
+<%else%>
+
+<h2>Not signed up?<h2>
+<h2><a href="/signup">Signup</a></h2>
+
+<%if @user==nil%>
+<div id="error_explanation">
+        <h2>
+         Invalid login credentials
+        </h2>
+</div>
+<%end%>
+
+<%@user=User.new%>
+
+<%= form_for @user, :url => { :action => "verify" } do |f| %>
+    
+  <%= f.label :email, 'Email' %>
+  <%= f.email_field :email%><br/>
+
+  <%= f.label :password, 'Password'%>
+  <%= f.password_field :password%><br/>
+
+  <%= f.submit "Login" %>
+
+<%end%>
+<%end%>
+<%= render  "/footer" %>
+<body>
+</html>

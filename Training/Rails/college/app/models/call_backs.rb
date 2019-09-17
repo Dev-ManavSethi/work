@@ -1,47 +1,81 @@
-class CallBack
-    def self.after_destroy(object)
-        puts "#{object.class} #{object.name} deleted!"
+# frozen_string_literal: true
+
+class CallBacks
+  def before_validation(object)
+    puts "Validating #{object.class} #{object.name}"
+  end
+
+  def after_validation(object)
+    if object.valid?
+      puts "Valid #{object.class}"
+    elsif !object.valid?
+      puts "Invalid #{object.class}"
     end
+  end
 
-    def around_save(object)
-    end
+  # def before_save(object)
+  # end
 
-#   before_create
+  def around_save(object)
+    puts "Saving #{object.class} #{object.name}..."
+    yeild
+    puts "Saved #{object.class} #{object.name}"
+  end
 
-#   around_create
+  # def after_save (object)
+  # end
 
-#   after_create
+  # def before_create(object)
+  # end
 
-#   after_save
+  def around_create(object)
+    puts "Going to create a #{object.class}"
+    yeild
+    puts "Created #{object.class}: #{object.name} "
+  end
 
-#   after_commit
+  # def after_create(object)
+  # end
 
-#   after_rollback
+  def after_commit(object); end
 
-#   before_update
+  def after_rollback(object); end
 
-#   around_update 
+  # def before_update(object)
+  # end
 
-#   #after_update throw :abort
+  def around_update(object)
+    puts "Going to update #{object.class} #{object.name}"
+    yeild
+    puts "Updated #{object.class}: #{object.name} "
+  end
 
-#   before_destroy
+  # def after_update(object)
+  # end
 
-#   around_destroy
+  # def before_destroy(object)
+  # end
 
-#   after_destroy CallBacks
+  def around_destroy(object)
+    puts "Going to destroy #{object.class} #{object.name}"
+    yeild
+    puts "Destroyed #{object.class}: #{object.name} "
+  end
 
-#   after_initialize
+  # def after_destroy(object)
+  # end
 
-#   after_find
+  # def after_initialize(object)
+  # end
 
-#   after_touch
+  # def after_find(object)
+  # end
 
-# before_validation
+  def after_touch(object)
+    puts "Updated #{object.class} #{object.name}"
+  end
 
-#   after_validation
-
-
-#Callbacks skipper functions:
+  # Callbacks skipper methods:
   # decrement!
   # decrement_counter
   # delete
@@ -52,5 +86,4 @@ class CallBack
   # update_columns
   # update_all
   # update_counters
-
 end

@@ -1,10 +1,30 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>View Department</title>
   </head>
   <body>
+    <%= render "/header" -%>
 
+    <%if @department==nil%>
+      <h4>Sorry no department with given ID</h4>
+    <%else%>
+      <h1><%=@department.name%></h1>
+      <h4>ID:
+        <%=@department.id%></h4>
+      <h4>HOD:
+        <%=@department.hod.name%></h4>
+      <h4>HOD ID:
+        <%=@department.hod_id%></h4>
+      <h4>SECTIONS:
+        <%@department.sections.each do |se|%>
+          <a href="/sections/<%=se.id%>"><%=se.name%></a>
+          <%=" "%>
+        </h4>
+      <%end%>
+    <%end%>
+
+    <%= render "/footer"%>
   </body>
 </html>

@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_101255) do
+ActiveRecord::Schema.define(version: 2019_09_11_121845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "assigned_id"
+    t.string "assigned_type"
+  end
 
   create_table "departments", force: :cascade do |t|
     t.text "name"
@@ -21,6 +29,22 @@ ActiveRecord::Schema.define(version: 2019_09_10_101255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["hod_id"], name: "index_departments_on_hod_id", unique: true
+  end
+
+  create_table "exams", force: :cascade do |t|
+    t.text "name"
+    t.bigint "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subject_id"], name: "index_exams_on_subject_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.text "image_path"
+    t.integer "image_profile_id"
+    t.string "image_profile_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
@@ -47,6 +71,10 @@ ActiveRecord::Schema.define(version: 2019_09_10_101255) do
     t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "assigned_type"
+    t.bigint "assigned_id"
+    t.integer "percentage"
+    t.index ["assigned_type", "assigned_id"], name: "index_students_on_assigned_type_and_assigned_id"
     t.index ["section_id"], name: "index_students_on_section_id"
   end
 
@@ -74,6 +102,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_101255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "supervisor_id"
+    t.string "assigned_type"
+    t.bigint "assigned_id"
+    t.index ["assigned_type", "assigned_id"], name: "index_teachers_on_assigned_type_and_assigned_id"
     t.index ["supervisor_id"], name: "index_teachers_on_supervisor_id"
   end
 

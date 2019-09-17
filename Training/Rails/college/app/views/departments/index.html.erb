@@ -2,30 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>College Departments</title>
+    <title>Departments</title>
   </head>
   <body>
-<h1>College Departments</h1>
-<%= require 'html/table'
-#include HTML
+    <%= render "/header"%>
+    <h1>Departments</h1>
+    <%if $isadmin%>
+      <%= link_to 'New Department', new_department_path%>
+    <%end%>
+    <table>
+      <th>ID</th>
+      <th>Name</th>
+      <th>HOD</th>
+      <th>HOD ID</th>
+      <th></th>
+      <%if $isadmin%>
+        <th></th>
+        <th></th>
+      <%end%>
+      <% Department.all.order(:id).each do |d|%>
+        <tr>
+          <td><%=d.id-%></td>
+          <td><%=d.name-%></td>
+          <td><%=d.hod.name-%></td>
+          <td><%=d.hod_id-%></td>
+          <td><%= link_to 'Show', d%></td>
+          <%if $isadmin%>
+            <td><%=link_to 'Edit' ,edit_department_path(d)%></td>
+            <td><%=link_to 'Destroy', department_path(d.id) ,data: {confirm: "Are you sure you want to delete #{d.class} #{d.name}?"}, method: 'delete'%></td>
+          <%end%>
+        </tr>
+      <%end%>
 
-table = Table.new do
-border 1
-end
-
-table.push Table::Row.new{ |r|
-r.align = "center"
-r.content = ["ID", "Name", "HOD ID"]
-
-}
-
-Department.all.each do |d|
-table.push Table::Row.new{ |r|
-r.align = "center"
-r.content = [d.id, d.name, d.hod_id] 
-}
-
-puts table.html
-end%>
+    </table>
+    <%= render "/footer"%>
   </body>
 </html>

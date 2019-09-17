@@ -1,13 +1,14 @@
-class SectionsController < ActionController
+# frozen_string_literal: true
 
+class SectionsController < ApplicationController
   def index
     render 'sections/index'
   end
 
   def create
     @section = Section.new(get_params)
-    @section.save
-    redirect_to
+    redirect_to sections_path if @section.save
+    render 'sections/new' if @sections.errors.any?
   end
 
   def new
@@ -22,11 +23,9 @@ class SectionsController < ActionController
     render 'sections/show'
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
@@ -34,4 +33,7 @@ class SectionsController < ActionController
     params.require(:section).permit(:id, :departments_id, :teachers_id)
   end
 
+  def select
+    render 'sections/select'
+  end
 end

@@ -22418,3 +22418,707 @@ Processing by LoginController#index as HTML
 Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms)
 
 
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" ORDER BY "students"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDepartment Exists (4.1ms)[0m  [1m[34mSELECT  1 AS one FROM "departments" WHERE "departments"."name" = $1 LIMIT $2[0m  [["name", "D1"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (3.0ms)[0m  [1m[32mINSERT INTO "departments" ("name", "hod_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "D1"], ["hod_id", 55], ["created_at", "2019-09-17 20:48:52.891676"], ["updated_at", "2019-09-17 20:48:52.891676"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2019-09-18 02:28:14 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _header.html.erb (36.0ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 293ms (Views: 279.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2019-09-18 02:28:18 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.9ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-09-18 02:28:20 +0530
+Processing by LogoutController#confirm as HTML
+  Rendering logout/confirm.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered _header.html.erb (7.2ms)
+  Rendered _footer.html.erb (0.8ms)
+  Rendered logout/confirm.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 72ms (Views: 65.8ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-09-18 02:28:23 +0530
+Processing by LogoutController#logout as HTML
+  Parameters: {"authenticity_token"=>"l7bkOn08BK4FKfIbrxJZOT5xERYGqc3ZhawLVhfpiwFqWwmZ3JC+bvYq4KF8Gcenn9BDtgdMUwbgnsHYZgz3ng=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-18 02:28:23 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.7ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:28:25 +0530
+  
+SyntaxError (/home/manav/Desktop/work/Training/Rails/college/app/controllers/signup_controller.rb:29: syntax error, unexpected ')', expecting =>
+....id, image_profile_type="user")
+...                              ^):
+  
+app/controllers/signup_controller.rb:29: syntax error, unexpected ')', expecting =>
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (73.2ms)
+Completed 200 OK in 104ms (Views: 87.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:04 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:29:05 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.6ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 37ms (Views: 19.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:12 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:31:32 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (70.3ms)
+Completed 200 OK in 240ms (Views: 220.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:35:00 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:32 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:36:35 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:01 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:14 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:15 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (2.6ms)
+  Rendered _footer.html.erb (1.0ms)
+  Rendered signup/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 90ms (Views: 85.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.7ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:37:16 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:38:33 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered signup/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:75: syntax error, unexpected ',', expecting ')'
+'.freeze;   file_field (:user, :image ,accept: 'image/png,i...
+                             ^
+/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:75: syntax error, unexpected ')', expecting end
+...mage/png,image/jpeg,image/jpg')
+...                              ^
+/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:85: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/signup/index.html.erb:75: syntax error, unexpected ',', expecting ')'
+app/views/signup/index.html.erb:75: syntax error, unexpected ')', expecting end
+app/views/signup/index.html.erb:85: syntax error, unexpected ensure, expecting end-of-input
+app/controllers/signup_controller.rb:6:in `index'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:39:09 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered signup/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:72: syntax error, unexpected ',', expecting ')'
+...fer.append=( file_field (:user, :image ,accept: 'image/png,i...
+...                              ^
+/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:72: syntax error, unexpected ')', expecting end
+...age/png,image/jpeg,image/jpg'));@output_buffer.safe_append='
+...                              ^
+/home/manav/Desktop/work/Training/Rails/college/app/views/signup/index.html.erb:85: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/signup/index.html.erb:72: syntax error, unexpected ',', expecting ')'
+app/views/signup/index.html.erb:72: syntax error, unexpected ')', expecting end
+app/views/signup/index.html.erb:85: syntax error, unexpected ensure, expecting end-of-input
+app/controllers/signup_controller.rb:6:in `index'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.7ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered signup/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:39:48 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:45 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:41:59 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:08 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:09 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:09 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:42:09 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:43:25 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RkQEk2jlKpBcXtgs+Lj1wfG4ZPS+enkRbZqYjxOJ1Jq7qekwyUmQUK9dypYrs2tfUBk2VL+f584IqFIBYmyoBQ==", "user"=>{"name"=>"Kalyan", "email"=>"k@k.com", "password"=>"[FILTERED]", "phone"=>"55555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `original_filename' for "Screenshot from 2019-08-31 10-59-05.png":String):
+  
+app/controllers/signup_controller.rb:25:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:48:20 +0530
+  
+SyntaxError (/home/manav/Desktop/work/Training/Rails/college/app/controllers/signup_controller.rb:36: syntax error, unexpected end, expecting ')'
+            end
+            ^~~
+/home/manav/Desktop/work/Training/Rails/college/app/controllers/signup_controller.rb:54: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/signup_controller.rb:36: syntax error, unexpected end, expecting ')'
+app/controllers/signup_controller.rb:54: syntax error, unexpected end-of-input, expecting end
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:49:06 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RkQEk2jlKpBcXtgs+Lj1wfG4ZPS+enkRbZqYjxOJ1Jq7qekwyUmQUK9dypYrs2tfUBk2VL+f584IqFIBYmyoBQ==", "user"=>{"name"=>"Kalyan", "email"=>"k@k.com", "password"=>"[FILTERED]", "phone"=>"55555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "k@k.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 55555555], ["LIMIT", 1]]
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyan"], ["email", "k@k.com"], ["password", "kk"], ["phone", 55555555], ["gender", "m"], ["address", "nclncl"], ["date_of_birth", "2015-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:19:06.856122"], ["updated_at", "2019-09-17 21:19:06.856122"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (3.0ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 3], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:19:06.872910"], ["updated_at", "2019-09-17 21:19:06.872910"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 20.1ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png):
+  
+app/controllers/signup_controller.rb:33:in `initialize'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:53:12 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RkQEk2jlKpBcXtgs+Lj1wfG4ZPS+enkRbZqYjxOJ1Jq7qekwyUmQUK9dypYrs2tfUBk2VL+f584IqFIBYmyoBQ==", "user"=>{"name"=>"Kalyana", "email"=>"kk@kk.com", "password"=>"[FILTERED]", "phone"=>"55555555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kk@kk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 55555555555], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyana"], ["email", "kk@kk.com"], ["password", "kkkk"], ["phone", 55555555555], ["gender", "m"], ["address", "nclncl"], ["date_of_birth", "2015-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:23:12.521844"], ["updated_at", "2019-09-17 21:23:12.521844"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.6ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 4], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:23:12.536101"], ["updated_at", "2019-09-17 21:23:12.536101"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 12.5ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png):
+  
+app/controllers/signup_controller.rb:33:in `initialize'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:54:13 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RkQEk2jlKpBcXtgs+Lj1wfG4ZPS+enkRbZqYjxOJ1Jq7qekwyUmQUK9dypYrs2tfUBk2VL+f584IqFIBYmyoBQ==", "user"=>{"name"=>"Kalyana", "email"=>"kk@kk.com", "password"=>"[FILTERED]", "phone"=>"55555555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kk@kk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 55555555555], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 418ms (Views: 387.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:54:14 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:54:39 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c8AOl9ZHVL8qMjNJgFCqWpEHkqQcsuqPv6fy9mWSXoKOLeM0d+vuf9kxIfNTWzTEMKbABB1XdFDalTh4FHciHQ==", "user"=>{"name"=>"Kalyana", "email"=>"kkk@kkk.com", "password"=>"[FILTERED]", "phone"=>"555555555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kkk@kkk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555555555555], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyana"], ["email", "kkk@kkk.com"], ["password", "kkkkkk"], ["phone", 555555555555], ["gender", "m"], ["address", "nclncl"], ["date_of_birth", "2015-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:24:39.155199"], ["updated_at", "2019-09-17 21:24:39.155199"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 5], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:24:39.180448"], ["updated_at", "2019-09-17 21:24:39.180448"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 10.9ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png):
+  
+app/controllers/signup_controller.rb:33:in `initialize'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:56:04 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c8AOl9ZHVL8qMjNJgFCqWpEHkqQcsuqPv6fy9mWSXoKOLeM0d+vuf9kxIfNTWzTEMKbABB1XdFDalTh4FHciHQ==", "user"=>{"name"=>"Kalyana", "email"=>"kkk@kkk.com", "password"=>"[FILTERED]", "phone"=>"555555555555", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kkk@kkk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555555555555], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 78ms (Views: 36.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:56:05 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:56:27 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wUcZRq5y/Fqp2wPIqFuZghVgUhUsUPZYX9M26OzxPVY8qvTlD95GmlrYEXJ7UAcctMEAtS21aIc64fxmnRRByQ==", "user"=>{"name"=>"Kalyana", "email"=>"kkkk@kkkk.com", "password"=>"[FILTERED]", "phone"=>"5555555555556", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kkkk@kkkk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 5555555555556], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyana"], ["email", "kkkk@kkkk.com"], ["password", "kkkkkkkk"], ["phone", 5555555555556], ["gender", "m"], ["address", "nclncl"], ["date_of_birth", "2015-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:26:27.538111"], ["updated_at", "2019-09-17 21:26:27.538111"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 6], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:26:27.559180"], ["updated_at", "2019-09-17 21:26:27.559180"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 14.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png):
+  
+app/controllers/signup_controller.rb:33:in `initialize'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wUcZRq5y/Fqp2wPIqFuZghVgUhUsUPZYX9M26OzxPVY8qvTlD95GmlrYEXJ7UAcctMEAtS21aIc64fxmnRRByQ==", "user"=>{"name"=>"Kalyana", "email"=>"kkkk@kkkk.com", "password"=>"[FILTERED]", "phone"=>"5555555555556", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kkkk@kkkk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 5555555555556], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.9ms)
+  Rendered signup/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 96ms (Views: 89.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/scaffolds.self-0aa9d10423636df352cd189db6eb5a26ef260743b4f7ed126dd8702e4962f727.css?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 02:58:28 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 02:58:48 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tXbokbkCkCCTBxLdLuVnQj3p6wR2foedGwQyRdykz3NImwUyGK4q4GAEAGf97vncnEi5pHebGUJ+NvjLrUGz7A==", "user"=>{"name"=>"Kalyana", "email"=>"kkkkk@kkkkk.com", "password"=>"[FILTERED]", "phone"=>"55555555555566", "address"=>"nclncl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2015-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kkkkk@kkkkk.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 55555555555566], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyana"], ["email", "kkkkk@kkkkk.com"], ["password", "kkkkkkkkkk"], ["phone", 55555555555566], ["gender", "m"], ["address", "nclncl"], ["date_of_birth", "2015-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:28:48.321603"], ["updated_at", "2019-09-17 21:28:48.321603"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.5ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 7], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:28:48.326269"], ["updated_at", "2019-09-17 21:28:48.326269"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 6.2ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - /home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png):
+  
+app/controllers/signup_controller.rb:33:in `initialize'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 02:59:38 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 81ms (Views: 79.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 03:00:12 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sSr/verLa+F8KgUJCyWrIkRdy/45UjPMjZvXzHdHpMBMxxIeS2fRIY8pF7PYLjW85fyZXji3rRPoqR1CBqLYXw==", "user"=>{"name"=>"Shantanu", "email"=>"s@s.com", "password"=>"[FILTERED]", "phone"=>"666", "address"=>"knlnln", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2012-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "s@s.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 666], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Shantanu"], ["email", "s@s.com"], ["password", "ss"], ["phone", 666], ["gender", "m"], ["address", "knlnln"], ["date_of_birth", "2012-06-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:30:12.469510"], ["updated_at", "2019-09-17 21:30:12.469510"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.4ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 8], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:30:12.475012"], ["updated_at", "2019-09-17 21:30:12.475012"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 6.3ms)
+
+
+  
+NameError (undefined local variable or method `image_fileread' for #<SignupController:0x00007f4aa2e16f60>
+Did you mean?  image_file):
+  
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 03:00:58 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.2ms)
+  Rendered signup/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 36ms (Views: 22.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 03:01:24 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nNKHos35HPV1V/RR8J5RjTHRcYVGdp+uafJQF/gQoi1hP2oBbFWmNYZU5usjlc8TkHAjJUeTAXEMwJqZifXesg==", "user"=>{"name"=>"Sid", "email"=>"sid@sid.com", "password"=>"[FILTERED]", "phone"=>"555", "address"=>"knl", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2014-05-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-08-31 10-59-05.png"}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sid@sid.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Sid"], ["email", "sid@sid.com"], ["password", "sid"], ["phone", 555], ["gender", "m"], ["address", "knl"], ["date_of_birth", "2014-05-15"], ["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-17 21:31:24.109248"], ["updated_at", "2019-09-17 21:31:24.109248"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.8ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/manav/Desktop/work/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 9], ["image_profile_type", "user"], ["created_at", "2019-09-17 21:31:24.139963"], ["updated_at", "2019-09-17 21:31:24.139963"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 11.5ms)
+
+
+  
+NoMethodError (undefined method `read' for "Screenshot from 2019-08-31 10-59-05.png":String):
+  
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'

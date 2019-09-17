@@ -4,5 +4,6 @@ class User < ApplicationRecord
     validates :email , uniqueness: true
     validates :phone , uniqueness: true
     #validates :gender, inclusion: {in: %w("m", "f")}
+    has_one :image, as: :image_profile
 
 end

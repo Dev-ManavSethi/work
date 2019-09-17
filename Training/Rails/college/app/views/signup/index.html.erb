@@ -64,11 +64,17 @@
   <%= f.label :gender, 'Gender'%>
   <%= f.radio_button :gender, 'm', :checked => true %><%= f.label :gender, 'Male' %><%= f.radio_button :gender, 'f' %><%= f.label :gender, 'Female' %><br/>
 
+
+ 
   
   <% #tos checkbox %>
-  <%= f.check_box :accepted_tos%> <%= f.label :accepted_tos, 'Do you accept the TOS?'%>
-  
+  <%= f.check_box :accepted_tos%> <%= f.label :accepted_tos, 'Do you accept the TOS?'%><br/>
+  <%= label(:user, :image, 'Upload profile Pic')%>
+  <%= file_field(:user, :image ,accept: 'image/png,image/jpeg,image/jpg')%><br/><br/>
+
   <%= f.submit "Signup" %>
+  
+  
 <% end %>
 
 <%end%>

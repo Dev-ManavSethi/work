@@ -19,12 +19,21 @@ class SignupController < ApplicationController
         dob = params[:user][:date_of_birth]
         gender = params[:user][:gender]
         #get image
+        image_file = params[:user][:image]
         accepted_tos = params[:user][:accepted_tos].to_i
 
-        @user = User.new(name:name,email:email, password:password, gender:gender, phone:phone, address:address, city:city, state:state, country:country, date_of_birth:dob, accepted_tos:accepted_tos) #do image path
+        image_full_path = Rails.root.join('app','assets', 'images', 'users', 'o.png')
+
+        @user = User.new(name:name,email:email, password:password, gender:gender, phone:phone, address:address, city:city, state:state, country:country, date_of_birth:dob, accepted_tos:accepted_tos, image_path: image_full_path) #do image path
 
         if accepted_tos==1
           if @user.save
+            @image = Image.new(image_path: image_full_path, image_profile_id: @user.id, image_profile_type:"user")
+            if @image.save
+                File.open(image_full_path, 'w+') do |server_image|
+                    server_image.write(image_file.read) #error here
+                end
+            end
               session[:user_id] = @user.id
               redirect_to user_path(@user)
           else render :index
@@ -38,8 +47,7 @@ class SignupController < ApplicationController
     end
 end
 =begin
-<% #f.label :photo, 'Upload Photo'%>
-  <% #f.file_field :photo, accept: 'image/png,image/jpeg,image/jpg'%>
+
 
    <% #f.label :password_confirmation, 'Confirm Password'%>
   <% #f.password_field :password_confirmation%> s

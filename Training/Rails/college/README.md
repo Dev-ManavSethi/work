@@ -72,3 +72,4 @@ Else / Then run:
 ```
 rails server
 ```
+Go to http://localhost:3000

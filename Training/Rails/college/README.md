@@ -1,6 +1,6 @@
-#README
+# Read me first
 
-Preferred version:  
+Working versions:  
 Ruby -- 2.6.3  
 Rails -- 5+  
 Bundler -- 2+  
@@ -8,7 +8,8 @@ rvm -- 1.8+
 gem -- 2.5.2.1  
 
 
-To install rvm, ruby and rails please follow these instructions:
+To install rvm, ruby and rails please follow these instructions:  
+## Linux
 ```
 sudo apt-get install gpgv2
 ```
@@ -67,7 +68,7 @@ If running for the first time, run:
 ```
 rails db:setup
 ```
-Else run:
+Else / Then run:
 ```
 rails server
 ```

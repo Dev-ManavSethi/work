@@ -6,6 +6,7 @@
 
 <body>
 <%= render "/header"%>
+<h2>Are you sure you want to Logout?</h2>
 <%= link_to  "Logout", {:action => :logout}, :method => 'post'%>
 <%= link_to  "Cancel", {:action => :cancel}, :method => 'delete'%>
 

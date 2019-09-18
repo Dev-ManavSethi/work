@@ -35,13 +35,13 @@
 <%= form_for @user, :url => { :action => "create" }, :multipart => true do |f| %>
   
   <%= f.label :name, 'Name' %>
-  <%= f.text_field :name %><br/>
+  <%= f.text_field :name %> <br/>
   
   <%= f.label :email, 'Email' %>
-  <%= f.email_field :email%><br/>
+  <%= f.email_field :email%> <br/>
 
   <%= f.label :password, 'Password'%>
-  <%= f.password_field :password%><br/>
+  <%= f.password_field :password%> <br/>
 
   <%# do confirm password%>
 
@@ -69,8 +69,8 @@
   
   <% #tos checkbox %>
   <%= f.check_box :accepted_tos%> <%= f.label :accepted_tos, 'Do you accept the TOS?'%><br/>
-  <%= label(:user, :image, 'Upload profile Pic')%>
-  <%= file_field(:user, :image ,accept: 'image/png,image/jpeg,image/jpg')%><br/><br/>
+  <%= f.label :image, 'Upload profile Pic'%>
+  <%= f.file_field :image ,accept: 'image/png,image/jpeg,image/jpg'%><br/><br/>
 
   <%= f.submit "Signup" %>
   

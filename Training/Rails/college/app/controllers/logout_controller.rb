@@ -6,12 +6,10 @@ class LogoutController < ApplicationController
     def logout
         session[:user_id] = nil
         redirect_to root_path
-        #try history
+        flash[:success] = "You are logged out now!"
     end
 
     def cancel
-
-
     end
 end
 

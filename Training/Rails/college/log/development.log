@@ -23122,3 +23122,2324 @@ NoMethodError (undefined method `read' for "Screenshot from 2019-08-31 10-59-05.
 app/controllers/signup_controller.rb:34:in `block in create'
 app/controllers/signup_controller.rb:33:in `open'
 app/controllers/signup_controller.rb:33:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(730373375098527825)[0m
+  [1m[35m (63.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190917154151)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (529.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" text, "email" text, "password" integer, "phone" bigint, "gender" text, "address" text, "date_of_birth" date, "image_path" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917154151"]]
+  [1m[35m (25.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdmins (20190917154200)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (126.8ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key, "username" text, "password" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917154200"]]
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToUser (20190917170135)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "city" text[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "state" text[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "country" text[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917170135"]]
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangePassDataTypeOfUser (20190917170608)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "phone" TYPE bigint[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917170608"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddToStoUsers (20190917171328)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "accepted_tos" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917171328"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangePassTypeUsers (20190917180151)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (174.6ms)[0m  [1m[35mALTER TABLE "users" ALTER COLUMN "password" TYPE text[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190917180151"]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(730373375098527825)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-09-18 16:36:16 +0530
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 759ms (Views: 733.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 16:36:17 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:36:22 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (219.3ms)
+Completed 200 OK in 378ms (Views: 262.9ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:36:58 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QP3tmubXEiMEEZssi8FEUCgLroNRT8v4hRbui+w7S7gsYASoE9UAyoDD+qEYU0wEKdBASnSUkFB9WcTcYWuPRg==", "user"=>{"name"=>"Kalyan", "email"=>"k@gmail.com", "password"=>"[FILTERED]", "phone"=>"7777", "address"=>"kbb", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2016-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>"Screenshot from 2019-09-13 15-51-33.png"}, "commit"=>"Signup"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "k@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 7777], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyan"], ["email", "k@gmail.com"], ["password", "kk"], ["phone", 7777], ["gender", "m"], ["address", "kbb"], ["date_of_birth", "2016-06-15"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-18 11:06:58.376505"], ["updated_at", "2019-09-18 11:06:58.376505"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (115.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (30.4ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 1], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:06:58.554437"], ["updated_at", "2019-09-18 11:06:58.554437"]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 180.0ms)
+
+
+  
+NoMethodError (undefined method `read' for "Screenshot from 2019-09-13 15-51-33.png":String):
+  
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 16:42:04 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:42:24 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZiWUFUB+fkM1UFGqDsDtj5FG7PH2RqGn00YlV+fTPZ8KuH0ntXxsqrGCMCedUuXbkJ0CONOd+g8rCQ8AaoP5YQ==", "user"=>{"name"=>"Kalyan", "email"=>"k@gmail.com", "password"=>"[FILTERED]", "phone"=>"555", "address"=>",c c", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2018-08-17", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>"Screenshot from 2019-09-13 15-51-33.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "k@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 165ms (Views: 30.9ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:42:32 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CRoJXPdheVzOAdDYL0RcyJsOp+ZnIeUDusbf73c+N91lh+BuAmNrtUrTsVW81lScmtVJL0L6vqtCifW4+m7zIw==", "user"=>{"name"=>"Kalyan", "email"=>"kK@gmail.com", "password"=>"[FILTERED]", "phone"=>"555", "address"=>",c c", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2018-08-17", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>""}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kK@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyan"], ["email", "kK@gmail.com"], ["password", "kk"], ["phone", 555], ["gender", "m"], ["address", ",c c"], ["date_of_birth", "2018-08-17"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-18 11:12:32.224190"], ["updated_at", "2019-09-18 11:12:32.224190"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (70.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (1.5ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 2], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:12:32.300376"], ["updated_at", "2019-09-18 11:12:32.300376"]]
+  [1m[35m (42.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 117.0ms)
+
+
+  
+NoMethodError (undefined method `read' for nil:NilClass):
+  
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:43:49 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CRoJXPdheVzOAdDYL0RcyJsOp+ZnIeUDusbf73c+N91lh+BuAmNrtUrTsVW81lScmtVJL0L6vqtCifW4+m7zIw==", "user"=>{"name"=>"Kalyan", "email"=>"kKg@gmail.com", "password"=>"[FILTERED]", "phone"=>"555", "address"=>",c c", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2018-08-17", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>"Screenshot from 2019-09-13 15-51-33.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kKg@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 555], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.8ms)
+  Rendered signup/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 67ms (Views: 32.6ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:44:06 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PsjyU4+5oY7z2ryJzuDNbj37ws41eUrwY2ZXX3mZ4HlSVRtheruzZ3cI3QRdcsU6PCAsBxCiEVibKX0I9Mkkhw==", "user"=>{"name"=>"Kalyan", "email"=>"kKg@gmail.com", "password"=>"[FILTERED]", "phone"=>"5555", "address"=>",c c", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2018-08-17", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>"Screenshot from 2019-09-13 15-51-33.png"}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kKg@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 5555], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalyan"], ["email", "kKg@gmail.com"], ["password", "hhh"], ["phone", 5555], ["gender", "m"], ["address", ",c c"], ["date_of_birth", "2018-08-17"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-18 11:14:06.793386"], ["updated_at", "2019-09-18 11:14:06.793386"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (38.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 3], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:14:06.852472"], ["updated_at", "2019-09-18 11:14:06.852472"]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 50.5ms)
+
+
+  
+NoMethodError (undefined method `read' for "Screenshot from 2019-09-13 15-51-33.png":String):
+  
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:45:29 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered signup/index.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/signup/index.html.erb:72: syntax error, unexpected ')', expecting end
+...ge_path, 'Upload profile Pic'));@output_buffer.safe_append='
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/signup/index.html.erb:86: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/signup/index.html.erb:72: syntax error, unexpected ')', expecting end
+app/views/signup/index.html.erb:86: syntax error, unexpected ensure, expecting end-of-input
+app/controllers/signup_controller.rb:6:in `index'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 16:45:55 +0530
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:46:29 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1ReZOJgbniqQt5xl7flw/X/V+ltooICnCGRaD79nRr+5inAKbRmMwxRl/eh+a3ipfg4Ukk172w/wK3BYMjeCQQ==", "user"=>{"name"=>"Kalya", "email"=>"k@kalya.com", "password"=>"[FILTERED]", "phone"=>"8888", "address"=>"iononn", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2016-06-15", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>#<ActionDispatch::Http::UploadedFile:0x00007feb3d3d10a0 @tempfile=#<Tempfile:/tmp/RackMultipart20190918-6665-1aevqkh.png>, @original_filename="Screenshot from 2019-09-13 15-51-33.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[image_path]\"; filename=\"Screenshot from 2019-09-13 15-51-33.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "k@kalya.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 8888], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Kalya"], ["email", "k@kalya.com"], ["password", "kk"], ["phone", 8888], ["gender", "m"], ["address", "iononn"], ["date_of_birth", "2016-06-15"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["created_at", "2019-09-18 11:16:29.575864"], ["updated_at", "2019-09-18 11:16:29.575864"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (93.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/o.png"], ["image_profile_id", 4], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:16:29.674080"], ["updated_at", "2019-09-18 11:16:29.674080"]]
+  [1m[35m (24.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 121.4ms)
+
+
+  
+Encoding::UndefinedConversionError ("\x89" from ASCII-8BIT to UTF-8):
+  
+app/controllers/signup_controller.rb:34:in `write'
+app/controllers/signup_controller.rb:34:in `block in create'
+app/controllers/signup_controller.rb:33:in `open'
+app/controllers/signup_controller.rb:33:in `create'
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:50:34 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:51:07 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BPNy1IN/azwAsMEtlG7/5JFm9kyfJFSukTXMRt5c3DNobpvmdn151YRioKAH/PewkL0Yhbr/DwZpeuYRUwwYzQ==", "user"=>{"name"=>"Naveen", "email"=>"naveen@naveen.com", "password"=>"[FILTERED]", "phone"=>"6666", "address"=>"bjbkbk", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2016-05-15", "gender"=>"m", "accepted_tos"=>"1", "image_path"=>#<ActionDispatch::Http::UploadedFile:0x00007feb3048b098 @tempfile=#<Tempfile:/tmp/RackMultipart20190918-6665-24aq0w.png>, @original_filename="Screenshot from 2019-09-13 15-51-33.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[image_path]\"; filename=\"Screenshot from 2019-09-13 15-51-33.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Signup"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "naveen@naveen.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 6666], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Naveen"], ["email", "naveen@naveen.com"], ["password", "nn"], ["phone", 6666], ["gender", "m"], ["address", "bjbkbk"], ["date_of_birth", "2016-05-15"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot from 2019-09-13 15-51-33.png"], ["created_at", "2019-09-18 11:21:07.173628"], ["updated_at", "2019-09-18 11:21:07.173628"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (85.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.5ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot from 2019-09-13 15-51-33.png"], ["image_profile_id", 5], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:21:07.269951"], ["updated_at", "2019-09-18 11:21:07.269951"]]
+  [1m[35m (26.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 131ms (ActiveRecord: 114.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2019-09-18 16:51:07 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 48ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2019-09-18 16:52:13 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.3ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 55ms (Views: 28.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2019-09-18 16:52:14 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.0ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2019-09-18 16:52:17 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.1ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2019-09-18 16:52:20 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (4.3ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 29ms (Views: 24.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-09-18 16:52:22 +0530
+Processing by LogoutController#confirm as HTML
+  Rendering logout/confirm.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  Rendered _header.html.erb (3.2ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered logout/confirm.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-09-18 16:52:25 +0530
+Processing by LogoutController#logout as HTML
+  Parameters: {"authenticity_token"=>"9K2QFtJH+93roL2oj8BraBaNE93ivn7wQpMnHrK4YsGYMHkkJ0XpNG9y3CUcUmM8F1b9FMdlJVi63A1JP+imPw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-18 16:52:25 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.6ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:52:27 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.6ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2019-09-18 16:52:54 +0530
+Processing by SignupController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uxkkOdEqlrvvg140W4R7CMRy6eZSEJBkpBqGiEooRjDXhM0LJCiEUmtRP7nIFnNcxakHL3fLy8xcVazfx3iCzg==", "user"=>{"name"=>"Ajay", "email"=>"a@a.com", "password"=>"[FILTERED]", "phone"=>"543", "address"=>"nlnllk", "city"=>"CITY 1", "state"=>"state 1", "country"=>"c1", "date_of_birth"=>"2016-06-15", "gender"=>"m", "accepted_tos"=>"1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007feb28034240 @tempfile=#<Tempfile:/tmp/RackMultipart20190918-6665-7wkuid.png>, @original_filename="Screenshot from 2019-09-13 15-51-33.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[image]\"; filename=\"Screenshot from 2019-09-13 15-51-33.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Signup"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@a.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = $1 LIMIT $2[0m  [["phone", 543], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "phone", "gender", "address", "date_of_birth", "image_path", "created_at", "updated_at", "city", "state", "country", "accepted_tos") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["name", "Ajay"], ["email", "a@a.com"], ["password", "aa"], ["phone", 543], ["gender", "m"], ["address", "nlnllk"], ["date_of_birth", "2016-06-15"], ["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot from 2019-09-13 15-51-33.png"], ["created_at", "2019-09-18 11:22:54.181185"], ["updated_at", "2019-09-18 11:22:54.181185"], ["city", "CITY 1"], ["state", "state 1"], ["country", "c1"], ["accepted_tos", true]]
+  [1m[35m (73.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mImage Create (0.7ms)[0m  [1m[32mINSERT INTO "images" ("image_path", "image_profile_id", "image_profile_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["image_path", "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot from 2019-09-13 15-51-33.png"], ["image_profile_id", 6], ["image_profile_type", "user"], ["created_at", "2019-09-18 11:22:54.277791"], ["updated_at", "2019-09-18 11:22:54.277791"]]
+  [1m[35m (97.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 202ms (ActiveRecord: 177.5ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 16:52:54 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.0ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-09-18 16:53:43 +0530
+Processing by LogoutController#confirm as HTML
+  Rendering logout/confirm.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.3ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered logout/confirm.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-09-18 16:53:45 +0530
+Processing by LogoutController#logout as HTML
+  Parameters: {"authenticity_token"=>"ICjBsn4QRqoQAupM6/LO8ToO/yW7coF4R4/bHVWoZ/lMtSiAixJUQ5TQi8F4YMalO9UR7J6p2tC/wPFK2PijBw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-18 16:53:45 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 41ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 16:54:23 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered signup/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-09-18 16:54:24 +0530
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered login/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-09-18 16:54:34 +0530
+Processing by LoginController#verify as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/i/RQnXAzh1CbxzV/LRByqJOWed7S9O4fUNXF298ZJaSsjhwgMLc9Ma9fVhvJkmeo5W3Ll6QiBCFDH1A4iygaA==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["email", "a@a.com"], ["password", "aa"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 16:54:34 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.2ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 16:54:39 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (0.9ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2019-09-18 16:54:42 +0530
+Processing by LogoutController#confirm as HTML
+  Rendering logout/confirm.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (4.2ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered logout/confirm.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-09-18 16:54:46 +0530
+Processing by LogoutController#cancel as HTML
+  Parameters: {"authenticity_token"=>"N6V9w0g6wJ606lLNuB7RWbqpTvODQYT78ee81eEA6QVbOJTxvTjSdzA4M0ArjNkNu3KgOqaa31MJqJaCbFAt+w=="}
+No template found for LogoutController#cancel, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/logout" for 127.0.0.1 at 2019-09-18 16:54:48 +0530
+Processing by LogoutController#logout as HTML
+  Parameters: {"authenticity_token"=>"N6V9w0g6wJ606lLNuB7RWbqpTvODQYT78ee81eEA6QVbOJTxvTjSdzA4M0ArjNkNu3KgOqaa31MJqJaCbFAt+w=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-18 16:54:48 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.5ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:02:21 +0530
+Started GET "/signup" for 127.0.0.1 at 2019-09-18 17:02:24 +0530
+Processing by SignupController#index as HTML
+  Rendering signup/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.7ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered signup/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-09-18 17:02:26 +0530
+Processing by LoginController#index as HTML
+  Rendering login/index.html.erb within layouts/application
+  Rendered _header.html.erb (0.6ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered login/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-09-18 17:02:30 +0530
+Processing by LoginController#verify as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GL73182xZZy13yiNvl51+ZXoj5ycK/F3sECG7xHbEgd0Ix7lOLN3dTENSQAtzH2tlDNhVbnwqt9ID6y4nIvW+Q==", "user"=>{"email"=>"a@a.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 LIMIT $3[0m  [["email", "a@a.com"], ["password", "aa"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:02:30 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.7ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ','
+...( f.password_field :password, , :readonly => true);@output_b...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:27: syntax error, unexpected ','
+...pend=( f.number_field :phone% , :readonly => true><br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:30: syntax error, unexpected ','
+....append=(f.text_area :address%, , :readonly => true><br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:59: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:70: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:72: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:22: syntax error, unexpected ','
+app/views/users/show.html.erb:27: syntax error, unexpected ','
+app/views/users/show.html.erb:30: syntax error, unexpected ','
+app/views/users/show.html.erb:54: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:59: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:70: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:72: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.6ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:03:07 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:03:27 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ','
+...( f.password_field :password, , :readonly => true);@output_b...
+...                              ^):
+  
+app/views/users/show.html.erb:22: syntax error, unexpected ','
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:03:54 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ','
+...end=( f.text_field :password, , :readonly => true);@output_b...
+...                              ^):
+  
+app/views/users/show.html.erb:22: syntax error, unexpected ','
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:03:56 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ','
+...end=( f.text_field :password, , :readonly => true);@output_b...
+...                              ^):
+  
+app/views/users/show.html.erb:22: syntax error, unexpected ','
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.2ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 46ms (Views: 42.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:08 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.3ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 34ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:37 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:38 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.5ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 35ms (Views: 31.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:04:57 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.5ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:05:16 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.0ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:06:30 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:09:26 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:32: syntax error, unexpected ')'
+... { prompt: 'Select city' } ,  );@output_buffer.safe_append='...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:39: syntax error, unexpected =>, expecting ')'
+...th, 'Date of Birth':diasbled => true);@output_buffer.safe_ap...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:32: syntax error, unexpected ')'
+app/views/users/show.html.erb:39: syntax error, unexpected =>, expecting ')'
+app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:09:44 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:32: syntax error, unexpected ')'
+... { prompt: 'Select city' } ,  );@output_buffer.safe_append='...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:32: syntax error, unexpected ')'
+app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:10:17 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.2ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 28ms (Views: 23.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:12 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:12:35 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:13:09 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (27.2ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:33: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ate, options_for_select(['state 1', ['state 2']]), { prompt:...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._for_select(['state 1', ['state 2']]), { prompt: 'Select sta...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:34: syntax error, unexpected tCONSTANT, expecting ')'
+...'state 2']]), { prompt: 'Select state' } #:diasbled => ['v1'...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ect state' } #:diasbled => ['v1','v2']);@output_buffer.safe_...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+...tate' } #:diasbled => ['v1','v2']);@output_buffer.safe_appen...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:35: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ountry, options_for_select(['c1']), { prompt: 'Select countr...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:36: syntax error, unexpected tCONSTANT, expecting ')'
+...lect(['c1']), { prompt: 'Select country' } #:diasbled => ['v...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+...t country' } #:diasbled => ['v1','v2']);@output_buffer.safe_...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ntry' } #:diasbled => ['v1','v2']);@output_buffer.safe_appen...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:37: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:39: syntax error, unexpected tCONSTANT, expecting ')'
+...=(f.label :date_of_birth, 'Date of Birth');@output_buffer.sa...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:40: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:42: syntax error, unexpected tCONSTANT, expecting ')'
+...pend=( f.label :gender, 'Gender');@output_buffer.safe_append...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd=( f.radio_button :gender, 'm', :checked => true );@output...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected tCONSTANT, expecting ')'
+...append=( f.label :gender, 'Male' );@output_buffer.append=( f...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd=( f.radio_button :gender, 'f' );@output_buffer.append=( f...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected tCONSTANT, expecting ')'
+...pend=( f.label :gender, 'Female' );@output_buffer.safe_appen...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:49: syntax error, unexpected tCONSTANT, expecting ')'
+...nd=( f.label :accepted_tos, 'Do you accept the TOS?');@outpu...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:49: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:50: syntax error, unexpected tCONSTANT, expecting ')'
+...ppend=( f.label :image, 'Upload profile Pic');@output_buffer...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:51: syntax error, unexpected tIDENTIFIER, expecting ')'
+...le_field :image ,accept: 'image/png,image/jpeg,image/jpg');@...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:51: syntax error, unexpected ',', expecting ')'
+...eld :image ,accept: 'image/png,image/jpeg,image/jpg');@outpu...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:51: syntax error, unexpected ',', expecting ')'
+...,accept: 'image/png,image/jpeg,image/jpg');@output_buffer.sa...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:51: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...image/png,image/jpeg,image/jpg');@output_buffer.safe_append=...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:51: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/><br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:62: syntax error, unexpected ',', expecting ')'
+...t_buffer.safe_append='<h3>Oops, we think you are trying to a...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:62: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+...ng to acces a non-existing user..!!!</h3>
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:62: syntax error, unexpected '<'
+...acces a non-existing user..!!!</h3>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: unknown regexp options - ftr
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: end pattern with unmatched parenthesis: /h3>
+'.freeze;end
+@output_buffer.safe_append='
+'.freeze;@output_buffer.append=( render  "/
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: syntax error, unexpected tSTRING_BEG, expecting ')'
+...ffer.append=( render  "/footer" );@output_buffer.safe_append...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:74: unterminated string meets end of file
+          end
+              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:74: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/users/show.html.erb:33: syntax error, unexpected '>'
+app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:34: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:34: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:35: syntax error, unexpected '>'
+app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:36: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:36: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:37: syntax error, unexpected '>'
+app/views/users/show.html.erb:39: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:40: syntax error, unexpected '>'
+app/views/users/show.html.erb:42: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected '>'
+app/views/users/show.html.erb:49: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:49: syntax error, unexpected '>'
+app/views/users/show.html.erb:50: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:51: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:51: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:51: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:51: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/users/show.html.erb:51: syntax error, unexpected '>'
+app/views/users/show.html.erb:62: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:62: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/users/show.html.erb:62: syntax error, unexpected '<'
+app/views/users/show.html.erb:65: unknown regexp options - ftr
+app/views/users/show.html.erb:65: end pattern with unmatched parenthesis: /h3>
+app/views/users/show.html.erb:65: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/users/show.html.erb:74: unterminated string meets end of file
+app/views/users/show.html.erb:74: syntax error, unexpected end-of-input, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (0.9ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:14:24 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.2ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:15 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.2ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:15:34 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:16:31 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:16:48 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (13.6ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:49: syntax error, unexpected ','
+...d=( f.check_box :accepted_tos%, :disabled => true> <%= f.lab...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:49: syntax error, unexpected ','
+app/views/users/show.html.erb:56: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:58: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:63: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:72: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:74: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.0ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:14 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:17:33 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.3ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:33 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:33 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:33 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:33 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:34 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:17:54 +0530
+Started GET "/users/1" for 127.0.0.1 at 2019-09-18 17:18:22 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.5ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 42ms (Views: 39.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:18:25 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.7ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.6ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:20:59 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:21:56 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:15: syntax error, unexpected do (for block)
+...=  button_to 'Edit Profile', do@output_buffer.safe_append='
+...                             ^~):
+  
+app/views/users/show.html.erb:15: syntax error, unexpected do (for block)
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:25:10 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:15: syntax error, unexpected do (for block)
+...=  button_to 'Edit Profile', do@output_buffer.safe_append='
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ')'
+...pend=( f.email_field :email , );@output_buffer.safe_append='...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:59: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:64: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:66: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:75: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:77: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:15: syntax error, unexpected do (for block)
+app/views/users/show.html.erb:22: syntax error, unexpected ')'
+app/views/users/show.html.erb:59: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:64: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:66: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:75: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:77: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:25:32 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected ')'
+...pend=( f.email_field :email , );@output_buffer.safe_append='...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:59: syntax error, unexpected end, expecting ')'
+'.freeze;   end 
+            ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:64: syntax error, unexpected else, expecting ')'
+'.freeze;else
+         ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:66: syntax error, unexpected end, expecting ')'
+'.freeze;end
+         ^~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:75: syntax error, unexpected ensure, expecting ')'
+          ensure
+          ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:77: syntax error, unexpected end, expecting ')'
+          end
+          ^~~):
+  
+app/views/users/show.html.erb:22: syntax error, unexpected ')'
+app/views/users/show.html.erb:59: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:61: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:64: syntax error, unexpected else, expecting ')'
+app/views/users/show.html.erb:66: syntax error, unexpected end, expecting ')'
+app/views/users/show.html.erb:75: syntax error, unexpected ensure, expecting ')'
+app/views/users/show.html.erb:77: syntax error, unexpected end, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.5ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:25:48 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.7ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 69ms (Views: 65.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:26:21 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:30:00 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Started GET "/users/@user.image_path" for 127.0.0.1 at 2019-09-18 17:31:22 +0530
+Processing by UsersController#show as 
+  Parameters: {"id"=>"@user"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.5ms)
+  Rendered _footer.html.erb (0.5ms)
+  Rendered users/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 54ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.7ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 34ms (Views: 32.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:31:56 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/app" for 127.0.0.1 at 2019-09-18 17:32:58 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/app"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/app" for 127.0.0.1 at 2019-09-18 17:33:33 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/app"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."image_profile_id" = $1 AND "images"."image_profile_type" = $2 LIMIT $3[0m  [["image_profile_id", 6], ["image_profile_type", "User"], ["LIMIT", 1]]
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 93ms (Views: 89.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:33:47 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:33:48 +0530
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:34:03 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.6ms)
+  [1m[36mImage Load (1.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."image_profile_id" = $1 AND "images"."image_profile_type" = $2 LIMIT $3[0m  [["image_profile_id", 6], ["image_profile_type", "User"], ["LIMIT", 1]]
+  Rendered users/show.html.erb within layouts/application (11.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    13: 
+    14: <%= form_for @user, :url => { :action => "update" }, :multipart => true, :disabled => true do |f| %>
+    15:     
+    16: <%=@user.image.id%>
+    17:   
+    18:     <%= f.label :name, 'Name' %>
+    19:     <%= f.text_field :name, :disabled => true %> <br/>
+  
+app/views/users/show.html.erb:16:in `block in _app_views_users_show_html_erb___2778523195915708451_70324016294600'
+app/views/users/show.html.erb:14:in `_app_views_users_show_html_erb___2778523195915708451_70324016294600'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.6ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:34:46 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.3ms)
+  Rendered _footer.html.erb (0.4ms)
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:35:02 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 37ms (Views: 32.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:38:48 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started PATCH "/users/6" for 127.0.0.1 at 2019-09-18 17:38:49 +0530
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for UsersController):
+  
+actionpack (5.2.3) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.3) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.3) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.3) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.3) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.3) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (5.2.3) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.3) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:40:52 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:16: syntax error, unexpected '<'
+<img src="'.freeze;@output_buf...
+^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:16: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ut_buffer.safe_append='" height="100", width="100"/>
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:16: syntax error, unexpected '>'
+...='" height="100", width="100"/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:18: syntax error, unexpected tCONSTANT, expecting ')'
+...r.append=( f.label :name, 'Name' );@output_buffer.safe_appen...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:19: syntax error, unexpected '>'
+...tput_buffer.safe_append=' <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:21: syntax error, unexpected tCONSTANT, expecting ')'
+...append=( f.label :email, 'Email' );@output_buffer.safe_appen...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:22: syntax error, unexpected '>'
+...tput_buffer.safe_append=' <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:24: syntax error, unexpected tCONSTANT, expecting ')'
+...=( f.label :password, 'Password');@output_buffer.safe_append...
+...                       ^~~~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:25: syntax error, unexpected '>'
+...tput_buffer.safe_append=' <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+....append=(f.label :phone, 'Phone number');@output_buffer.safe...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:30: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:32: syntax error, unexpected tCONSTANT, expecting ')'
+...pend=(f.label :address, 'Street Address');@output_buffer.saf...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:33: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+...city, options_for_select(['CITY 1', 'CITY 2']), { prompt: 'S...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+...ons_for_select(['CITY 1', 'CITY 2']), { prompt: 'Select city...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+..., 'CITY 2']), { prompt: 'Select city' } , :disabled => true ...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:36: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ate, options_for_select(['state 1', ['state 2']]), { prompt:...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._for_select(['state 1', ['state 2']]), { prompt: 'Select sta...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:37: syntax error, unexpected tCONSTANT, expecting ')'
+...'state 2']]), { prompt: 'Select state' } , :disabled => true...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:38: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting ')'
+...ountry, options_for_select(['c1']), { prompt: 'Select countr...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:39: syntax error, unexpected tCONSTANT, expecting ')'
+...lect(['c1']), { prompt: 'Select country' }, :disabled => tru...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:40: syntax error, unexpected '>'
+...t_buffer.safe_append='    <br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:42: syntax error, unexpected tCONSTANT, expecting ')'
+...=(f.label :date_of_birth, 'Date of Birth');@output_buffer.sa...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:43: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:45: syntax error, unexpected tCONSTANT, expecting ')'
+...pend=( f.label :gender, 'Gender');@output_buffer.safe_append...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:46: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd=( f.radio_button :gender, 'm', :checked => true , :disabl...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:46: syntax error, unexpected tCONSTANT, expecting ')'
+...append=( f.label :gender, 'Male' );@output_buffer.append=( f...
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:46: syntax error, unexpected tIDENTIFIER, expecting ')'
+...nd=( f.radio_button :gender, 'f' , :disabled => true);@outpu...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:46: syntax error, unexpected tCONSTANT, expecting ')'
+...pend=( f.label :gender, 'Female' );@output_buffer.safe_appen...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:46: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:52: syntax error, unexpected tCONSTANT, expecting ')'
+...nd=( f.label :accepted_tos, 'Do you accept the TOS?');@outpu...
+...                             ^~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:52: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:53: syntax error, unexpected tCONSTANT, expecting ')'
+...ppend=( f.label :image, 'Upload profile Pic');@output_buffer...
+...                         ^~~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected tIDENTIFIER, expecting ')'
+...le_field :image ,accept: 'image/png,image/jpeg,image/jpg', :...
+...                          ^~~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected ',', expecting ')'
+...eld :image ,accept: 'image/png,image/jpeg,image/jpg', :disab...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected ',', expecting ')'
+...,accept: 'image/png,image/jpeg,image/jpg', :disabled => true...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+...image/png,image/jpeg,image/jpg', :disabled => true);@output_...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:54: syntax error, unexpected '>'
+...utput_buffer.safe_append='<br/><br/>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: syntax error, unexpected ',', expecting ')'
+...t_buffer.safe_append='<h3>Oops, we think you are trying to a...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+...ng to acces a non-existing user..!!!</h3>
+...                           ^~~~
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:65: syntax error, unexpected '<'
+...acces a non-existing user..!!!</h3>
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:68: unknown regexp options - ftr
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:68: end pattern with unmatched parenthesis: /h3>
+'.freeze;end
+@output_buffer.safe_append='
+'.freeze;@output_buffer.append=( render  "/
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:68: syntax error, unexpected tSTRING_BEG, expecting ')'
+...ffer.append=( render  "/footer" );@output_buffer.safe_append...
+...                              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:77: unterminated string meets end of file
+          end
+              ^
+/home/beryl/Desktop/Training/Training/Rails/college/app/views/users/show.html.erb:77: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/users/show.html.erb:16: syntax error, unexpected '<'
+app/views/users/show.html.erb:16: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:16: syntax error, unexpected '>'
+app/views/users/show.html.erb:18: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:19: syntax error, unexpected '>'
+app/views/users/show.html.erb:21: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:22: syntax error, unexpected '>'
+app/views/users/show.html.erb:24: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:25: syntax error, unexpected '>'
+app/views/users/show.html.erb:29: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:30: syntax error, unexpected '>'
+app/views/users/show.html.erb:32: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:33: syntax error, unexpected '>'
+app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:35: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:36: syntax error, unexpected '>'
+app/views/users/show.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:37: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:37: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:38: syntax error, unexpected '>'
+app/views/users/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:39: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:40: syntax error, unexpected '>'
+app/views/users/show.html.erb:42: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:43: syntax error, unexpected '>'
+app/views/users/show.html.erb:45: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:46: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:46: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:46: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:46: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:46: syntax error, unexpected '>'
+app/views/users/show.html.erb:52: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:52: syntax error, unexpected '>'
+app/views/users/show.html.erb:53: syntax error, unexpected tCONSTANT, expecting ')'
+app/views/users/show.html.erb:54: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/users/show.html.erb:54: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:54: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:54: syntax error, unexpected tSTRING_BEG, expecting do or '{' or '('
+app/views/users/show.html.erb:54: syntax error, unexpected '>'
+app/views/users/show.html.erb:65: syntax error, unexpected ',', expecting ')'
+app/views/users/show.html.erb:65: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+app/views/users/show.html.erb:65: syntax error, unexpected '<'
+app/views/users/show.html.erb:68: unknown regexp options - ftr
+app/views/users/show.html.erb:68: end pattern with unmatched parenthesis: /h3>
+app/views/users/show.html.erb:68: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/users/show.html.erb:77: unterminated string meets end of file
+app/views/users/show.html.erb:77: syntax error, unexpected end-of-input, expecting ')'
+app/controllers/users_controller.rb:7:in `show'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.1ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 38ms (Views: 35.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/login.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/signup.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/scaffolds.self-1a80c87193d1aea98c44e45719f3f4bfa803781c780d9b8c19ac58b3116bc234.css?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/logout.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/logout.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/login.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/signup.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:41:03 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:41:13 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.4ms)
+  Rendered _footer.html.erb (0.3ms)
+  Rendered users/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 30ms (Views: 27.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:41:13 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/logout" for 127.0.0.1 at 2019-09-18 17:41:14 +0530
+Processing by LogoutController#confirm as HTML
+  Rendering logout/confirm.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (2.1ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered logout/confirm.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:41:15 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Started DELETE "/logout" for 127.0.0.1 at 2019-09-18 17:41:17 +0530
+Processing by LogoutController#cancel as HTML
+  Parameters: {"authenticity_token"=>"ZK06L3aLGDeScEnoIBVVnoTPe2UDXrlucbHrK1wAkEkIMNMdg4kK3haiKGWzh13KhRSVrCaF4saJ/sF80VBUtw=="}
+No template found for LogoutController#cancel, rendering head :no_content
+Completed 204 No Content in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/6" for 127.0.0.1 at 2019-09-18 17:41:19 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered _header.html.erb (1.7ms)
+  Rendered _footer.html.erb (0.6ms)
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+Started GET "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png" for 127.0.0.1 at 2019-09-18 17:41:19 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/users/Screenshot%20from%202019-09-13%2015-51-33.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+rack (2.0.7) lib/rack/handler/webrick.rb:86:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+/home/beryl/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.7ms)
+
+

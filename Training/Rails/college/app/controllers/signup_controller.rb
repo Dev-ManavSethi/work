@@ -22,16 +22,15 @@ class SignupController < ApplicationController
         image_file = params[:user][:image]
         accepted_tos = params[:user][:accepted_tos].to_i
 
-        image_full_path = Rails.root.join('app','assets', 'images', 'users', 'o.png')
+        image_full_path = Rails.root.join('app','assets', 'images', 'users', image_file.original_filename)
 
-        @user = User.new(name:name,email:email, password:password, gender:gender, phone:phone, address:address, city:city, state:state, country:country, date_of_birth:dob, accepted_tos:accepted_tos, image_path: image_full_path) #do image path
-
+        @user = User.new(name:name,email:email, password:password, gender:gender, phone:phone, address:address, city:city, state:state, country:country, date_of_birth:dob, accepted_tos:accepted_tos, image_path: image_full_path)
         if accepted_tos==1
           if @user.save
             @image = Image.new(image_path: image_full_path, image_profile_id: @user.id, image_profile_type:"user")
             if @image.save
-                File.open(image_full_path, 'w+') do |server_image|
-                    server_image.write(image_file.read) #error here
+                File.open(image_full_path, 'wb') do |server_image|
+                    server_image.write(image_file.read)
                 end
             end
               session[:user_id] = @user.id

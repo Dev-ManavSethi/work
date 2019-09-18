@@ -1,0 +1,3 @@
+* * * * * /usr/bin/php /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/bin/magento cron:run | grep -v "Ran jobs by schedule" >> /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/var/log/magento.cron.log
+* * * * * /usr/bin/php /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/update/cron.php >> /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/var/log/update.cron.log
+* * * * * /usr/bin/php /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/bin/magento setup:cron:run >> /home/123219.cloudwaysapps.com/dvsqquvekr/public_html/var/log/setup.cron.log

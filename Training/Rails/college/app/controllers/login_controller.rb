@@ -1,9 +1,8 @@
 class LoginController < ApplicationController
-    #before_action :UserLoggedIn
+    before_action :CheckUserLoggedIn
+
     def index
-        @uli = self.UserLoggedIn
           @user = User.new
-          render 'login/index'
     end
 
     def verify
@@ -11,7 +10,9 @@ class LoginController < ApplicationController
         password = params[:user][:password]
 
         @user = User.find_by(email:email, password:password)
+        
         if @user == nil
+            flash.now[:error] = "Invalid login credentials" #not working
             render :index
         else session[:user_id]=@user.id
             redirect_to user_path(@user)

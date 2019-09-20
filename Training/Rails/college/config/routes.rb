@@ -23,17 +23,21 @@ Rails.application.routes.draw do
 
   resources :assignments
 
+  get '/signup' => 'signup#index'
+  post '/signup' => 'signup#signup'
+
   get '/login' => 'login#index'
   post '/login' => 'login#verify'
 
-  get '/signup' => 'signup#index'
-  post '/signup' => 'signup#create'
-
-  get '/logout' => 'logout#confirm'
-  post '/logout' => 'logout#logout'
-  delete '/logout' => 'logout#cancel'
+  delete '/logout' => 'logout#logout'
 
   resources :users
+
+  resources :admins
+
+  get '/admins/login' => 'admin#login'
+  post '/admins/login' => 'admin#verify'
+  delete '/admins/logout' => 'admin#logout'
 
   %w( 404 422 500 ).each do |code|
     get code, controller: 'application', action: 'error', code: code

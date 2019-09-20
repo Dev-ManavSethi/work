@@ -1,18 +1,17 @@
 <html>
 <head>
-<title>Login</title>
+<title>Admin Login</title>
 </head>
 
 <body>
 
 <%= render  "/header" %>
 
-<h1>User Login</h1>
+<h1>Admin Login</h1>
 
-<h2>Not signed up?<h2>
-<h2><a href="/signup">Signup</a></h2>
+<h2><a href="/admins/signup">Admin Signup</a></h2>
 
-<%if @user==nil%>
+<%if @admin==nil%>
 <div id="error_explanation">
         <h2>
          Invalid login credentials
@@ -20,12 +19,12 @@
 </div>
 <%end%>
 
-<%@user = User.new%>
+<%@admin = User.new%>
 
-<%= form_for @user, :url => { :action => "verify" } do |f| %>
+<%= form_for @admin, :url => { :action => "verify" } do |f| %>
     
-  <%= f.label :email, 'Email' %>
-  <%= f.email_field :email%><br/>
+  <%= f.label :admin_username, 'Email' %>
+  <%= f.text_field :admin_username%><br/>
 
   <%= f.label :password, 'Password'%>
   <%= f.password_field :password%><br/>

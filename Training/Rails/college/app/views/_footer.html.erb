@@ -6,6 +6,6 @@
   </head>
   <body>
     <h1>Footer Partial</h1>
-    <pre> <a href="/">home</a>     <a href="/about">about</a>     <a href="/departments">departments</a>     <a href="/sections">sections</a>     <a href="/teachers">teachers</a>     <a href="/students">students</a>     <a href="/subjects">subjects</a>     <a href="/exams">examinations</a>     <a href="/contact">contact us</a></pre>
+    <pre> <a href="/">home</a>     <a href="/about">about</a>     <a href="/departments">departments</a>     <a href="/sections">sections</a>     <a href="/teachers">teachers</a>     <a href="/students">students</a>     <a href="/subjects">subjects</a>     <a href="/exams">examinations</a>     <a href="/contact">contact us</a>      <%if session[:admin_id]==nil%><%= link_to 'Admin Login', admins_login_path, :action => 'login'%><%elsif session[:admin_id]!=nil%><%= link_to 'Logout', admins_logout_path, method: 'delete'%><%end%></pre>
   </body>
 </html>

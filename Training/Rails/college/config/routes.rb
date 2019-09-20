@@ -35,6 +35,11 @@ Rails.application.routes.draw do
 
   resources :users
 
+  %w( 404 422 500 ).each do |code|
+    get code, controller: 'application', action: 'error', code: code
+  end
+
+
 
 
   # Example of regular route:

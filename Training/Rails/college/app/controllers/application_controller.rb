@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
     return true if cookies[:admin] == 'abc'
     false
   end
+
+  #define error responses on invalid requests
+  def error
+    render status_code.to_s, status: (params[:code] || 500)
+  end
 end

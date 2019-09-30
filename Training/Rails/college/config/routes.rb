@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :departments
   get 'departments/select' => 'departments#select'
+  get '/department/search' => 'departments#search'
 
   resources :sections
   get 'sections/select' => 'sections#select'

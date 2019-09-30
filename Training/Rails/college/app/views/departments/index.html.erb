@@ -6,6 +6,17 @@
   </head>
   <body>
     <%= render "/header"%>
+
+    <input type="text" name="search_departments" id="search_input" placeholder="Search Department name"/>
+
+  
+
+    <input type="number" name="created_departments" placeholder="HOD ID" id="hod_id_input"/>
+
+    <%=link_to "Search", departments_path, remote: true%><br/>
+
+    <div id="search_results_div"></div>
+    
     <h1>Departments</h1>
     <%if $isadmin%>
       <%= link_to 'New Department', new_department_path%>

@@ -50,6 +50,27 @@ class DepartmentsController < ApplicationController
     end
   end
 
+  def search
+    respond_to :json
+    search_query = params[:name]
+    hod_id_query = params[:hod_id]
+
+    if search_query==''
+      format.json { render json: "" }
+    
+    end
+
+    @department_search_results = Department.all.where("name ILIKE '#{search_query}%' AND hod_id = #{hod_id_query}").order(:id)
+
+    respond_to do |format|
+
+      format.json { render json: @department_search_results }
+    
+     end
+
+  
+  end
+
   private
 
   def get_params

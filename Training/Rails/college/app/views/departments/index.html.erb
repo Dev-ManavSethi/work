@@ -1,68 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>Departments</title>
   </head>
+
   <body>
 
     <%= render "/header"%>
+   <h1><%=@sorted_by_id%></h1>
+   <h1><%=@sorted_by_name%></h1>
 
-    <div id="search_area">
-
-  
 
     <%= form_tag( departments_path, :method=> :get, :remote => true ) %>
     <%= text_field_tag :search_name, nil, placeholder: 'Search department by name' %>
-    <%= number_field_tag :search_hod_name, nil, placeholder: 'Search department by HOD ID' %>
-     <%= submit_tag 'Search'%> <br/>
-
-     
-    
-
-    </div>
-    
-    
-    <h1>Departments</h1>
-
-    <div id="data">
-    <%if $isadmin%>
-      <%= link_to 'New Department', new_department_path%>
-    <%end%>
-
-    <h1 id="search_results_div"> </h1>
-    <table id='dep_table'>
-      <th>ID</th>
-      <th><%if @sorted%>
-      <%=link_to 'Name (A to Z)', {:controller => "departments", :action => "index", :sort => !@sorted }%>
-      <%elsif !@sorted%> <%=link_to 'Name (Z to A)', {:controller => "departments", :action => "index", :sort => !@sorted }%>
-      <%end%></th>
-      <th>HOD</th>
-      <th>HOD ID</th>
-      <th></th>
-      <%if $isadmin%>
-        <th></th>
-        <th></th>
-      <%end%>
-    
-
-      <% @departments.each do |d|%>
-        <tr>
-          <td><%=d.id-%></td>
-          <td><%=d.name-%></td>
-          <td><%=d.hod.name-%></td>
-          <td><%=d.hod_id-%></td>
-          <td><%= link_to 'Show', d%></td>
-          <%if $isadmin%>
-            <td><%=link_to 'Edit' ,edit_department_path(d)%></td>
-            <td><%=link_to 'Destroy', department_path(d.id) ,data: {confirm: "Are you sure you want to delete #{d.class} #{d.name}?"}, method: 'delete'%></td>
-          <%end%>
-        </tr>
-      <%end%>
-      <%= will_paginate @departments%>
-    </table>
-
-
+    <%= number_field_tag :search_hod_id, nil, placeholder: 'Search department by HOD ID' %>
+    <%= submit_tag 'Search'%>
+  
+    <div id="dep_table_div">
+      <%=render 'departments_table'%>
     </div>
     <%= render "/footer"%>
   </body>

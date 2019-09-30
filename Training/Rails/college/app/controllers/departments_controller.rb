@@ -1,11 +1,25 @@
 # frozen_string_literal: true
 
 class DepartmentsController < ApplicationController
+
+  @sorted = false
   
   before_action :CheckUserLoggedIn, only: [:show]
   before_action :CheckAdminLoggedIn, only: [:new, :create, :edit, :update, :destroy]
   
   def index
+    if !params[:sort].present?
+    @departments = Department.all.order(:id).paginate(:page => params[:page], :per_page => 10)
+    elsif params[:sort].present?
+      if params[:sort]=="true"
+        @sorted = true
+        @departments = Department.all.order(:name).paginate(:page => params[:page], :per_page => 10)
+      elsif params[:sort]=="false"
+        @sorted=false
+        @departments = Department.all.order("name DESC").paginate(:page => params[:page], :per_page => 10)
+      end
+
+    end
   end
 
   def show

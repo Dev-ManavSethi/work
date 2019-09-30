@@ -5,25 +5,38 @@
     <title>Departments</title>
   </head>
   <body>
+
     <%= render "/header"%>
 
-    <input type="text" name="search_departments" id="search_input" placeholder="Search Department name"/>
+    <div id="search_area">
 
   
 
-    <input type="number" name="created_departments" placeholder="HOD ID" id="hod_id_input"/>
+    <%= form_tag( departments_path, :method=> :get, :remote => true ) %>
+    <%= text_field_tag :search_name, nil, placeholder: 'Search department by name' %>
+    <%= number_field_tag :search_hod_name, nil, placeholder: 'Search department by HOD ID' %>
+     <%= submit_tag 'Search'%> <br/>
 
-    <%=link_to "Search", departments_path, remote: true%><br/>
+     
+    
 
-    <div id="search_results_div"></div>
+    </div>
+    
     
     <h1>Departments</h1>
+
+    <div id="data">
     <%if $isadmin%>
       <%= link_to 'New Department', new_department_path%>
     <%end%>
-    <table>
+
+    <h1 id="search_results_div"> </h1>
+    <table id='dep_table'>
       <th>ID</th>
-      <th>Name</th>
+      <th><%if @sorted%>
+      <%=link_to 'Name (A to Z)', {:controller => "departments", :action => "index", :sort => !@sorted }%>
+      <%elsif !@sorted%> <%=link_to 'Name (Z to A)', {:controller => "departments", :action => "index", :sort => !@sorted }%>
+      <%end%></th>
       <th>HOD</th>
       <th>HOD ID</th>
       <th></th>
@@ -31,7 +44,9 @@
         <th></th>
         <th></th>
       <%end%>
-      <% Department.all.order(:id).each do |d|%>
+    
+
+      <% @departments.each do |d|%>
         <tr>
           <td><%=d.id-%></td>
           <td><%=d.name-%></td>
@@ -44,8 +59,11 @@
           <%end%>
         </tr>
       <%end%>
-
+      <%= will_paginate @departments%>
     </table>
+
+
+    </div>
     <%= render "/footer"%>
   </body>
 </html>

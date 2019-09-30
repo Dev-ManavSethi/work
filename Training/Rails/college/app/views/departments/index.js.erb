@@ -1,32 +1,40 @@
-$.ajax({
-  type: "GET", 
-  url: "/department/search",
-  data: { "name": $('#search_input').val(),
-  "hod_id": $('#hod_id_input').val()
-},
-  success: function(data, textStatus, jqXHR){
-    $('#search_results_div').empty()
+<%if params[:search_name].present? && !params[:search_hod_name].present?%>
+<% @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order(:id)%>
+<%end%>
 
-    if ($.trim(data)==''){
-        $('#search_results_div').append('Sorry no search results found')
-        return
-   
-    } else{
+<%if params[:search_hod_name].present? && !params[:search_name].present?%>
+<% @departments = Department.all.where("hod_id = '#{params[:search_hod_name]}'").paginate(:page => params[:page], :per_page => 10).order(:id)%>
+<%end%>
 
-for (i=0; i<data.length; i++){
-    $('#search_results_div').append("<a href= '/departments/" + data[i].id + "'>" + data[i].name + "</a>")
-    $('#search_results_div').append('<br/>')
-   
-}
+<%if params[:search_name].present? && params[:search_hod_name].present?%>
+<% @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_name]}'").paginate(:page => params[:page], :per_page => 10).order(:id)%>
+<%end%>
 
-$('#search_results_div').append('<br/>')
-$('#search_results_div').append('<br/>')
+<%if params[:search_name]=='' && !params[:search_hod_name]==''%>
+<% @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order(:id)%>
+<%end%>
 
-    }   
+var new_table = "<table><th>ID</th> <th>Name</th> <th>HOD</th> <th>HOD ID</th>"
+
+$("#dep_table").empty()
+$("#search_results_div").html("Search results")
+
+<% @departments.each do |d| %>
 
 
-  },
-  error: function(jqXHR, textStatus, errorThrown){
+    new_table += "<tr>  <td><%=d.id-%></td> <td><%=d.name-%></td> <td><%=d.hod.name-%></td> <td><%=d.hod_id-%></td>  </tr></table> "
 
-  }
-})
+    <%end%>
+
+    <%= will_paginate @departments%>
+
+    console.log(new_table)
+
+  $("#dep_table").html(new_table)
+
+ 
+
+
+
+
+

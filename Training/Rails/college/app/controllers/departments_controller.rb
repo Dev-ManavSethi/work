@@ -12,179 +12,76 @@ class DepartmentsController < ApplicationController
   @sorted_by_id = true
   @search_name = ""
   @search_hod_id = 0
-  @search_status = ""
 
   def index
 
+    @departments = Department.all
+
+    if params[:sort_by_name].present?
+      if params[:sort_by_name] == "true"
+        @sorted_by_name = true
+        @sorted_by_id = false
+        @departments = @departments.order(:name)
+        
+       
+      elsif params[:sort_by_name] == "false"
+        @sorted_by_name = false
+        @sorted_by_id = false
+        @departments = @departments.order("name DESC")
+      end
+
+    end
+
+    if params[:sort_by_id].present?
+
+      if params[:sort_by_id] == "true"
+        @sorted_by_id = true
+        @sorted_by_name = false
+        @departments = @departments.order(:id)
+        
+       
+      elsif params[:sort_by_id] == "false"
+        @sorted_by_id = false
+        @sorted_by_name = false
+        @departments = @departments.order("id DESC")  
+      end
+
+    end
+
     #show all
     if (!params[:search_name].present? || params[:search_name]=="") && (!params[:search_hod_id].present? || params[:search_name]=="")
-      @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order(:id)
+      @departments = @departments.paginate(:page => params[:page], :per_page => 10)
 
       @search_status = "Showing all departments sorted by ID (1 to 100)"
       @sorted_by_id = true
-
-      if params[:sort_by_name].present?
-        if params[:sort_by_name] == "true"
-          @sorted_by_name = true
-          @sorted_by_id = false
-          @search_status = "Showing all departments sorted by name (A to Z)"
-          @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order(:name)
-          
-         
-        elsif params[:sort_by_name] == "false"
-          @sorted_by_name = false
-          @sorted_by_id = false
-          @search_status = "Showing all departments sorted by name (Z to A)"
-          @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order("name DESC")
-          
-        end
-      end
-
-      if params[:sort_by_id].present?
-        if params[:sort_by_id] == "true"
-          @sorted_by_id = true
-          @sorted_by_name = false
-          @search_status = "Showing all departments sorted by ID (1 to 100)"
-          @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order(:id)
-          
-         
-        elsif params[:sort_by_id] == "false"
-          @sorted_by_id = false
-          @sorted_by_name = false
-          @search_status = "Showing all departments sorted by ID (100 to 1)"
-          @departments = Department.all.paginate(:page => params[:page], :per_page => 10).order("id DESC")
-          
-        end
-      end
     end
 
     #search by name
     if params[:search_name].present? && (!params[:search_hod_id].present? || params[:search_hod_id] == "")
 
-      @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order(:id)
-
-      @search_status = "Showing searched departments sorted by ID (1 to 100)"
-      @sorted_by_id = true
+      @departments = @departments.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10)
 
       @search_name = params[:search_name]
       @search_hod_id = params[:search_hod_id]
-
-      if params[:sort_by_name].present?
-        if params[:sort_by_name] == "true"
-          @sorted_by_name = true
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (A to Z)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order(:name)
-         
-        elsif params[:sort_by_name] == "false"
-          @sorted_by_name = false
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (Z to A)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order("name DESC")
-        end
-      end
-
-      if params[:sort_by_id].present?
-        if params[:sort_by_id] == "true"
-          @sorted_by_id = true
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (1 to 100)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order(:id)
-         
-        elsif params[:sort_by_id] == "false"
-          @sorted_by_id = false
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (100 to 1)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10).order("id DESC")
-        end
-      end
-
       
     end
 
     #search by id
     if params[:search_hod_id].present? && (!params[:search_name].present? || params[:search_name]=="")
-      @departments = Department.all.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
+      @departments = @departments.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10)
 
-      @search_status = "Showing searched departments sorted by ID (1 to 100)"
-      @sorted_by_id = true
 
       @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]
-
-      if params[:sort_by_name].present?
-        if params[:sort_by_name] == "true"
-          @sorted_by_name = true
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (A to Z)"
-          @departments = Department.all.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:name)
-         
-        elsif params[:sort_by_name] == "false"
-          @sorted_by_name = false
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (Z to A)"
-          @departments = Department.all.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order("name DESC")
-        end
-      end
-
-      if params[:sort_by_id].present?
-        if params[:sort_by_id] == "true"
-          @sorted_by_id = true
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (1 to 100)"
-          @departments = Department.all.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
-         
-        elsif params[:sort_by_id] == "false"
-          @sorted_by_id = false
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (100 to 1)"
-          @departments = Department.all.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order("id DESC")
-        end
-      end
-
-
-     
+      @search_hod_id = params[:search_hod_id]  
     end
 
     #search by both
     if params[:search_name].present? && params[:search_hod_id].present?
-      @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
+      @departments = @departments.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
 
-      @search_status = "Showing searched departments sorted by ID (1 to 100)"
-      @sorted_by_id = true  
 
       @search_name = params[:search_name]
       @search_hod_id = params[:search_hod_id]
-
-      if params[:sort_by_name].present?
-        if params[:sort_by_name] == "true"
-          @sorted_by_name = true
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (A to Z)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:name)
-         
-        elsif params[:sort_by_name] == "false"
-          @sorted_by_name = false
-          @sorted_by_id = false
-          @search_status = "Showing searched departments sorted by name (Z to A)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order("name DESC")
-        end
-      end
-
-      if params[:sort_by_id].present?
-        if params[:sort_by_id] == "true"
-          @sorted_by_id = true
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (1 to 100)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
-         
-        elsif params[:sort_by_id] == "false"
-          @sorted_by_id = false
-          @sorted_by_name = false
-          @search_status = "Showing searched departments sorted by ID (100 to 1)"
-          @departments = Department.all.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order("id DESC")
-        end
-      end
     end
 
   end

@@ -18,40 +18,37 @@
 
 $(document).ready(function(){
 
-    var global_data;
+    var i=1;
 
-    $("#get_details_btn").hide();
+    $("#add_section_button").click(function () {
+        var section = "<div id='section-"+i+"'><h3>Section "+i+"</h3><input type='text' id='section-" + i + "-name' name='section-"+i+"-name' placeholder='Section "+i+" name'/><br/><input type='number' name='section-"+i+"-cord-id' placeholder='Co-ordinator teacher ID'/></div><br/>"
+        $("#sections").append(section);
+        i++;
+      });
 
     $("#submit_btn").click(function(){
-        console.log("name submitted")
 
-        $.ajax({
-            url: "http://localhost:3000/department/name",
-            type: 'POST',
-            
-            error: function (xhr, ajaxOptions, thrownError){
-                alert("Error sending request to server");
-                alert(thrownError);
-            },
-            success: function (data, textStatus, jqXHR) {
-               
-                $("#name_input").val(data.department.name);
-                global_data = data;
-                if (data.department == null){
-                    $("#get_details_btn").hide();
-                } else{
-                    $("#get_details_btn").show();
-                }
-            }
-        });
     });
 
-    $("#get_details_btn").click(function() {
-        $("#department_table").empty();
-        var new_table = "<table> <tr> <th>ID</th> <th>Name</th> <th>HOD ID</th> </tr>";
-        new_table += "<tr> <td>" + global_data.department.id+"</td>" + "<td>" + global_data.department.name + "</td>"+ "<td>" + global_data.department.hod_id + "</td>";
+    $("#form").submit(function(e) {
 
-        $("#department_table").html(new_table);
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    
+        var form = $(this);
+
+        console.log("yyyyyyyyyyyyyyyyyyyy")
+    
+        // $.ajax({
+        //        type: "POST",
+        //        url: url,
+        //        data: form.serialize(), // serializes the form's elements.
+        //        success: function(data)
+        //        {
+        //            alert(data); // show response from the php script.
+        //        }
+        //      });
+    
+    
     });
 
 });

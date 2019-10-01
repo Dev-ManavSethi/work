@@ -5,19 +5,23 @@
     <title>Assignment</title>
   </head>
   <body>
-    <h1>Get Person Details</h1>
+    <h1>Add Department</h1>
 
-    <input type="text" id="name_input"/>
-    <input type="submit" value="Search" id="submit_btn"/>
-    <input type="button" value="Get Details" id="get_details_btn"/>
+    <form id="form">
 
-    <div id="department_data">
+    <input type="number" id="department_id_input" value="<%=Department.all.order(:id).last.id + 1%>" placeholder="ID" readonly="true"/>
+    <input type="text" id="department_name_input" placeholder="NAME"/>
+    <input type="number" id="department_hod_id_input" placeholder="HOD ID"/><br/><br/>
 
-    <table id="department_table">
+    <div id="sections"></div>
+
+    <button id="add_section_button" value="Add input">Add Section</button><br/><br/>
+
+    <button id="submit_btn">Save Department</button><br/>
+
+  
+</form>
     
-    </table>
-
-    </div>
 
   </body>
 </html>

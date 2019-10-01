@@ -7,11 +7,14 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about' => 'about#index'
 
+  get '/department/assignment' => 'departments#assignment'
+  get '/department/name' => 'departments#get_name'
+  post '/department/name' => 'departments#get_department'
+
   resources :departments
   get '/departments/select' => 'departments#select'
   get '/department/search' => 'departments#search'
-  get '/department/assignment' => 'departments#assignment'
-  post '/department/name' => 'departments#get_name'
+  
   
 
   resources :sections

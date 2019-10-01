@@ -147,13 +147,14 @@ class DepartmentsController < ApplicationController
   end
 
   def get_name
+    @name = Department.first.name
+    @id = Department.first.id
+  end
 
-      @department = Department.first
-      respond_to do |format|
-        format.json {
-          render json: {"department" => @department}
-        }
-      end
+  def get_department
+    id = params[:id].to_i
+    @department = Department.find(id)
+    puts @department.name + "****************************************************"
   end
 
   private

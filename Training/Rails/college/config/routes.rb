@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
 
   resources :departments
-  get 'departments/select' => 'departments#select'
+  get '/departments/select' => 'departments#select'
   get '/department/search' => 'departments#search'
+  get '/department/assignment' => 'departments#assignment'
+  post '/department/name' => 'departments#get_name'
+  
 
   resources :sections
   get 'sections/select' => 'sections#select'

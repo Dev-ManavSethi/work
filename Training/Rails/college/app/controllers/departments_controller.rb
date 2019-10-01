@@ -14,16 +14,15 @@ class DepartmentsController < ApplicationController
   @search_hod_id = 0
 
   def index
-
     @departments = Department.all
 
     if params[:sort_by_name].present?
+
       if params[:sort_by_name] == "true"
         @sorted_by_name = true
         @sorted_by_id = false
         @departments = @departments.order(:name)
         
-       
       elsif params[:sort_by_name] == "false"
         @sorted_by_name = false
         @sorted_by_id = false
@@ -39,7 +38,6 @@ class DepartmentsController < ApplicationController
         @sorted_by_name = false
         @departments = @departments.order(:id)
         
-       
       elsif params[:sort_by_id] == "false"
         @sorted_by_id = false
         @sorted_by_name = false
@@ -51,9 +49,6 @@ class DepartmentsController < ApplicationController
     #show all
     if (!params[:search_name].present? || params[:search_name]=="") && (!params[:search_hod_id].present? || params[:search_name]=="")
       @departments = @departments.paginate(:page => params[:page], :per_page => 10)
-
-      @search_status = "Showing all departments sorted by ID (1 to 100)"
-      @sorted_by_id = true
     end
 
     #search by name
@@ -70,7 +65,6 @@ class DepartmentsController < ApplicationController
     if params[:search_hod_id].present? && (!params[:search_name].present? || params[:search_name]=="")
       @departments = @departments.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10)
 
-
       @search_name = params[:search_name]
       @search_hod_id = params[:search_hod_id]  
     end
@@ -78,7 +72,6 @@ class DepartmentsController < ApplicationController
     #search by both
     if params[:search_name].present? && params[:search_hod_id].present?
       @departments = @departments.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
-
 
       @search_name = params[:search_name]
       @search_hod_id = params[:search_hod_id]
@@ -147,6 +140,20 @@ class DepartmentsController < ApplicationController
      end
 
   
+  end
+
+  def assignment
+    
+  end
+
+  def get_name
+
+      @department = Department.first
+      respond_to do |format|
+        format.json {
+          render json: {"department" => @department}
+        }
+      end
   end
 
   private

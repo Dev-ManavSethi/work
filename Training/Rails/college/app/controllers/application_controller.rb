@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  def CheckSuperAdminLoggedIn
+    
+  end
+
   
 
   def CheckUserLoggedIn
@@ -26,11 +30,11 @@ class ApplicationController < ActionController::Base
 
   def CheckAdminLoggedIn
     if session[:admin_id]==nil
-      if request.path == admins_login_path
+      if request.path == admin_login_path
 
       else
         flash[:error] = "Please Login First as Admin!" #not working
-        redirect_to admins_login_path
+        redirect_to admin_login_path
       end
     elsif session[:admin_id]!=nil
       #redirect_to last page

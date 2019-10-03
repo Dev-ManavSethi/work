@@ -42,9 +42,13 @@ Rails.application.routes.draw do
 
   resources :admins
 
-  get '/admins/login' => 'admin#login'
-  post '/admins/login' => 'admin#verify'
-  delete '/admins/logout' => 'admin#logout'
+  get '/admin/signup' => 'admins#new'
+  post '/admin/signup' => 'admins#create'
+
+  get '/admin/login' => 'admins#login'
+  post '/admin/login' => 'admins#verify'
+  
+  delete '/admin/logout' => 'admins#logout'
 
   %w( 404 422 500 ).each do |code|
     get code, controller: 'application', action: 'error', code: code

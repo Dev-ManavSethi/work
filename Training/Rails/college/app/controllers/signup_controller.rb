@@ -49,8 +49,10 @@ class SignupController < ApplicationController
                 end
             end
               session[:user_id] = @user.id
+
+              Sidekiq::Client.enqueue_to_in("default", 1.seconds, EmailWorker, 4, @user.email, "Signup successfull on College website" ,"Welcome aboard. Click here to login: http://localhost:3000/login")
               
-              EmailWorker.perform_async(1, @user.email,"Signup successfull on College website" ,"Welcome aboard. Click here to login: http://localhost:3000/login")
+            #   EmailWorker.perform_async(1, @user.email,"Signup successfull on College website" ,"Welcome aboard. Click here to login: http://localhost:3000/login")
               redirect_to user_path(@user)
           else render :index
           end    

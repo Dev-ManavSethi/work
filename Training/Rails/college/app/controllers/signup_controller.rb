@@ -49,7 +49,8 @@ class SignupController < ApplicationController
                 end
             end
               session[:user_id] = @user.id
-              UserMailer.with(user: @user).welcome_email.deliver_later
+              
+              EmailWorker.perform_async(1, @user.email,"Signup successfull on College website" ,"Welcome aboard. Click here to login: http://localhost:3000/login")
               redirect_to user_path(@user)
           else render :index
           end    

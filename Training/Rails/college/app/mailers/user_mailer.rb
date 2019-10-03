@@ -1,7 +1,19 @@
 class UserMailer < ApplicationMailer
-    def welcome_email
-        @user = params[:user]
-        @url = 'http://localhost:3000/login'
-        mail(to: @user.email, subject: 'Welcome aboard')
+    def welcome_email(email,subject ,message)
+        @email=email
+        @message = message
+        mail(to: email, subject: subject)
+    end
+
+    def login_alert_email(email, subject, message)
+        @email = email
+        @message = message
+        mail(to:email, subject: subject)
+    end
+
+    def user_delete_email(email, subject, message)
+        @email = email
+        @message = message
+        mail(to: email, subject: subject)
     end
 end

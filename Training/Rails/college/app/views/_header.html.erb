@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Header Partial</title>
-  </head>
-  <body>
+
     <pre> <a href="/">home</a>     <a href="/about">about</a>     <a href="/departments">departments</a>     <a href="/sections">sections</a>     <a href="/teachers">teachers</a>     <a href="/students">students</a>     <a href="/subjects">subjects</a>     <a href="/exams">examinations</a>     <a href="/contact">contact us</a>      <%if session[:user_id]==nil%><a href="/signup">Signup / Login</a><%else%><%= link_to  "My Account", user_path(User.find_by(id:session[:user_id]))%>      <%=link_to 'Logout' , logout_path,data: {confirm: "Are you sure you want to logout?"}, method: "delete" %><%end%></pre>
     <h1>Header Partial</h1>
-    
-  </body>
-</html>

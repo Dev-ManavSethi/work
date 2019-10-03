@@ -18,6 +18,7 @@ class UsersController < ApplicationController
                 session[:user_id] = nil
                 redirect_to root_path
                 #flash : Account deleted
+                EmailWorker.perform_async(4, @user.email, "Account deleted at college website", "As per your request, your account is now deleted.")
             else
             end
         end

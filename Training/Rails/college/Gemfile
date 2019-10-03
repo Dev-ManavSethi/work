@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'table_for_collection'
 gem 'html-table'
+gem 'sidekiq'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
 gem "table-for"

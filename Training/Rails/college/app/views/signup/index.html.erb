@@ -47,9 +47,9 @@
   <%=f.label :address, 'Street Address'%>
   <%=f.text_area :address%><br/>
 
-  <%= f.select :country, self.options_for_country, { prompt: 'Select country' } %><br/>
-  <%= f.select :state, self.options_for_state, { prompt: 'Select state' } %><br/>
-  <%= f.select :city, self.options_for_city, { prompt: 'Select city' } %><br/>
+  <%= f.select :country, options_for_select([]), { prompt: 'Select country' } %><br/>
+  <%= f.select :state, options_for_select([]), { prompt: 'Select state' } %><br/>
+  <%= f.select :city, options_for_select([]), { prompt: 'Select city' } %><br/>
   
   
   

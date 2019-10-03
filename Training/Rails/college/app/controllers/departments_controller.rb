@@ -15,7 +15,6 @@ class DepartmentsController < ApplicationController
 
   def index
     @departments = Department.all
-
     if params[:sort_by_name].present?
 
       if params[:sort_by_name] == "true"
@@ -154,7 +153,6 @@ class DepartmentsController < ApplicationController
   def get_department
     id = params[:id].to_i
     @department = Department.find(id)
-    puts @department.name + "****************************************************"
   end
 
   private

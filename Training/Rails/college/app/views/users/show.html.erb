@@ -65,6 +65,8 @@
 <h3>Oops, we think you are trying to acces a non-existing user..!!!</h3>
 <%end%>
 
+<%=link_to 'Delete Account', '/users/' + @user.id.to_s, method:'delete' , data: {confirm: "Are you serious for deleting your account?"}%>
+
 <%= render  "/footer" %>
 
 </body>

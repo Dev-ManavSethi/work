@@ -1,5 +1,21 @@
 class SignupController < ApplicationController
     before_action :CheckUserLoggedIn
+
+    def options_for_city
+        [['Faridabad','fbd'],['New Delhi', 'ND'],['Gurugram', 'ggn']]
+    end
+
+    def options_for_country
+        [['',''],['',''],['','']]
+    end
+
+    def options_for_state
+        [['',''],['',''],['','']]
+    end
+
+
+
+
     def index
         @user = User.new
     end
@@ -33,6 +49,7 @@ class SignupController < ApplicationController
                 end
             end
               session[:user_id] = @user.id
+              UserMailer.with(user: @user).welcome_email.deliver_later
               redirect_to user_path(@user)
           else render :index
           end    
@@ -43,6 +60,9 @@ class SignupController < ApplicationController
             render :index
         end
     end
+
+    
+    
 end
 
 =begin

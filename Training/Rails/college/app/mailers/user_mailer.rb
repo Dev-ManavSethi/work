@@ -1,19 +1,41 @@
 class UserMailer < ApplicationMailer
-    def welcome_email(email,subject ,message)
-        @email=email
+
+
+    def welcome_email(email, subject, message)
+        @email = email
         @message = message
-        mail(to: email, subject: subject)
+        email_with_name = %("#{"Manav"}" <#{email}>)
+        attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
+        mail(to: email_with_name, subject: subject ,template_path: 'user_mailer', template_name: 'signup')
     end
 
     def login_alert_email(email, subject, message)
         @email = email
         @message = message
-        mail(to:email, subject: subject)
+        email_with_name = %("#{"Manav"}" <#{email}>)
+        attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
+        mail(to: email_with_name, subject: subject, template_path: 'user_mailer', template_name: 'login')
+    end
+
+    def logout_alert_email(email, subject, message)
+        @message = message
+        email_with_name = %("#{"Manav"}" <#{email}>)
+        attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
+        mail(to: email_with_name, subject: subject, template_path: 'user_mailer', template_name: 'logout')
+    end
+
+    def update_alert_email(email, subject, message)
+        @message = message
+        email_with_name = %("#{"Manav"}" <#{email}>)
+        attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
+        mail(to: email_with_name, subject: subject, template_path: 'user_mailer', template_name: 'update')
     end
 
     def user_delete_email(email, subject, message)
-        @email = email
         @message = message
-        mail(to: email, subject: subject)
+        email_with_name = %("#{"Manav"}" <#{email}>)
+        attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
+        mail(to: email_with_name, subject: subject, template_path: 'user_mailer', template_name: 'destroy')
     end
+    
 end

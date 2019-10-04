@@ -16,7 +16,7 @@ class LoginController < ApplicationController
             render :index
         else session[:user_id]=@user.id
             redirect_to user_path(@user)
-            Sidekiq::Client.enqueue_to_in("default", 1.seconds, EmailWorker, 4, @user.email, "College website Login alert", "We noticed a login in your account at our website. If it wasn't you, please click here: http://localhost:3000/login/abuse")
+            Sidekiq::Client.enqueue(EmailWorker, 2, @user.email, "College website Login alert", "We noticed a login in your account at our website. If it wasn't you, please click here: http://localhost:3000/login/abuse")
             # EmailWorker.perform_async(2, @user.email, "College website Login alert", "We noticed a login in your account at our website. If it wasn't you, please click here: http://localhost:3000/login/abuse")
         end
     end

@@ -2,12 +2,9 @@
 
 class DepartmentsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
   
-  before_action :CheckUserLoggedIn, only: [:show]
-  before_action :CheckAdminLoggedIn, only: [:new, :create, :edit, :update, :destroy]
-  
-
-
   @sorted_by_name = false
   @sorted_by_id = true
   @search_name = ""
@@ -79,7 +76,8 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    @department = Department.find(params[:id].to_i)
+    id = params[:id].to_i
+    @department = Department.find(id)
   end
 
   def new
@@ -90,6 +88,7 @@ class DepartmentsController < ApplicationController
     @department = Department.new(get_params)
 
     if @department.save
+      #flash "New Department created"
       redirect_to department_path(@department)
     else
       render :new
@@ -98,11 +97,13 @@ class DepartmentsController < ApplicationController
   end
 
   def edit
-    @department = Department.find(params[:id].to_i)
+    id = params[:id].to_i
+    @department = Department.find(id)
   end
 
   def update
-    @department = Department.find(params[:id].to_i)
+    id = params[:id].to_i
+    @department = Department.find(id)
 
     if @department.update(get_params)
       redirect_to department_path(@department)
@@ -111,7 +112,8 @@ class DepartmentsController < ApplicationController
   end
 
   def destroy
-    @department = Department.find(params[:id].to_i)
+    id = params[:id].to_i
+    @department = Department.find(id)
 
     if @department.destroy
       #flash "Destroyed"
@@ -122,27 +124,27 @@ class DepartmentsController < ApplicationController
 
   def search
     respond_to :json
-    search_query = params[:name]
+    name_query = params[:name]
     hod_id_query = params[:hod_id]
 
-    if search_query==''
-      format.json { render json: "" }
-    
+    if (name_query=='' || !params[:name].present?) && (hod_id_query = '' || !params[:hod_id].present?)
+      @department_search_results = Department.all.order(:id)
+    elsif params[:name].present? && params[:name]!='' && (hod_id_query = '' || !params[:hod_id].present?)
+      @department_search_results = Department.all.where("name ILIKE '#{name_query}%'").order(:id)
+    elsif params[:hod_id].present? && hod_id_query!='' && (name_query=='' || !params[:name].present?)
+      @department_search_results = Department.all.where("hod_id = '#{hod_id_query}%'").order(:id)
+    elsif params[:name].present? && params[:hod_id].present? && params[:name]!='' && params[:hod_id]!=''
+      @department_search_results = Department.all.where("name ILIKE '#{name_query}%' AND hod_id = #{hod_id_query}").order(:id)
     end
 
-    @department_search_results = Department.all.where("name ILIKE '#{search_query}%' AND hod_id = #{hod_id_query}").order(:id)
-
     respond_to do |format|
-
       format.json { render json: @department_search_results }
-    
      end
 
   
   end
 
   def assignment
-    
   end
 
   def get_name
@@ -156,26 +158,6 @@ class DepartmentsController < ApplicationController
   end
 
   private
-
-  def sort_departments(sort_field, sort_value)
-
-    case sort_field
-    when "name"
-      @sort_by_name = !@sorted_by_name
-    when "id"
-      @sorted_by_id = !@sorted_by_id
-    end
-
-    if sort_value == "true"
-      return @departments.order("#{sort_field} ASC")
-    end
-
-    if sort_value == "false"
-      return @departments.order("#{sort_field} DESC")
-    end
-
-  end
-
   def get_params
     params.require(:department).permit(:id, :name, :hod_id)
   end

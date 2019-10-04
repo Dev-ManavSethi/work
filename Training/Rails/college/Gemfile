@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'table_for_collection'
 gem 'html-table'
+gem 'devise'
 gem 'sidekiq'
 gem 'activerecord-session_store'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

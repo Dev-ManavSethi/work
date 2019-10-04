@@ -1,2 +1,12 @@
-    <pre> <a href="/">home</a>     <a href="/about">about</a>     <a href="/departments">departments</a>     <a href="/sections">sections</a>     <a href="/teachers">teachers</a>     <a href="/students">students</a>     <a href="/subjects">subjects</a>     <a href="/exams">examinations</a>     <a href="/contact">contact us</a>      <%if session[:user_id]==nil%><a href="/signup">Signup / Login</a><%elsif session[:user_id]!=nil%><%= link_to  "My Account", user_path(User.find_by(id:session[:user_id]))%>      <%=link_to 'Logout' , logout_path(:id => session[:user_id] ), data: {confirm: "Are you sure you want to logout?"}, method: "delete" %><%end%></pre>
+    <pre> <a href="/">home</a>     <a href="/about">about</a>     <a href="/departments">departments</a>     <a href="/sections">sections</a>     <a href="/teachers">teachers</a>     <a href="/students">students</a>     <a href="/subjects">subjects</a>     <a href="/exams">examinations</a>     <a href="/contact">contact us</a>      </pre>
+    <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as User: <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit User profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "User Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "User Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "User Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
     <h1>Header Partial</h1>

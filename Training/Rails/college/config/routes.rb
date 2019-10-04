@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
+  devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'} 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,18 +14,17 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about' => 'about#index'
 
+  #assignment
   get '/department/assignment' => 'departments#assignment'
   get '/department/name' => 'departments#get_name'
   post '/department/name' => 'departments#get_department'
 
   resources :departments
-  get '/departments/select' => 'departments#select'
   get '/department/search' => 'departments#search'
   
   
 
   resources :sections
-  get 'sections/select' => 'sections#select'
 
   resources :teachers
 
@@ -35,25 +36,9 @@ Rails.application.routes.draw do
 
   resources :assignments
 
-  get '/signup' => 'signup#index'
-  post '/signup' => 'signup#signup'
-
-  get '/login' => 'login#index'
-  post '/login' => 'login#verify'
-
-  delete '/logout' => 'logout#logout'
-
   resources :users
 
   resources :admins
-
-  get '/admin/signup' => 'admins#new'
-  post '/admin/signup' => 'admins#create'
-
-  get '/admin/login' => 'admins#login'
-  post '/admin/login' => 'admins#verify'
-  
-  delete '/admin/logout' => 'admins#logout'
 
   %w( 404 422 500 ).each do |code|
     get code, controller: 'application', action: 'error', code: code

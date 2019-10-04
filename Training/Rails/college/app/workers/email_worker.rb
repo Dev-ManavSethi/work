@@ -6,6 +6,9 @@ class EmailWorker
     case type
     when 1
       UserMailer.welcome_email(email, subject, message).deliver_now
+      puts email
+      puts subject
+      puts message
     when 2
       UserMailer.login_alert_email(email, subject, message).deliver_now
     when 3

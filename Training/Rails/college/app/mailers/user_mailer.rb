@@ -37,5 +37,9 @@ class UserMailer < ApplicationMailer
         attachments.inline['attachment.jpg'] = File.read('/home/beryl/Desktop/Training/Training/Rails/college/app/assets/images/mail/sample_attachment.jpg')
         mail(to: email_with_name, subject: subject, template_path: 'user_mailer', template_name: 'destroy')
     end
+
+    def admin_approval_email(email)
+        puts email
+    end
     
 end

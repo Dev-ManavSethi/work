@@ -13,7 +13,14 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # UserMailer.admin_approval_email(@admin.email).deliver_now
+    if resource.persisted?
+      Sidekiq::Client.enqueue(EmailWorker, 1,resource.email  ,"Admin signup initiated", "Hello, we recieved the admin signup request on college website. You will recieve a mail with account confirmation instructions shortly! \n\n Thanks for signing up!")
+      if resource.active_for_authentication?
+        #send signup success, confirmation already
+        Sidekiq::Client.enqueue(EmailWorker, 1,resource.email  ,"Admin account already confirmed", "Hello, we recieved the admin signup request on college website. But we noticed your account is already confirmed!!! \n\n You can login at: http://localhost:3000/login")
+      end
+    else #send signup failure
+    end
   end
 
   # GET /resource/edit
@@ -43,9 +50,9 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation])
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
@@ -53,12 +60,12 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    super(resource)
+  end
 end

@@ -11,7 +11,11 @@ class Admins::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    Sidekiq::Client.enqueue(EmailWorker, 1, @admin.email, "Login alert email", "Login detected")
+    if self.resource == nil
+    else
+      #working
+      Sidekiq::Client.enqueue(EmailWorker, 2, resource.email, "Admin Login alert email", "Login detected for your account. If it wasnt you, then click the link below. \n\n http://localhost:3000/login/abuse")
+    end
   end
 
   # DELETE /resource/sign_out

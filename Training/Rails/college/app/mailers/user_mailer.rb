@@ -1,6 +1,5 @@
 class UserMailer < ApplicationMailer
 
-
     def welcome_email(email, subject, message)
         @email = email
         @message = message

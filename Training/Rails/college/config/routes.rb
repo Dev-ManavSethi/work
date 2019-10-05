@@ -15,10 +15,9 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
 
   #assignment
-  get '/department/assignment' => 'departments#assignment'
-  get '/department/name' => 'departments#get_name'
-  post '/department/name' => 'departments#get_department'
-
+  get '/user/new' => 'user#new'
+  post '/user/new' => 'user#create'
+  
   resources :departments
   get '/department/search' => 'departments#search'
   

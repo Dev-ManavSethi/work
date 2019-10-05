@@ -1,7 +1,7 @@
 class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :omniauthable, omniauth_providers: %i[facebook]
+  # devise :omniauthable, omniauth_providers: %i[facebook]
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :validatable , stretches: 13
 
   def self.from_omniauth(auth)

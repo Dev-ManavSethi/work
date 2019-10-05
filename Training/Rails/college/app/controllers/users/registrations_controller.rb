@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   include Accessible
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -16,10 +16,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     if resource.persisted?
       if resource.active_for_authentication?
-        #send signup success, confirmation needed
-      else #send signup failure
+        #already confirmed email
+      else #send "please confirm" email
+      Sidekiq::Client.enqueue(EmailWorker, 1,resource.email  ,"User signup initiated", "Hello, we recieved the admin signup request on college website. You will recieve a mail with account confirmation instructions shortly! \n\n Thanks for signing up!")
       end
-    else #send signup failure
+    else #send signup failure email
+      Sidekiq::Client.enqueue(EmailWorker, 1,resource.email  ,"User signup failed", "User signup failed")
     end
   end
 
@@ -30,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    super 
   end
 
   # DELETE /resource
@@ -51,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :phone, :password_confirmation, :date_of_birth, :accepted_tos])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

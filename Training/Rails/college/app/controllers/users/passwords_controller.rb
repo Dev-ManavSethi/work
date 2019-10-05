@@ -13,14 +13,26 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  def edit
+    
+  end
 
   # PUT /resource/password
-  # def update
-  #   super
-  # end
+  def update
+    super
+      if resource.errors.empty?
+      if Devise.sign_in_after_reset_password
+        flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
+        if flash_message == :updated
+          #send mail
+          #not working
+          Sidekiq::Client.enqueue(EmailWorker, 6, resource.email, "Update password successful", "User password update successfull.")
+        end
+      else
+      end
+    else
+    end
+  end
 
   # protected
 

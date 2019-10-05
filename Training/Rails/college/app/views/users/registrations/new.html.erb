@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -45,5 +45,7 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+<%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
 
 <%= render "users/shared/links" %>

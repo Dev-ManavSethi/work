@@ -34,6 +34,8 @@ Devise.setup do |config|
 
   config.scoped_views = true
 
+  config.omniauth :facebook, "481984482657997", "46d7c9ea5840fddabdfc7af16079e9f7",  token_params: { parse: :json }
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

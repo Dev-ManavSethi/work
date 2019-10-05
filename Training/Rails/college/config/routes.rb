@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
     devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
-    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'} 
+    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations', omniauth_callbacks: 'admins/omniauth_callbacks'} 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_061052) do
+ActiveRecord::Schema.define(version: 2019_10_05_072259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_10_05_061052) do
     t.string "unlock_token"
     t.datetime "locked_at"
     t.string "unconfirmed_email"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end

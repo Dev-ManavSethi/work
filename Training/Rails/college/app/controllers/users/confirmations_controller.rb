@@ -16,7 +16,6 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   def show
     super
     if resource.errors.empty?
-      #not working
       Sidekiq::Client.enqueue(EmailWorker, 1, resource.email, "Registration successful", "User registration successfull after confirmation. \n\n Thanks for signing up and confirming")
     else # do nothing
     end

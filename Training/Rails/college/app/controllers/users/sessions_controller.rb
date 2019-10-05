@@ -14,7 +14,6 @@ class Users::SessionsController < Devise::SessionsController
     super
     if self.resource == nil
     else
-      #working
       Sidekiq::Client.enqueue(EmailWorker, 2, resource.email, "User Login alert email", "Login detected for your account. If it wasnt you, then click the link below. \n\n http://localhost:3000/login/abuse")
     end
   end

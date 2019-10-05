@@ -25,8 +25,6 @@ class Admins::PasswordsController < Devise::PasswordsController
         flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
         if flash_message == :updated
           #send mail
-          #not working
-          puts "***************Password change successfull Successfull***************************"
           Sidekiq::Client.enqueue(EmailWorker, 6, resource.email, "Update password successful", "Admin password update successfull.")
         end
       else

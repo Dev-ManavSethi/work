@@ -16,8 +16,6 @@ class Admins::ConfirmationsController < Devise::ConfirmationsController
   def show
     super
     if resource.errors.empty?
-      #not working
-      puts "***************Confirmation Successfull***************************"
     Sidekiq::Client.enqueue(EmailWorker, 1, resource.email, "Registration successful", "Admin registration successfull after confirmation. \n\n Thanks for signing up and confirming")
     else # do nothing
     end

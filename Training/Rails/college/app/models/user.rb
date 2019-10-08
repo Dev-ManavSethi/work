@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 
+  has_one :profile_picture
+
   devise :omniauthable, omniauth_providers: [:google_oauth2]
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :validatable , stretches: 13
+  mount_uploader :profile_picture, ProfilePictureUploader
   
   validates :name, :email, :password, presence: true #:phone, :date_of_birth, :accepted_tos, presence: true
   # validates :accepted_tos, inclusion: {in: ["1", 1, true, "true"]}

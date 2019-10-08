@@ -9,6 +9,8 @@ gem 'activerecord-session_store'
 gem 'rails', '5.2.3'
 gem "table-for"
 
+gem 'carrierwave', '~> 2.0'
+
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 # Use postgresql as the database for Active Record

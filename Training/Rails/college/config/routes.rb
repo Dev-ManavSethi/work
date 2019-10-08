@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :departments
   get '/department/search' => 'departments#search'
   
-  
+  post '/upload/image/any' => 'user#upload_any_image'
 
   resources :sections
 

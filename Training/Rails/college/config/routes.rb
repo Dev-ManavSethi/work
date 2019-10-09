@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   #assignment
   get '/user/new' => 'user#new'
   get '/user/login' => 'user#login'
+  get '/user/tweet' => 'user#tweet_screen'
+  post '/user/tweet' => 'user#tweet'
   
   resources :departments
   get '/department/search' => 'departments#search'

@@ -13,6 +13,9 @@ gem 'carrierwave', '~> 2.0'
 
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
+gem 'twitter'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 #gem 'table_cloth' , '0.2.3'

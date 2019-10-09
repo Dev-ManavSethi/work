@@ -14,6 +14,22 @@ class UserController < ApplicationController
     def upload_any_image
     end
 
+    def tweet_screen
+
+    end
+
+    def tweet
+        tweet = params[:tweet]
+        result = UserTweet.new(tweet).execute
+
+        if result.success?
+            puts result.client.name
+            puts result.tweet
+            redirect_to user_tweet_path
+        else
+        end
+    end
+
     private
     def to_root
         redirect_to root_path

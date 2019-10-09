@@ -11,7 +11,29 @@ class DepartmentsController < ApplicationController
   @search_hod_id = 0
 
   def index
-    @departments = Department.all
+    @departments = Department.new
+
+    if !params[:search_name].present?
+      @name = ""
+    else @name = params[:search_name]
+    end
+
+    if !params[:search_hod_id].present?
+      @hod_id = ""
+    else @hod_id = params[:search_hod_id]
+    end
+
+    if !params[:page].present?
+      @page = ""
+      else @page = params[:page]
+    end
+
+    result = SearchDepartments.new(@name, @hod_id, @page).execute
+
+    if result.success?
+      @departments = result.result
+    end
+
     if params[:sort_by_name].present?
 
       if params[:sort_by_name] == "true"
@@ -40,38 +62,7 @@ class DepartmentsController < ApplicationController
         @departments = @departments.order("id DESC")  
       end
 
-    end
-
-    #show all
-    if (!params[:search_name].present? || params[:search_name]=="") && (!params[:search_hod_id].present? || params[:search_name]=="")
-      @departments = @departments.paginate(:page => params[:page], :per_page => 10)
-    end
-
-    #search by name
-    if params[:search_name].present? && (!params[:search_hod_id].present? || params[:search_hod_id] == "")
-
-      @departments = @departments.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]
-      
-    end
-
-    #search by id
-    if params[:search_hod_id].present? && (!params[:search_name].present? || params[:search_name]=="")
-      @departments = @departments.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]  
-    end
-
-    #search by both
-    if params[:search_name].present? && params[:search_hod_id].present?
-      @departments = @departments.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]
-    end
+    ends
 
   end
 

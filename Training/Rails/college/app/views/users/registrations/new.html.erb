@@ -66,7 +66,9 @@
     <%= f.submit "Sign up", data: { disable_with: false } %>
   </div>
 <% end %>
-
-<%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
+<br/>
+<%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %><br/>
+<%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %><br/>
+<%= link_to "Sign up with Twitter", user_twitter_omniauth_authorize_path %><br/><br/>
 
 <%= render "users/shared/links" %>

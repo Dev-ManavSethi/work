@@ -1,3 +1,12 @@
+$(document).ready(function() {
+
+    $("#progressBar").hide();
+    $("#status").hide();
+    $("#user_profile_pic_preview").hide();
+
+    
+});
+
 image_upload_status = document.getElementById("status");
 progress_bar = document.getElementById("progressBar");
 
@@ -21,6 +30,9 @@ function abortHandler(event) {
 }
 
 function uploadFile() {
+    $("#progressBar").show();
+    $("#status").show();
+    $("#user_profile_pic_preview").show();
     var reader = new FileReader();    
     reader.onload = function(e) {
         $('#user_profile_pic_preview').attr('src', e.target.result);

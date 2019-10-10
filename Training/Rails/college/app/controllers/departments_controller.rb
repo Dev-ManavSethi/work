@@ -4,11 +4,13 @@ class DepartmentsController < ApplicationController
 
   before_action :authenticate_user!, only: [:show]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
-  
+
+
   @sorted_by_name = false
   @sorted_by_id = true
 
   def index
+
     @departments = Department.new
     name = ""
     hod_id = ""
@@ -62,11 +64,20 @@ class DepartmentsController < ApplicationController
 
     end
 
+    respond_to do |format|
+      format.json {render json: @departments, each_serializer: DepartmentsSerializer, root:false}
+      format.html
+    end
   end
 
   def show
     id = params[:id].to_i
     @department = Department.find(id)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @department }
+    end
   end
 
   def new

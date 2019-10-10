@@ -3,7 +3,8 @@ require 'api_constraints'
 
 Rails.application.routes.draw do
     devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
-    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'} 
+    
+    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -49,12 +50,13 @@ Rails.application.routes.draw do
 
   #REST JSON API
   namespace :api, defaults: {format: 'json'} do
-    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :departments
+      post '/admin' => 'admin#create'
     end
 
-    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
-      resources :departments
+    scope module: :v2, constraints: ApiConstraints.new(version: 2) do
+      
     end
   end
 

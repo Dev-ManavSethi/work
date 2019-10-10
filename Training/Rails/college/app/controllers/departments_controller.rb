@@ -7,28 +7,26 @@ class DepartmentsController < ApplicationController
   
   @sorted_by_name = false
   @sorted_by_id = true
-  @search_name = ""
-  @search_hod_id = 0
 
   def index
     @departments = Department.new
+    name = ""
+    hod_id = ""
+    page = ""
 
-    if !params[:search_name].present?
-      @name = ""
-    else @name = params[:search_name]
+    if params[:search_name].present?
+      name = params[:search_name]
     end
 
-    if !params[:search_hod_id].present?
-      @hod_id = ""
-    else @hod_id = params[:search_hod_id]
+    if params[:search_hod_id].present?
+      hod_id = params[:search_hod_id]
     end
 
-    if !params[:page].present?
-      @page = ""
-      else @page = params[:page]
+    if params[:page].present?
+      page = params[:page]
     end
 
-    result = SearchDepartments.new(@name, @hod_id, @page).execute
+    result = SearchDepartments.new(name, hod_id, page).execute
 
     if result.success?
       @departments = result.result
@@ -62,7 +60,7 @@ class DepartmentsController < ApplicationController
         @departments = @departments.order("id DESC")  
       end
 
-    ends
+    end
 
   end
 
@@ -81,8 +79,7 @@ class DepartmentsController < ApplicationController
     if @department.save
       #flash "New Department created"
       redirect_to department_path(@department)
-    else
-      render :new
+    else render :new
     end
 
   end

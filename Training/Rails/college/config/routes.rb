@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'api_constraints'
 
 Rails.application.routes.draw do
     devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -43,6 +44,18 @@ Rails.application.routes.draw do
 
   %w( 404 422 500 ).each do |code|
     get code, controller: 'application', action: 'error', code: code
+  end
+
+
+  #REST JSON API
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+      resources :departments
+    end
+
+    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
+      resources :departments
+    end
   end
 
 

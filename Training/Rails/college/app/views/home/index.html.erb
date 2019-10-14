@@ -1,3 +1,5 @@
  <h1>Home</h1>
 <%=  link_to "Show Disclaimer", root_path, remote: true %>
 <div id="disclaimer_div"></div>
+
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require "google/cloud/translate"
+require "react-rails"
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.

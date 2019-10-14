@@ -1,8 +1,25 @@
 # frozen_string_literal: true
+require "google/cloud/translate"
 
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  project_id = "college-rails"
+
+#   $translate = Google::Cloud::Translate.new project: project_id
+
+#   # The text to translate
+#   text = "Hello, world!"
+#   # The target language
+#   target = "ru"
+
+# # Translates some text into Russian
+# translation = $translate.translate text, to: target
+
+# puts "*********************Text: #{text}"
+# puts "***********************Translation: #{translation}"
+
+  
   protect_from_forgery with: :exception
 
   #define error responses on invalid requests

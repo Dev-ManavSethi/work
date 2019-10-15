@@ -9,6 +9,7 @@ gem 'activerecord-session_store'
 gem 'rails', '5.2.3'
 gem "table-for"
 
+
 gem 'stripe'
 
 gem 'webpacker'
@@ -20,7 +21,7 @@ gem 'active_model_serializers'
 
 gem 'carrierwave', '~> 2.0'
 
-gem 'react_on_rails', '11.1.4'
+gem 'react_on_rails', '11.2.1'
 
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

@@ -1,0 +1,170 @@
+1. alias
+alias c=clear
+#replaces clear with c (RHS with LHS) for the session
+
+2. unalias c
+
+3.  sudo apt-get update 
+[sudo] password for beryl: 
+Hit:1 http://in.archive.ubuntu.com/ubuntu xenial InRelease
+Hit:2 http://in.archive.ubuntu.com/ubuntu xenial-updates InRelease
+Hit:3 http://in.archive.ubuntu.com/ubuntu xenial-backports InRelease  
+Hit:4 http://security.ubuntu.com/ubuntu xenial-security InRelease     
+Reading package lists... Done         
+
+sudo apt-get  -v
+apt 1.2.32 (amd64)
+Supported modules:
+*Ver: Standard .deb
+*Pkg:  Debian dpkg interface (Priority 30)
+ Pkg:  Debian APT solver interface (Priority -1000)
+ S.L: 'deb' Debian binary tree
+ S.L: 'deb-src' Debian source tree
+ Idx: Debian Source Index
+ Idx: Debian Package Index
+ Idx: Debian Translation Index
+ Idx: Debian dpkg status file
+ Idx: Debian deb file
+ Idx: Debian dsc file
+ Idx: Debian control file
+
+4. sudo apt-get  upgrade 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following package was automatically installed and is no longer required:
+  snapd-login-service
+Use 'sudo apt autoremove' to remove it.
+The following packages have been kept back:
+  cups-filters cups-filters-core-drivers gir1.2-javascriptcoregtk-4.0
+  gir1.2-webkit2-4.0 libdrm-amdgpu1 libdrm2 libegl1-mesa libgbm1
+  libgl1-mesa-dri libjavascriptcoregtk-4.0-18 libmm-glib0
+  libqmi-proxy libwayland-egl1-mesa libwebkit2gtk-4.0-37
+  libwebkit2gtk-4.0-37-gtk2 libxatracker2 linux-generic-hwe-16.04
+  linux-headers-generic-hwe-16.04 linux-image-generic-hwe-16.04
+  modemmanager qpdf ubuntu-desktop ubuntu-minimal
+0 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+
+##########################################################33
+
+5. sudo apt-get  clean
+apt-get -s clean
+Del /var/cache/apt/archives/* /var/cache/apt/archives/partial/*
+Del /var/lib/apt/lists/partial/*
+Del /var/cache/apt/pkgcache.bin /var/cache/apt/srcpkgcache.bin
+
+
+
+6. sudo apt-get dist-upgrade
+
+
+sudo apy-get do-release upgrade
+
+
+
+7. sudo apt-get remove  <package name>
+
+8. cd -P sample_dir/
+~/Desktop/Training/Linux/sample_dir
+
+9. chown
+
+sudo chown -c -v --reference=$HOME/Desktop/Training/Linux/ sample_dir/
+Result: ownership of 'sample_dir/' retained as root:root
+
+sudo chown -c -v manav sample_dir/
+changed ownership of 'sample_dir/' from root to manav
+
+sudo chown -c -v root sample_dir/
+changed ownership of 'sample_dir/' from manav to root
+
+10. chmod
+
+ sudo chmod -v -c -R 0755 commands.txt
+mode of 'commands.txt' changed from 0644 (rw-r--r--) to 0755 (rwxr-xr-x)
+
+sudo chmod -v  -R --reference=$HOME/Desktop/Workspace/  commands.txt
+mode of 'commands.txt' retained as 0775 (rwxrwxr-x)
+
+
+
+11. clear
+#clears screen
+
+12. cmp
+cmp -c samplefile.txt commands.txt
+samplefile.txt commands.txt differ: byte 1, line 1 is 110 H  61 1
+
+cmp -c --ignore-initial=10 samplefile.txt commands.txt
+samplefile.txt commands.txt differ: byte 1, line 1 is  40   154 l
+
+13. comm
+comm samplefile2.txt samplefile3.txt
+123456789
+    23456789
+
+comm -1 samplefile2.txt samplefile3.txt
+23456789
+
+ comm -2 samplefile2.txt samplefile3.txt
+123456789
+
+comm -3 samplefile2.txt samplefile3.txt
+123456789
+    23456789
+
+14. cp
+sudo cp  -f -b -v -R samplefile.txt sample_dir/
+
+'samplefile.txt' -> 'sample_dir/samplefile.txt' (backup: 'sample_dir/samplefile.txt~')
+
+15. curl -A "Manav" -b cookie_name="cookie_data" -k -m 900 -v http://www.google.com
+
+16. fg
+
+17. mkdir
+sudo mkdir -m 0700 -p -v mkdir_dir
+mkdir: created directory 'mkdir_dir'
+
+18. mv
+sudo mv -b -f -i  -u -v samplefile2.txt sample_dir/
+renamed 'samplefile2.txt' -> 'sample_dir/samplefile2.txt'
+
+19. rm
+ sudo rm -rfiv *.txt
+rm: remove regular file 'samplefile2.txt'? y
+removed 'samplefile2.txt'
+rm: remove regular file 'samplefile3.txt'? y
+removed 'samplefile3.txt'
+rm: remove regular file 'samplefile.txt'? n
+
+20. su
+su -m -p -c go
+
+21. sync
+
+22. tar
+sudo tar -c -f -v sample.tar samplefile.txt~
+manav@manav-p2430ua:~/Desktop/Training/Linux/sample_dir$ ll
+total 44
+drwxr-xr-x 2 root root  4096 Aug 21 18:18 ./
+drwxr-xr-x 4 root root  4096 Aug 21 18:09 ../
+-rw-r--r-- 2 root root    57 Aug 21 17:04 samplefile.txt~
+-rw-r--r-- 1 root root 10240 Aug 21 18:18 sample.tar
+
+23. users
+users
+manav
+
+
+24. vi
+vi commands.txt
+:i
+:q
+:q!
+:w
+:wq
+:d
+:u
+k,j,h,l

@@ -1,0 +1,137 @@
+require 'date'
+=> true
+irb(main):383:0> dt = DateTime.new 2019,9,3,3,02
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+irb(main):384:0> dt
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+irb(main):385:0> dt.to_s
+=> "2019-09-03T03:02:00+00:00"
+
+dt.min
+=> 2
+irb(main):389:0> dt.offset
+=> (0/1)
+irb(main):390:0> dt.zone
+=> "+00:00"
+irb(main):391:0> dt.sec
+=> 0
+irb(main):392:0> dt.hour
+=> 3
+irb(main):393:0> dt.strftime
+=> "2019-09-03T03:02:00+00:00"
+irb(main):394:0> dt.second
+=> 0
+irb(main):395:0> dt.iso8601
+=> "2019-09-03T03:02:00+00:00"
+irb(main):396:0> dt.rfc3339
+=> "2019-09-03T03:02:00+00:00"
+irb(main):397:0> dt.xmlschema
+=> "2019-09-03T03:02:00+00:00"
+
+dt.minute
+=> 2
+irb(main):400:0> dt.sec_fraction
+=> (0/1)
+irb(main):401:0> dt.second_fraction
+=> (0/1)
+irb(main):402:0> dt.new_offset
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+irb(main):403:0> dt.to_time
+=> 2019-09-03 08:32:00 +0530
+irb(main):404:0> dt.to_date
+=> #<Date: 2019-09-03 ((2458730j,0s,0n),+0s,2299161j)>
+irb(main):405:0> dt.to_datetime
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+
+
+dt2 = DateTime.new 2019,9,3,15,12
+=> #<DateTime: 2019-09-03T15:12:00+00:00 ((2458730j,54720s,0n),+0s,2299161j)>
+irb(main):408:0> dt <=> dt2
+=> -1
+
+dt << 1
+=> #<DateTime: 2019-08-03T03:02:00+00:00 ((2458699j,10920s,0n),+0s,2299161j)>
+
+dt >> 1
+=> #<DateTime: 2019-10-03T03:02:00+00:00 ((2458760j,10920s,0n),+0s,2299161j)>
+
+dt === dt2
+=> true
+
+dt.eql?dt2
+=> false
+
+dt.asctime
+=> "Tue Sep  3 03:02:00 2019"
+
+
+dt.mday
+=> 3
+irb(main):427:0> dt.day
+=> 3
+irb(main):428:0> dt.mon
+=> 9
+irb(main):429:0> dt.month
+=> 9
+irb(main):430:0> dt.year
+=> 2019
+irb(main):431:0> dt.wday
+=> 2
+irb(main):432:0> dt.jd
+=> 2458730
+
+dt + 10
+=> #<DateTime: 2019-09-13T03:02:00+00:00 ((2458740j,10920s,0n),+0s,2299161j)>
+
+dt.inspect
+=> "#<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>"
+
+ dt-3
+=> #<DateTime: 2019-08-31T03:02:00+00:00 ((2458727j,10920s,0n),+0s,2299161j)>
+
+dt.ctime
+=> "Tue Sep  3 03:02:00 2019"
+irb(main):441:0> dt.yday
+=> 246
+irb(main):442:0> dt.sunday?
+=> false
+irb(main):443:0> dt.ajd
+=> (1770285331/720)
+
+
+dt.httpdate
+=> "Tue, 03 Sep 2019 03:02:00 GMT"
+
+dt.hash
+=> 1156777855716800882
+
+dt.between? dt2, dt
+=> false
+
+dt.itself
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+
+
+dt.unfreeze
+=> 0
+irb(main):502:0> dt.frozen?
+=> false
+irb(main):503:0> dt.taint
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+irb(main):504:0> dt.tainted?
+=> true
+
+ dt.untrust
+=> #<DateTime: 2019-09-03T03:02:00+00:00 ((2458730j,10920s,0n),+0s,2299161j)>
+
+dt.untrusted?
+=> true
+
+!dt
+=> false
+irb(main):510:0> dt!=dt2
+=> true
+
+ dt.equal?dt2
+=> false
+

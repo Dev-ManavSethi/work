@@ -2,6 +2,7 @@ require 'sidekiq/web'
 require 'api_constraints'
 
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
     devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
     
     devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'}

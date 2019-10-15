@@ -157,6 +157,7 @@ GEM
     json (1.8.6)
     jsonapi-renderer (0.2.2)
     jwt (2.2.1)
+    libv8 (7.3.492.27.1)
     loofah (2.3.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -172,6 +173,8 @@ GEM
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    mini_racer (0.2.6)
+      libv8 (>= 6.9.411)
     minitest (5.12.2)
     multi_json (1.13.1)
     multi_xml (0.6.0)
@@ -360,6 +363,7 @@ DEPENDENCIES
   html-table
   jbuilder (~> 2.0)
   jquery-rails (~> 4.3, >= 4.3.3)
+  mini_racer
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter!

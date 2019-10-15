@@ -1,34 +1,44 @@
 {
-  "application.js": "/packs/js/application-6c64790b0ce2a4c7e879.js",
-  "application.js.map": "/packs/js/application-6c64790b0ce2a4c7e879.js.map",
+  "application.js": "/packs/js/application-fe465a352521bfd00b2f.js",
+  "application.js.map": "/packs/js/application-fe465a352521bfd00b2f.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-6c64790b0ce2a4c7e879.js"
+        "/packs/js/application-fe465a352521bfd00b2f.js"
       ],
       "js.map": [
-        "/packs/js/application-6c64790b0ce2a4c7e879.js.map"
+        "/packs/js/application-fe465a352521bfd00b2f.js.map"
       ]
     },
     "hello_react": {
       "js": [
-        "/packs/js/hello_react-5e3e970499891e09a6a8.js"
+        "/packs/js/hello_react-b30a0feb4f062559c70b.js"
       ],
       "js.map": [
-        "/packs/js/hello_react-5e3e970499891e09a6a8.js.map"
+        "/packs/js/hello_react-b30a0feb4f062559c70b.js.map"
+      ]
+    },
+    "hello-world-bundle": {
+      "js": [
+        "/packs/js/hello-world-bundle-d3ada11c292bcf58afb5.js"
+      ],
+      "js.map": [
+        "/packs/js/hello-world-bundle-d3ada11c292bcf58afb5.js.map"
       ]
     },
     "server_rendering": {
       "js": [
-        "/packs/js/server_rendering-64a30bcbb932dbe9fdc7.js"
+        "/packs/js/server_rendering-6a4c34b7fdcd0e9d0d6f.js"
       ],
       "js.map": [
-        "/packs/js/server_rendering-64a30bcbb932dbe9fdc7.js.map"
+        "/packs/js/server_rendering-6a4c34b7fdcd0e9d0d6f.js.map"
       ]
     }
   },
-  "hello_react.js": "/packs/js/hello_react-5e3e970499891e09a6a8.js",
-  "hello_react.js.map": "/packs/js/hello_react-5e3e970499891e09a6a8.js.map",
-  "server_rendering.js": "/packs/js/server_rendering-64a30bcbb932dbe9fdc7.js",
-  "server_rendering.js.map": "/packs/js/server_rendering-64a30bcbb932dbe9fdc7.js.map"
+  "hello-world-bundle.js": "/packs/js/hello-world-bundle-d3ada11c292bcf58afb5.js",
+  "hello-world-bundle.js.map": "/packs/js/hello-world-bundle-d3ada11c292bcf58afb5.js.map",
+  "hello_react.js": "/packs/js/hello_react-b30a0feb4f062559c70b.js",
+  "hello_react.js.map": "/packs/js/hello_react-b30a0feb4f062559c70b.js.map",
+  "server_rendering.js": "/packs/js/server_rendering-6a4c34b7fdcd0e9d0d6f.js",
+  "server_rendering.js.map": "/packs/js/server_rendering-6a4c34b7fdcd0e9d0d6f.js.map"
 }

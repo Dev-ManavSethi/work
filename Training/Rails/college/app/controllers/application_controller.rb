@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
-  # before_action :allow_cors
-
   APIresponse = Struct.new(:status, :message ,:data)
 
   
@@ -32,12 +30,4 @@ class ApplicationController < ActionController::Base
         render json: message
       end
     end
-
-    # def allow_cors
-    #   headers['Access-Control-Allow-Origin'] = 'http://localhost'
-    #   headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
-    #   headers['Access-Control-Request-Method'] = '*'
-    #   headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-    #   headers['Access-Control-Allow-Credentials'] = true
-    # end
 end

@@ -1,22 +1,20 @@
 module Api
     module V1
-        class DepartmentsController < ApplicationController
-            before_action :authenticate_api_access_token, only: [:index, :show]
-            before_action :authenticate_api_modify_token, only: [:create, :update, :destroy]
+      class DepartmentsController < ApplicationController
+        before_action :authenticate_api_access_token, only: [:index, :show]
+        before_action :authenticate_api_modify_token, only: [:create, :update, :destroy]
   
         def index
           departments = Department.all
-          response = APIresponse.new
 
-          response.status = 200
-          response.message = "List of all Departments"
-          response.data = departments
-          
-          render json: response.to_json, status: response.status
+          status = 200
+          message = "List of all Departments"
+          data = departments
+
+          API_respond(status, message, data)  
         end
   
         def show
-          response = APIresponse.new
           department = Department.find_by(id: params[:id].to_i)
 
           status = 0
@@ -32,16 +30,10 @@ module Api
             message = "Department not found with given ID"
             data = nil
           end
-
-          response.status = status
-          response.message = message
-          response.data = data
-
-          render json: response.to_json, status: response.status
+          API_respond(status, message, data) 
         end
   
         def create
-          response = APIresponse.new
           department = Department.new(params[:department])
           status = 0
           message = ""
@@ -57,11 +49,7 @@ module Api
             message = department.errors.full_messages[0]
             data = nil
           end
-          response.status = status
-          response.message = message
-          response.data = data
-
-          render json: response.to_json, status: response.status
+          API_respond(status, message, data)
         end
   
         def update
@@ -69,20 +57,21 @@ module Api
         end
   
         def destroy
-          response = APIresponse.new
           status = 0
-          
+          message = ""
+          data = nil
+
           if Department.destroy(params[:id])
-            response.status = 200
-            response.message = "Department deleted successfully"
-            response.data = nil
+            status = 200
+            message = "Department deleted successfully"
+            data = nil
           else
-            response.status = 500
-            response.message = "Internal Server error. cannot delete"
-            response.data = nil
+            status = 500
+            message = "Internal Server error. cannot delete"
+            data = nil
           end
-          render json: response.to_json, status: response.status
-        end
+          API_respond(status, message, data)
+        end        
+      end
     end
-end
-end  
+  end  

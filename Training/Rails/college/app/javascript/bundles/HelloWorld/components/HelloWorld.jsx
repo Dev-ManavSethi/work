@@ -9,19 +9,23 @@ export default class HelloWorld extends React.Component {
   /**
    * @param props - Comes from your rails view.
    */
+
+   //first after initialize
   constructor(props) {
     super(props);
-
-    // How to set initial state in ES6 class syntax
-    // https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class
     this.state = { name: this.props.name };
+    console.log("constructor()");
   }
 
-  updateName = (name) => {
-    this.setState({ name });
-  };
+  //before render() and after update
+  static getDerivedStateFromProps(props, state) {
+    //return {favoritecolor: props.favcol };
+    console.log("getDerivedStateFromProps()");
+  }
 
+  //afret getDerivedStateFromProps() in mounting at 3rd
   render() {
+    console.log("render()");
     return (
       <div>
         <h3>
@@ -39,7 +43,37 @@ export default class HelloWorld extends React.Component {
             onChange={(e) => this.updateName(e.target.value)}
           />
         </form>
+        <button onClick={this.alert}
       </div>
     );
+  }
+
+  //called after render() in mounting
+  componentDidMount(){
+    console.log("componentDidMount()");
+  }
+
+  shouldComponentUpdate(){
+    console.log("shouldComponentUpdate()");
+    console.log(true);
+    return true;
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState){
+    console.log("getSnapshotBeforeUpdate()");
+  }
+
+  componentDidUpdate(){
+    console.log("componentDidUpdate()");
+  }
+
+  updateName = (new_name) => {
+    console.log("Hello world component updating name");
+    this.setState({ name: new_name });
+    console.log("Hello world component updated name");
+  };
+
+  componentWillUnmount(){
+    console.log("componentWillUnmount()");    
   }
 }

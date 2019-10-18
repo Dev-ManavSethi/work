@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './js/Home';
-import About from './js/About';
-import Departments from './js/Departments';
+
+import Home from './components/home/home';
+import About from './components/about/about';
+import AllDepartments from './components/departments/all_departments';
 
 import {
     BrowserRouter as Router,
@@ -11,51 +12,29 @@ import {
     Link
   } from "react-router-dom";
 
-//   class RouteNavigator extends React.Component {
-//     render(){
-//     return (
-//       <Router>
-//         <div>
-//           <ul>
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="/about">About</Link>
-//             </li>
-//             <li>
-//               <Link to="/departments">Departments</Link>
-//             </li>
-//           </ul>
-  
-//           <hr />
-  
-//           <Switch>
-//             <Route exact path="/">
-//               <Home />
-//             </Route>
-//             <Route path="/about">
-//               <About />
-//             </Route>
-//             <Route path="/departments">
-//               <Departments />
-//             </Route>
-//             {/* <Route path="/sections">
-//               <Sections />
-//             </Route> */}
-//           </Switch>
-//         </div>
-//       </Router>
-//     );
-//   }
-// }
 
-//ReactDOM.render(<RouteNavigator />,document.getElementById('nav'));
+const router = (
+  <Router>
+    <div>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/departments">Departments</Link>
+        </li>
+      </ul>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/departments" component={AllDepartments} />
+    </div>
+  </Router>
+)
 
-//ReactDOM.render(<Home />, document.getElementById('root'));
-ReactDOM.render(<Departments />, document.getElementById('root'));
+ReactDOM.render(router, document.getElementById('root'))
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
 //serviceWorker.unregister();

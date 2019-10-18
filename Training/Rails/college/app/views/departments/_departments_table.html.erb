@@ -29,10 +29,10 @@
 
   <% @departments.each do |d|%>
     <tr>
-      <td><%=d.id-%></td>
-      <td><%=d.name-%></td>
-      <td><%=d.hod.name-%></td>
-      <td><%=d.hod_id-%></td>
+      <td><%=d.id %></td>
+      <td><%=d.name %></td>
+      <td><%=%></td>
+      <td><%=d.hod_id %></td>
       <td><%= link_to 'Show', d%></td>
 
       <%if $isadmin%>

@@ -4,14 +4,38 @@ class DepartmentsController < ApplicationController
 
   before_action :authenticate_user!, only: [:show]
   before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
-  
+
+
   @sorted_by_name = false
   @sorted_by_id = true
-  @search_name = ""
-  @search_hod_id = 0
 
   def index
-    @departments = Department.all
+
+    @departments = Department.new
+    name = ""
+    hod_id = ""
+    page = ""
+
+    if params[:search_name].present?
+      name = params[:search_name]
+    end
+
+    if params[:search_hod_id].present?
+      hod_id = params[:search_hod_id]
+    end
+
+    if params[:page].present?
+      page = params[:page]
+    end
+
+    result = SearchDepartments.new(name, hod_id, page).execute
+
+    if result.success?
+      puts "sucesssss **********************"
+      puts result.result
+      @departments = result.result
+    end
+
     if params[:sort_by_name].present?
 
       if params[:sort_by_name] == "true"
@@ -42,42 +66,20 @@ class DepartmentsController < ApplicationController
 
     end
 
-    #show all
-    if (!params[:search_name].present? || params[:search_name]=="") && (!params[:search_hod_id].present? || params[:search_name]=="")
-      @departments = @departments.paginate(:page => params[:page], :per_page => 10)
+    respond_to do |format|
+      format.json {render json: @departments, each_serializer: DepartmentsSerializer, root:false}
+      format.html
     end
-
-    #search by name
-    if params[:search_name].present? && (!params[:search_hod_id].present? || params[:search_hod_id] == "")
-
-      @departments = @departments.where("name ILIKE '#{params[:search_name]}%'").paginate(:page => params[:page], :per_page => 10)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]
-      
-    end
-
-    #search by id
-    if params[:search_hod_id].present? && (!params[:search_name].present? || params[:search_name]=="")
-      @departments = @departments.where("hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]  
-    end
-
-    #search by both
-    if params[:search_name].present? && params[:search_hod_id].present?
-      @departments = @departments.where("name ILIKE '#{params[:search_name]}%' AND hod_id = '#{params[:search_hod_id]}'").paginate(:page => params[:page], :per_page => 10).order(:id)
-
-      @search_name = params[:search_name]
-      @search_hod_id = params[:search_hod_id]
-    end
-
   end
 
   def show
     id = params[:id].to_i
     @department = Department.find(id)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @department }
+    end
   end
 
   def new
@@ -90,8 +92,7 @@ class DepartmentsController < ApplicationController
     if @department.save
       #flash "New Department created"
       redirect_to department_path(@department)
-    else
-      render :new
+    else render :new
     end
 
   end

@@ -11,7 +11,6 @@ class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     @admin = Admin.from_omniauth(request.env["omniauth.auth"])
-
     if @admin.persisted?
       sign_in_and_redirect @admin, event: :authentication
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?

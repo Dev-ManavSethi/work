@@ -1,8 +1,11 @@
 require 'sidekiq/web'
+require 'api_constraints'
 
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
     devise_for :users, path: 'users', controllers: {sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
-    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'} 
+    
+    devise_for :admins, path: 'admins', controllers: {sessions: 'admins/sessions', registrations: 'admins/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -17,11 +20,13 @@ Rails.application.routes.draw do
   #assignment
   get '/user/new' => 'user#new'
   get '/user/login' => 'user#login'
+  get '/user/tweet' => 'user#tweet_screen'
+  post '/user/tweet' => 'user#tweet'
   
   resources :departments
   get '/department/search' => 'departments#search'
   
-  
+  post '/upload/image/any' => 'user#upload_any_image'
 
   resources :sections
 
@@ -41,6 +46,19 @@ Rails.application.routes.draw do
 
   %w( 404 422 500 ).each do |code|
     get code, controller: 'application', action: 'error', code: code
+  end
+
+
+  #REST JSON API
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :departments
+      post '/admin' => 'admin#create'
+    end
+
+    scope module: :v2, constraints: ApiConstraints.new(version: 2) do
+      
+    end
   end
 
 

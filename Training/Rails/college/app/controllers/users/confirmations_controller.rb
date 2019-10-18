@@ -15,7 +15,10 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
     super
+    @user = User.all.where(confirmation_token: params[:confirmation_token]).first
+    puts @user.name + "****"
     if resource.errors.empty?
+      puts "**************"
       Sidekiq::Client.enqueue(EmailWorker, 1, resource.email, "Registration successful", "User registration successfull after confirmation. \n\n Thanks for signing up and confirming")
     else # do nothing
     end

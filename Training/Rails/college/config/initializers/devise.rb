@@ -34,8 +34,17 @@ Devise.setup do |config|
 
   config.scoped_views = true
 
-  # config.omniauth :facebook, "481984482657997", "46d7c9ea5840fddabdfc7af16079e9f7",  token_params: { parse: :json }
-  config.omniauth :google_oauth2, '308790355449-5ra1908iggk09at83tm9t654m5jhe3ot.apps.googleusercontent.com', 'XekDPx4x8ASAjyhvmBhMoUPS', {scope: 'userinfo.email, userinfo.profile', prompt: 'select_account',image_aspect_ratio: 'square',image_size: 50}
+  # config.omniauth :facebook, ENV['FACEBOOK_APP_CLIENT_ID'], ENV['FACEBOOK_APP_CLIENT_SECRET'],  token_params: { parse: :json }
+  config.omniauth :google_oauth2, ENV['GOOGLE_APP_CLIENT_ID'], ENV['GOOGLE_APP_CLIENT_SECRET'], {scope: 'userinfo.email, userinfo.profile', prompt: 'select_account',image_aspect_ratio: 'square',image_size: 50}
+
+  config.omniauth :twitter, ENV["TWITTER_APP_API_KEY"], ENV["TWITTER_APP_CLIENT_SECRET"], {
+    :secure_image_url => 'true',
+    :image_size => 'original',
+    :authorize_params => {
+      :force_login => 'true',
+      :lang => 'en'
+    }
+  }
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

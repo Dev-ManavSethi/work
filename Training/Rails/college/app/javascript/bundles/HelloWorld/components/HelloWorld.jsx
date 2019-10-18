@@ -43,7 +43,6 @@ export default class HelloWorld extends React.Component {
             onChange={(e) => this.updateName(e.target.value)}
           />
         </form>
-        <button onClick={this.alert}
       </div>
     );
   }

@@ -1,27 +1,12 @@
 # frozen_string_literal: true
-require "google/cloud/translate"
-require "react-rails"
-
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  project_id = "college-rails"
 
-#   $translate = Google::Cloud::Translate.new project: project_id
-
-#   # The text to translate
-#   text = "Hello, world!"
-#   # The target language
-#   target = "ru"
-
-# # Translates some text into Russian
-# translation = $translate.translate text, to: target
-
-# puts "*********************Text: #{text}"
-# puts "***********************Translation: #{translation}"
+  APIresponse = Struct.new(:status, :message ,:data)
 
   
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
 
   #define error responses on invalid requests
   def error
@@ -32,7 +17,7 @@ class ApplicationController < ActionController::Base
     token = params[:auth]
     if token == ENV["API_ACCESS_TOKEN"]
     else respond_to :json
-      message = "Invalid auth token"
+      message = "Invalid resource access token"
       render json: message
     end
   end
@@ -41,7 +26,7 @@ class ApplicationController < ActionController::Base
       token = params[:auth]
       if token == ENV["API_MODIFY_TOKEN"]
       else respond_to :json
-        message = "Invalid auth token"
+        message = "Invalid resource modify token"
         render json: message
       end
     end
